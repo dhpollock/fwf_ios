@@ -16,12 +16,12 @@ part 'source/ecosystem.dart';
 part 'source/fish.dart';
 part 'source/movement.dart';
 part 'source/console.dart';
-part 'source/slider.dart';
+//part 'source/slider.dart';
 part 'source/graph.dart';
 part 'source/offseason.dart';
 part 'source/regrowthUI.dart';
 part 'source/endgame.dart';
-part 'source/datalogger.dart';
+//part 'source/datalogger.dart';
 part 'source/title.dart';
 part 'source/finalSummary.dart';
 
@@ -141,7 +141,12 @@ void main() {
   resourceManager.addBitmapData("YesDown", "images/yes_down.png");
   resourceManager.addBitmapData("YesUp", "images/yes_up.png");
   resourceManager.addBitmapData("GraphBackground", "images/graph.png");
+  
   resourceManager.addBitmapData("Arrow", "images/arrow.png");
+  resourceManager.addBitmapData("arrowGreen", "images/arrowGreen.png");
+  resourceManager.addBitmapData("arrowRed", "images/arrowRed.png");
+  
+  
   resourceManager.addBitmapData("TeamACircle", "images/teamACircle.png");
   resourceManager.addBitmapData("TeamBCircle", "images/teamBCircle.png");
   resourceManager.addBitmapData("CircleButtonUpA", "images/circleUIButtonA.png");
@@ -161,7 +166,9 @@ void main() {
   resourceManager.addBitmapData("CapacityUpgradeButtonLargeGlow", "images/capUpgradeIconBigGlow.png");
   
   resourceManager.addBitmapData("SpeedUpgradeButton", "images/speedUpgradeIcon.png");
-  resourceManager.addBitmapData("OffseasonDock", "images/offseason_dock.png");
+//  resourceManager.addBitmapData("OffseasonDock", "images/offseason_dock.png");
+  resourceManager.addBitmapData("OffseasonDock", "images/Dock_BP.png");
+
   resourceManager.addBitmapData("sardineIcon", "images/sardineIcon.png");
   resourceManager.addBitmapData("tunaIcon", "images/tunaIcon.png");
   resourceManager.addBitmapData("sharkIcon", "images/sharkIcon.png");
@@ -196,7 +203,7 @@ void main() {
   resourceManager.addBitmapData("ecosystemScore13", "images/ecosystemScore13.png");
   resourceManager.addBitmapData("ecosystemScore14", "images/ecosystemScore14.png");
   resourceManager.addBitmapData("ecosystemScore15", "images/ecosystemScore15.png");
-  resourceManager.addBitmapData("replayButton", "images/replayButton.png");
+//  resourceManager.addBitmapData("replayButton", "images/replayButton.png");
   resourceManager.addBitmapData("timerGlow", "images/timerGlow.png");
 
   resourceManager.addBitmapData("teamAScoreCircle", "images/teamAScoreCircle.png");
@@ -207,6 +214,12 @@ void main() {
   resourceManager.addBitmapData("playButtonPressed", "images/playButtonPressed.png");
   resourceManager.addBitmapData("aboutButton", "images/aboutButton.png");
   resourceManager.addBitmapData("aboutButtonPressed", "images/aboutButtonPressed.png");
+  
+  resourceManager.addBitmapData("tutorial", "images/tutorial.png");
+  resourceManager.addBitmapData("end", "images/end.png");
+  resourceManager.addBitmapData("replayButton", "images/replayButton.png");
+  resourceManager.addBitmapData("replayButtonPressed", "images/replayButtonPressed.png");
+  
   
   resourceManager.addSound("buttonClick", "sounds/button_click.mp3");
   resourceManager.addSound("circleUISwoosh", "sounds/circle_swoosh.mp3");
@@ -249,6 +262,47 @@ void main() {
   resourceManager.addSound("badgeSoundLeastConcern", "sounds/badgeSoundLeastConcern.mp3");
   resourceManager.addSound("badgeSoundEndangered", "sounds/badgeSoundEndangered.mp3");
   resourceManager.addSound("badgeSoundExtinct", "sounds/badgeSoundExtinct.mp3");
+  
+  resourceManager.addSound("ui_playButton", "sounds/ui_playButton.mp3");
+  resourceManager.addSound("ui_aboutButtonOpen", "sounds/ui_aboutButtonOpen.mp3");
+  resourceManager.addSound("ui_aboutButtonClose", "sounds/ui_aboutButtonClose.mp3");
+  
+  resourceManager.addSound("ui_tapTimer", "sounds/ui_tapTimer.mp3");
+  
+  resourceManager.addSound("ui_selectSardineBoat", "sounds/ui_selectSardineBoat.mp3");
+  resourceManager.addSound("ui_selectTunaBoat", "sounds/ui_selectTunaBoat.mp3");
+  resourceManager.addSound("ui_selectSharkBoat", "sounds/ui_selectSharkBoat.mp3");
+  resourceManager.addSound("ui_selectSmallNet", "sounds/ui_selectSmallNet.mp3");
+  resourceManager.addSound("ui_selectBigNet", "sounds/ui_selectBigNet.mp3");
+  resourceManager.addSound("ui_rotateBuyDisc", "sounds/ui_rotateBuyDisc.mp3");
+  
+  resourceManager.addSound("ui_restartGame", "sounds/ui_restartGame.mp3");
+  
+  resourceManager.addSound("transition_titleToFishing", "sounds/transition_titleToFishing.mp3");
+  resourceManager.addSound("transition_fishingToRegrowth", "sounds/transition_fishingToRegrowth.mp3");
+  resourceManager.addSound("transition_regrowthToBuy", "sounds/transition_regrowthToBuy.mp3");
+  resourceManager.addSound("transition_buyToFishing", "sounds/transition_buyToFishing.mp3");
+  resourceManager.addSound("transition_regrowthToEnd", "sounds/transition_regrowthToEnd.mp3");
+  resourceManager.addSound("transition_endToSummary", "sounds/transition_endToSummary.mp3");
+  resourceManager.addSound("boatFull", "sounds/boatFull.mp3");
+  resourceManager.addSound("background_music", "sounds/background_music.mp3");
+  resourceManager.addSound("background_music_short", "sounds/background_music_short.mp3");
+  
+  resourceManager.addSound("star0Sound", "sounds/star0Sound.mp3");
+  resourceManager.addSound("star1Sound", "sounds/star1Sound.mp3");
+  resourceManager.addSound("star2Sound", "sounds/star2Sound.mp3");
+  resourceManager.addSound("star3Sound", "sounds/star3Sound.mp3");
+  resourceManager.addSound("star4Sound", "sounds/star4Sound.mp3");
+  resourceManager.addSound("star5Sound", "sounds/star5Sound.mp3");
+  resourceManager.addSound("star6Sound", "sounds/star6Sound.mp3");
+  resourceManager.addSound("star7Sound", "sounds/star7Sound.mp3");
+  resourceManager.addSound("star8Sound", "sounds/star8Sound.mp3");
+  resourceManager.addSound("star9Sound", "sounds/star9Sound.mp3");
+  resourceManager.addSound("star10Sound", "sounds/star10Sound.mp3");
+  resourceManager.addSound("star11Sound", "sounds/star11Sound.mp3");
+  resourceManager.addSound("star12Sound", "sounds/star12Sound.mp3");
+  resourceManager.addSound("star13Sound", "sounds/star13Sound.mp3");
+  resourceManager.addSound("star14Sound", "sounds/star14Sound.mp3");
   
   
   Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;

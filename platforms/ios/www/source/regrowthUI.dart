@@ -68,6 +68,7 @@ class EcosystemBadge extends Sprite implements Animatable{
     oneStarSound = _resourceManager.getSound("starSound01");
     twoStarSound =  _resourceManager.getSound("starSound02");
     threeStarSound = _resourceManager.getSound("starSound03");
+    
     overpopulatedSound = _resourceManager.getSound("badgeSoundOverpopulated");
     leastConcernSound = _resourceManager.getSound("badgeSoundLeastConcern");
     endangeredSound = _resourceManager.getSound("badgeSoundEndangered");
@@ -110,6 +111,17 @@ class EcosystemBadge extends Sprite implements Animatable{
   }
   
   void showStars(){
+    if(animatedRating == 0){
+      if(rating ==1){
+        oneStarSound.play();
+      }
+      else if(rating == 2){
+        twoStarSound.play();
+      }
+      else if(rating == 3){
+        threeStarSound.play();
+      }
+    }
     if(animatedRating == rating){
       Timer temp = new Timer(const Duration(seconds:1), teamBCounter.showCounter);
       Timer temp2 = new Timer(const Duration(seconds:1), teamACounter.showCounter);
@@ -117,26 +129,31 @@ class EcosystemBadge extends Sprite implements Animatable{
     else{
       
       Bitmap toShow;
+      Bitmap toFade;
       _game.starCount++;
       if(animatedRating == 0){
         toShow = stars1;
-        starSound = oneStarSound;
+        toFade = stars0;
       }
       else if(animatedRating == 1){
         toShow = stars2;
-        starSound = twoStarSound;
+        toFade = stars1;
       }
       else if(animatedRating == 2){
         toShow = stars3;
-        starSound = threeStarSound;
+        toFade = stars2;
       }
       
       Tween t1 = new Tween(toShow, .5, TransitionFunction.easeInOutQuadratic);
       t1.animate.alpha.to(1);
-      starSound.play();
+//      starSound.play();
       t1.onComplete = showStars;
       _juggler.add(t1);
       animatedRating++;
+      
+//      Tween t2 = new Tween(toFade, .5, TransitionFunction.easeInOutQuadratic);
+//      t2.animate.alpha.to(0);
+//      _juggler.add(t2);
     }
     
   }
@@ -223,14 +240,14 @@ class EcosystemBadge extends Sprite implements Animatable{
     int tunaCount = _ecosystem._fishCount[Ecosystem.TUNA];
     int sharkCount = _ecosystem._fishCount[Ecosystem.SHARK];
 
-    if (sardineCount < 150 && sardineCount > 0){
+    if (sardineCount < Ecosystem.MAX_SARDINE*.3 && sardineCount > 0){
       _sardineStatusText = "Sardine populuation is endangered";
       badgeSardine.bitmapData = _resourceManager.getBitmapData("badgeEndangered");
       rating--;
       sardineRating=ENDANGERED;
       badgeSoundSardine = endangeredSound;
     }
-    else if (sardineCount > Ecosystem.MAX_SARDINE-50){
+    else if (sardineCount > Ecosystem.MAX_SARDINE- Ecosystem.MAX_SARDINE*.15){
       _sardineStatusText = "Sardines are overpopulated";
       badgeSardine.bitmapData = _resourceManager.getBitmapData("badgeOverpopulated");
       rating--;
@@ -252,14 +269,14 @@ class EcosystemBadge extends Sprite implements Animatable{
     }
     
     
-    if (tunaCount < 35 && tunaCount > 0){
+    if (tunaCount < Ecosystem.MAX_TUNA*.3 && tunaCount > 0){
       _tunaStatusText = "Tuna populuation is endangered";
       badgeTuna.bitmapData = _resourceManager.getBitmapData("badgeEndangered");
       rating--;
       tunaRating = ENDANGERED;
       badgeSoundTuna = endangeredSound;
     }
-    else if (tunaCount > Ecosystem.MAX_TUNA-25){
+    else if (tunaCount > Ecosystem.MAX_TUNA-Ecosystem.MAX_TUNA*.15){
       _tunaStatusText = "Tunas are overpopulated";
       badgeTuna.bitmapData = _resourceManager.getBitmapData("badgeOverpopulated");
       rating--;
@@ -281,14 +298,14 @@ class EcosystemBadge extends Sprite implements Animatable{
     }
     
     
-    if (sharkCount < 5 && sharkCount > 0){
+    if (sharkCount < Ecosystem.MAX_SHARK*.3 && sharkCount > 0){
       _sharkStatusText = "Shark populuation is endangered";
       badgeShark.bitmapData = _resourceManager.getBitmapData("badgeEndangered");
       rating--;
       sharkRating = ENDANGERED;
       badgeSoundShark = endangeredSound;
     }
-    else if (sharkCount > 12){
+    else if (sharkCount > Ecosystem.MAX_SHARK - Ecosystem.MAX_SHARK*.15){
       _sharkStatusText = "Sharks are overpopulated";
       badgeShark.bitmapData = _resourceManager.getBitmapData("badgeOverpopulated");
       rating--;
@@ -317,7 +334,7 @@ class EcosystemBadge extends Sprite implements Animatable{
     foodWeb = new Bitmap(_resourceManager.getBitmapData('foodWeb'));
     foodWeb..pivotX = foodWeb.width/2
            ..pivotY = foodWeb.height/2
-           ..x = _game.width/2 -100
+           ..x = _game.width/2 -350
            ..y = _game.height/2
            ..alpha = 0;
     addChild(foodWeb);
@@ -407,8 +424,8 @@ class EcosystemBadge extends Sprite implements Animatable{
     badgeSardine = new Bitmap(_resourceManager.getBitmapData("badgeLeastConcern"));
     badgeSardine..pivotX = badgeSardine.width/2
                 ..pivotY = badgeSardine.height/2
-                ..x = _game.width/2
-                ..y = _game.height/2+150
+                ..x = _game.width/2-100
+                ..y = _game.height/2+300
                 ..alpha = 0
                 ..rotation = -math.PI/4;
     addChild(badgeSardine);
@@ -417,7 +434,7 @@ class EcosystemBadge extends Sprite implements Animatable{
     badgeTuna = new Bitmap(_resourceManager.getBitmapData("badgeLeastConcern"));
     badgeTuna..pivotX = badgeTuna.width/2
                 ..pivotY = badgeTuna.height/2
-                ..x = _game.width/2 - 150
+                ..x = _game.width/2 - 400
                 ..y = _game.height/2+30
                 ..alpha = 0
                 ..rotation = -math.PI/4;
@@ -427,8 +444,8 @@ class EcosystemBadge extends Sprite implements Animatable{
     badgeShark = new Bitmap(_resourceManager.getBitmapData("badgeLeastConcern"));
     badgeShark..pivotX = badgeShark.width/2
                 ..pivotY = badgeShark.height/2
-                ..x = _game.width/2+ 30
-                ..y = _game.height/2-140
+                ..x = _game.width/2 -60
+                ..y = _game.height/2-240
                 ..alpha = 0
                 ..rotation = -math.PI/4;
     addChild(badgeShark);
@@ -501,8 +518,8 @@ class ScoreCounter extends Sprite{
      rotationVal = 3*math.PI/4;
      boxX = 500;
      boxY = 75;
-     r1 = 250;
-     r2 = 210;
+     r1 = 375;
+     r2 = 290;
      r3 = 200;
      r4 = 150;
      offsetX = 0;
@@ -512,8 +529,8 @@ class ScoreCounter extends Sprite{
      rotationVal = -math.PI/4;
      boxX = _game.width - 500;
      boxY = _game.height - 75;
-     r1 = 250;
-     r2 = 210;
+     r1 = 375;
+     r2 = 290;
      r3 = 200;
      r4 = 150;
      offsetX = _game.width;
@@ -533,16 +550,18 @@ class ScoreCounter extends Sprite{
 
        
        
-   TextFormat format = new TextFormat("Arial", 36, Color.White, align: "right", bold: true);
+   TextFormat format = new TextFormat("Arial", 50, Color.WhiteSmoke, align: "center", bold: true);
    
    scorePrompt = new TextField("", format);
    scorePrompt..alpha = 0
-              ..width = uiBox.width+50
+              ..width = uiBox.width+150
               ..pivotX = scorePrompt.width/2
               ..rotation = rotationVal
               ..x =offsetX - r1*math.cos(rotationVal)
               ..y =offsetY + r1*math.sin(rotationVal);
    addChild(scorePrompt);
+   
+//   format = new TextFormat("Arial", 50, 12316159, align: "center", bold: true);
    
    multiplier = new TextField("", format);
    multiplier..alpha = 0
@@ -553,6 +572,8 @@ class ScoreCounter extends Sprite{
              ..y = offsetY + r2*math.sin(rotationVal);
    addChild(multiplier);
    
+//   format = new TextFormat("Arial", 50, 12316159, align: "center", bold: true);
+   
    total = new TextField("", format);
    total..alpha = 0
         ..width = uiBox.width
@@ -562,6 +583,8 @@ class ScoreCounter extends Sprite{
         ..y =offsetY + r3*math.sin(rotationVal);
    addChild(total);
    
+   
+//    format = new TextFormat("Arial", 50, 12316159, align: "center", bold: true);
    sum = new TextField("", format);
    sum..alpha = 0
         ..width = uiBox.width

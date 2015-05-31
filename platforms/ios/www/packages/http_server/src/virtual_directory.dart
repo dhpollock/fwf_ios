@@ -2,8 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-part of http_server;
+library http_server.virtual_directory;
 
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:mime/mime.dart';
+import 'package:path/path.dart';
 
 // Used for signal a directory redirecting, where a tailing slash is missing.
 class _DirectoryRedirect {
@@ -41,19 +47,36 @@ class VirtualDirectory {
    */
   bool jailRoot = true;
 
+  final List<String> _pathPrefixSegments;
+
+
   final RegExp _invalidPathRegExp = new RegExp("[\\\/\x00]");
 
   _ErrorCallback _errorCallback;
   _DirCallback _dirCallback;
+
+  static List<String> _parsePathPrefix(String pathPrefix) {
+    if (pathPrefix == null) return <String>[];
+    return new Uri(path: pathPrefix).pathSegments
+        .where((segment) => segment.isNotEmpty)
+        .toList();
+  }
 
   /*
    * Create a new [VirtualDirectory] for serving static file content of
    * the path [root].
    *
    * The [root] is not required to exist. If the [root] doesn't exist at time of
-   * a request, a 404 is generated.
+   * a request, a 404 response is generated.
+   *
+   * If [pathPrefix] is set, [pathPrefix] will indicate the expected path prefix
+   * of incoming requests. When locating the resource on disk, the prefix will
+   * be trimmed from the requests uri, before locating the actual resource.
+   * If the requests uri doesn't start with [pathPrefix], a 404 response is
+   * generated.
    */
-  VirtualDirectory(this.root);
+  VirtualDirectory(this.root, {String pathPrefix})
+      : _pathPrefixSegments = _parsePathPrefix(pathPrefix);
 
   /**
    * Serve a [Stream] of [HttpRequest]s, in this [VirtualDirectory].
@@ -65,7 +88,14 @@ class VirtualDirectory {
    * Serve a single [HttpRequest], in this [VirtualDirectory].
    */
   Future serveRequest(HttpRequest request) {
-    return _locateResource('.', request.uri.pathSegments.iterator..moveNext())
+    var iterator = request.uri.pathSegments.iterator;
+    for (var segment in _pathPrefixSegments) {
+      if (!iterator.moveNext() || iterator.current != segment) {
+        _serveErrorPage(HttpStatus.NOT_FOUND, request);
+        return request.response.done;
+      }
+    }
+    return _locateResource('.', iterator..moveNext())
         .then((entity) {
           if (entity is File) {
             serveFile(entity, request);
@@ -185,54 +215,73 @@ class VirtualDirectory {
       response.headers.set(HttpHeaders.LAST_MODIFIED, lastModified);
       response.headers.set(HttpHeaders.ACCEPT_RANGES, "bytes");
 
-      if (request.method == 'HEAD') {
-        response.close();
-        return null;
-      }
-
       return file.length().then((length) {
-        String range = request.headers.value("range");
+        String range = request.headers.value(HttpHeaders.RANGE);
         if (range != null) {
           // We only support one range, where the standard support several.
           Match matches = new RegExp(r"^bytes=(\d*)\-(\d*)$").firstMatch(range);
           // If the range header have the right format, handle it.
-          if (matches != null) {
+          if (matches != null &&
+              (matches[1].isNotEmpty || matches[2].isNotEmpty)) {
             // Serve sub-range.
-            int start;
-            int end;
+            int start;  // First byte position - inclusive.
+            int end;  // Last byte position - inclusive.
             if (matches[1].isEmpty) {
-              start = matches[2].isEmpty ?
-                  length :
-                  length - int.parse(matches[2]);
-              end = length;
+              start = length - int.parse(matches[2]);
+              if (start < 0) start = 0;
+              end = length - 1;
             } else {
               start = int.parse(matches[1]);
-              end = matches[2].isEmpty ? length : int.parse(matches[2]) + 1;
+              end = matches[2].isEmpty ? length - 1: int.parse(matches[2]);
             }
+            // If the range is syntactically invalid the Range header
+            // MUST be ignored (RFC 2616 section 14.35.1).
+            if (start <= end) {
+              if (end >= length) {
+                end = length - 1;
+              }
 
-            // Override Content-Length with the actual bytes sent.
-            response.headers.set(HttpHeaders.CONTENT_LENGTH, end - start);
+              if (start >= length) {
+                response
+                    ..statusCode = HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE
+                    ..close();
+                return;
+              }
 
-            // Set 'Partial Content' status code.
-            response.statusCode = HttpStatus.PARTIAL_CONTENT;
-            response.headers.set(HttpHeaders.CONTENT_RANGE,
-                                 "bytes $start-${end - 1}/$length");
+              // Override Content-Length with the actual bytes sent.
+              response.headers.set(HttpHeaders.CONTENT_LENGTH, end - start + 1);
 
-            // Pipe the 'range' of the file.
-            file.openRead(start, end)
-                .pipe(new _VirtualDirectoryFileStream(response, file.path))
-                .catchError((_) {
-                  // TODO(kevmoo): log errors
-                });
-            return;
+              // Set 'Partial Content' status code.
+              response
+                  ..statusCode = HttpStatus.PARTIAL_CONTENT
+                  ..headers.set(HttpHeaders.CONTENT_RANGE,
+                                'bytes $start-$end/$length');
+
+              // Pipe the 'range' of the file.
+              if (request.method == 'HEAD') {
+                response.close();
+              } else {
+                file.openRead(start, end + 1)
+                    .pipe(new _VirtualDirectoryFileStream(response, file.path))
+                    .catchError((_) {
+                      // TODO(kevmoo): log errors
+                    });
+              }
+              return;
+            }
           }
         }
 
-        file.openRead()
-            .pipe(new _VirtualDirectoryFileStream(response, file.path))
-            .catchError((_) {
-              // TODO(kevmoo): log errors
-            });
+        response.headers.set(HttpHeaders.CONTENT_LENGTH, length);
+        if (request.method == 'HEAD') {
+          response.close();
+        } else {
+          file.openRead()
+              .pipe(new _VirtualDirectoryFileStream(response, file.path))
+              .catchError((_) {
+                // TODO(kevmoo): log errors
+              });
+        }
       });
     }).catchError((_) {
       response.statusCode = HttpStatus.NOT_FOUND;

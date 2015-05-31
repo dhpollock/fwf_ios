@@ -49,8 +49,11 @@ class Offseason extends Sprite {
     offseasonDock = new Sprite();
     dock = new Bitmap(_resourceManager.getBitmapData("OffseasonDock"));
     BitmapData.load('images/offseason_dock.png').then((bitmapData) {
-      offseasonDock.x = _game.width/2-bitmapData.width/2;
-      offseasonDock.y = _game.height/2-bitmapData.height/2;
+      offseasonDock.pivotX = bitmapData.width/2;
+      offseasonDock.pivotY = bitmapData.height/2;
+      offseasonDock.x = _game.width/2;//-bitmapData.width/2;
+      offseasonDock.y = _game.height/2;//-bitmapData.height/2;
+//      offseasonDock.rotation = math.PI;
     });
     
     sellIslandTop = new Bitmap(_resourceManager.getBitmapData("sellIsland"));
@@ -179,10 +182,10 @@ class Offseason extends Sprite {
                 boat.pivotY = sharkBoat.height/2;
               }
               if (aCounter==0) {
-                boat.x = w/2-95;
-                boat.y = h/2-120;
-                boat._newX = w/2-95;
-                boat._newY = h/2-120;
+                boat.x = w/2-150;
+                boat.y = h/2-150;
+                boat._newX = w/2-150;
+                boat._newY = h/2-150;
                 boat.rotation = math.PI*4/5;
               } else if (aCounter==1) {
                 boat.x = w/2-150;
@@ -201,10 +204,10 @@ class Offseason extends Sprite {
             } else {
               _boatsB[i] = boat;
               if (bCounter==0) {
-                boat.x = w/2+65;
-                boat.y = h/2+100;
-                boat._newX = w/2+65;
-                boat._newY = h/2+100;
+                boat.x = w/2+155;
+                boat.y = h/2+155;
+                boat._newX = w/2+150;
+                boat._newY = h/2+150;
                 boat.rotation = -math.PI/5;
               } else if (bCounter==1) {
                 boat.x = w/2+120;
@@ -324,10 +327,17 @@ class Circle extends Sprite implements Touchable {
   
   TextField pushA, pushB;
   
-  Sound clicked;
-  Sound swoosh;
-  Sound buySplash;
-  Sound itemSuction;
+//  Sound clicked;
+//  Sound swoosh;
+//  Sound buySplash;
+//  Sound itemSuction;
+  Sound ui_selectSardineBoatSound;
+  Sound ui_selectTunaBoatSound;
+  Sound ui_selectSharkBoatSound;
+  Sound ui_selectSmallNetSound;
+  Sound ui_selectBigNetSound;
+  Sound ui_rotateBuyDiscSound;
+  SoundChannel discChannel;
   
   bool _teamA;
   bool _teamAA;
@@ -360,16 +370,25 @@ class Circle extends Sprite implements Touchable {
     _boatsA = boatsA;
     _boatsB = boatsB;
     
-    clicked = _resourceManager.getSound("buttonClick");
-    swoosh = _resourceManager.getSound("circleUISwoosh");
-    buySplash = _resourceManager.getSound("buySplash");
-    itemSuction = _resourceManager.getSound("itemSuction");
+//    clicked = _resourceManager.getSound("buttonClick");
+//    swoosh = _resourceManager.getSound("circleUISwoosh");
+//    buySplash = _resourceManager.getSound("buySplash");
+//    itemSuction = _resourceManager.getSound("itemSuction");
+    
+    ui_selectSardineBoatSound = _resourceManager.getSound("ui_selectSardineBoat");
+    ui_selectTunaBoatSound = _resourceManager.getSound("ui_selectTunaBoat");
+    ui_selectSharkBoatSound = _resourceManager.getSound("ui_selectSharkBoat");
+    ui_selectSmallNetSound = _resourceManager.getSound("ui_selectSmallNet");
+    ui_selectBigNetSound = _resourceManager.getSound("ui_selectBigNet");
+    ui_rotateBuyDiscSound = _resourceManager.getSound("ui_rotateBuyDisc");
+    discChannel = ui_rotateBuyDiscSound.play();
+    discChannel.stop();
     
     if (teamA==true) _upgradeRotation = math.PI;
     else _upgradeRotation = 0;
     
     if (teamA==true) _upgradeRotation2 = 0;
-    else _upgradeRotation2 = 0;
+    else _upgradeRotation2 = math.PI;
     
     if (_teamA==true){
       _circle = new Bitmap(_resourceManager.getBitmapData("TeamACircle"));
@@ -386,6 +405,7 @@ class Circle extends Sprite implements Touchable {
     }
     else {
       _circle = new Bitmap(_resourceManager.getBitmapData("TeamBCircle"));
+      _circle.rotation = math.PI;
       _circleButton = new SimpleButton(new Bitmap(_resourceManager.getBitmapData("CircleButtonUpB")), 
                                        new Bitmap(_resourceManager.getBitmapData("CircleButtonUpB")),
                                        new Bitmap(_resourceManager.getBitmapData("CircleButtonDownB")), 
@@ -399,10 +419,6 @@ class Circle extends Sprite implements Touchable {
     
     }
 
-    _circleButton.addEventListener(MouseEvent.MOUSE_UP, _circlePressed);
-    _circleButton.addEventListener(TouchEvent.TOUCH_TAP, _circlePressed);
-//    _circleButton.addEventListener(TouchEvent.TOUCH_BEGIN, _circlePressed);
-
 
     
     BitmapData.load('images/teamACircle.png').then((bitmapData) {
@@ -410,7 +426,7 @@ class Circle extends Sprite implements Touchable {
        _circle.pivotY = bitmapData.height/2;
        
        wNet = bitmapData.width*.375;
-       wShip = width*.1875;
+       wShip = width*.175;
        
        _capacitySmallButton = _returnCapacityButton();
        _capacitySmallButton.alpha = 1;
@@ -433,7 +449,9 @@ class Circle extends Sprite implements Touchable {
        
      });
 
-    
+    _circleButton.addEventListener(MouseEvent.MOUSE_UP, _circlePressed);
+    _circleButton.addEventListener(TouchEvent.TOUCH_TAP, _circlePressed);
+//    _circleButton.addEventListener(TouchEvent.TOUCH_BEGIN, _circlePressed);
     addChild(_circle);
     addChild(_circleButton);
 
@@ -441,6 +459,10 @@ class Circle extends Sprite implements Touchable {
   }
   
   void _circlePressed(var e) {
+    
+//    discChannel.stop();
+    discChannel = ui_rotateBuyDiscSound.play();
+    
     if (_juggler.contains(_rotateTween)) _juggler.remove(_rotateTween);
     if (_juggler.contains(_rotateTween2)){
       _juggler.remove(_rotateTween2);
@@ -470,6 +492,7 @@ class Circle extends Sprite implements Touchable {
       
       _capacityLargeButton = _returnCapacityButtonLargeGlow();
       _capacitySmallButton = _returnCapacityButton();
+      ui_selectBigNetSound.play();
     }
   }
   void _capacitySmallButtonPressed(var e) {
@@ -479,6 +502,7 @@ class Circle extends Sprite implements Touchable {
       
       _capacityLargeButton = _returnCapacityButtonLarge();
       _capacitySmallButton = _returnCapacityButtonGlow();
+      ui_selectSmallNetSound.play();
     }
   }
   void _tunaPressed(var e) {
@@ -489,6 +513,8 @@ class Circle extends Sprite implements Touchable {
       _sardineButton = _returnSardineButton();
       _tunaButton = _returnTunaButtonGlow();
       _sharkButton = _returnSharkButton();
+      
+      ui_selectTunaBoatSound.play();
     }
   }
   void _sardinePressed(var e) {
@@ -499,6 +525,8 @@ class Circle extends Sprite implements Touchable {
       _sardineButton = _returnSardineButtonGlow();
       _tunaButton = _returnTunaButton();
       _sharkButton = _returnSharkButton();
+      
+      ui_selectSardineBoatSound.play();
     }
   }
   void _sharkPressed(var e) {
@@ -511,6 +539,8 @@ class Circle extends Sprite implements Touchable {
       _sardineButton = _returnSardineButton();
       _tunaButton = _returnTunaButton();
       _sharkButton = _returnSharkButtonGlow();
+      
+      ui_selectSharkBoatSound.play();
     }
   }
   SimpleButton _returnCapacityButtonLarge() {
@@ -531,8 +561,8 @@ class Circle extends Sprite implements Touchable {
     temp.addEventListener(TouchEvent.TOUCH_TAP, _capacityLargeButtonPressed);
     temp.addEventListener(TouchEvent.TOUCH_BEGIN, _capacityLargeButtonPressed);
     
-    temp.x = math.cos(math.PI*8/6)*wNet;
-    temp.y = math.sin(math.PI*8/6)*wNet;
+    temp.x = math.cos(math.PI*8.25/6)*wNet-40;
+    temp.y = math.sin(math.PI*8.25/6)*wNet-40;
     
     addChild(temp);
     
@@ -557,8 +587,8 @@ class Circle extends Sprite implements Touchable {
     temp.addEventListener(TouchEvent.TOUCH_TAP, _capacityLargeButtonPressed);
     temp.addEventListener(TouchEvent.TOUCH_BEGIN, _capacityLargeButtonPressed);
     
-    temp.x = math.cos(math.PI*8/6)*wNet;
-    temp.y = math.sin(math.PI*8/6)*wNet;
+    temp.x = math.cos(math.PI*8.25/6)*wNet-40;
+    temp.y = math.sin(math.PI*8.25/6)*wNet-40;
     
     addChild(temp);
     
@@ -633,8 +663,8 @@ class Circle extends Sprite implements Touchable {
     temp.addEventListener(TouchEvent.TOUCH_TAP, _tunaPressed);
     temp.addEventListener(TouchEvent.TOUCH_BEGIN, _tunaPressed);
     
-    temp.x = math.cos(math.PI*1.5/6)*wShip;
-    temp.y = math.sin(math.PI*1.5/6)*wShip;
+    temp.x = math.cos(math.PI*1.5/6)*wShip-50;
+    temp.y = math.sin(math.PI*1.5/6)*wShip-50;
     
     addChild(temp);
     
@@ -660,8 +690,8 @@ class Circle extends Sprite implements Touchable {
     temp.addEventListener(TouchEvent.TOUCH_TAP, _tunaPressed);
     temp.addEventListener(TouchEvent.TOUCH_BEGIN, _tunaPressed);
     
-    temp.x = math.cos(math.PI*1.5/6)*wShip;
-    temp.y = math.sin(math.PI*1.5/6)*wShip;
+    temp.x = math.cos(math.PI*1.5/6)*wShip-50;
+    temp.y = math.sin(math.PI*1.5/6)*wShip-50;
     addChild(temp);
     
     return temp;
@@ -684,8 +714,8 @@ class Circle extends Sprite implements Touchable {
     temp.addEventListener(TouchEvent.TOUCH_TAP, _sharkPressed);
     temp.addEventListener(TouchEvent.TOUCH_BEGIN, _sharkPressed);
     
-    temp.x = math.cos(math.PI*3.75/6)*wShip;
-    temp.y = math.sin(math.PI*3.75/6)*wShip;
+    temp.x = math.cos(math.PI*3.95/6)*wShip;
+    temp.y = math.sin(math.PI*3.95/6)*wShip;
     addChild(temp);
     
     return temp;
@@ -710,8 +740,8 @@ class Circle extends Sprite implements Touchable {
     temp.addEventListener(TouchEvent.TOUCH_TAP, _sharkPressed);
     temp.addEventListener(TouchEvent.TOUCH_BEGIN, _sharkPressed);
     
-    temp.x = math.cos(math.PI*3.75/6)*wShip;
-    temp.y = math.sin(math.PI*3.75/6)*wShip;
+    temp.x = math.cos(math.PI*3.95/6)*wShip;
+    temp.y = math.sin(math.PI*3.95/6)*wShip;
     addChild(temp);
     
     return temp;
@@ -734,8 +764,8 @@ class Circle extends Sprite implements Touchable {
     temp.addEventListener(TouchEvent.TOUCH_TAP, _sardinePressed);
     temp.addEventListener(TouchEvent.TOUCH_BEGIN, _sardinePressed);
     
-    temp.x = math.cos(-math.PI*1/16)*wShip;
-    temp.y = math.sin(-math.PI*1/16)*wShip;
+    temp.x = math.cos(-math.PI*3/16)*wShip+10;
+    temp.y = math.sin(-math.PI*3/16)*wShip+10;
     addChild(temp);
     
     return temp;
@@ -758,8 +788,8 @@ class Circle extends Sprite implements Touchable {
     temp.addEventListener(TouchEvent.TOUCH_TAP, _sardinePressed);
     temp.addEventListener(TouchEvent.TOUCH_BEGIN, _sardinePressed);
     
-    temp.x = math.cos(-math.PI*1/16)*wShip;
-    temp.y = math.sin(-math.PI*1/16)*wShip;
+    temp.x = math.cos(-math.PI*3/16)*wShip+10;
+    temp.y = math.sin(-math.PI*3/16)*wShip+10;
     addChild(temp);
     
     return temp;
@@ -793,7 +823,7 @@ class Circle extends Sprite implements Touchable {
   void _yesClicked(var e) {
     if (_confirmMode==OKAY){
       _clearConsole();
-      clicked.play();
+//      clicked.play();
     }
     else if (_confirmMode==CONFIRM) {
       num amount = _calculateAmount();
@@ -834,10 +864,10 @@ class Circle extends Sprite implements Touchable {
           }
           if (_boxConfirmMode != SPEED && _boxConfirmMode != CAPACITY) 
             _offseason.clearAndRefillDock();
-            buySplash.play();
+//            buySplash.play();
         }
         _boxUp = false;
-        clicked.play();
+//        clicked.play();
         _clearConsole();
         _touchedBoat = null;
         _boxConfirmMode = 0;
@@ -846,7 +876,7 @@ class Circle extends Sprite implements Touchable {
   }
   
   void _noClicked(var e) {
-    clicked.play();
+//    clicked.play();
     _boxUp = false;
     _touchMode = 0;
     _touchedBoat = null;

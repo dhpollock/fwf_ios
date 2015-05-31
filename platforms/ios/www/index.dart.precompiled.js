@@ -351,6 +351,8 @@ var $$ = {};
     resourceManager._addResource$4("BitmapData", "YesUp", "images/yes_up.png", Z.BitmapData_load("images/yes_up.png", null));
     resourceManager._addResource$4("BitmapData", "GraphBackground", "images/graph.png", Z.BitmapData_load("images/graph.png", null));
     resourceManager._addResource$4("BitmapData", "Arrow", "images/arrow.png", Z.BitmapData_load("images/arrow.png", null));
+    resourceManager._addResource$4("BitmapData", "arrowGreen", "images/arrowGreen.png", Z.BitmapData_load("images/arrowGreen.png", null));
+    resourceManager._addResource$4("BitmapData", "arrowRed", "images/arrowRed.png", Z.BitmapData_load("images/arrowRed.png", null));
     resourceManager._addResource$4("BitmapData", "TeamACircle", "images/teamACircle.png", Z.BitmapData_load("images/teamACircle.png", null));
     resourceManager._addResource$4("BitmapData", "TeamBCircle", "images/teamBCircle.png", Z.BitmapData_load("images/teamBCircle.png", null));
     resourceManager._addResource$4("BitmapData", "CircleButtonUpA", "images/circleUIButtonA.png", Z.BitmapData_load("images/circleUIButtonA.png", null));
@@ -368,7 +370,7 @@ var $$ = {};
     resourceManager._addResource$4("BitmapData", "CapacityUpgradeButtonSmallGlow", "images/capUpgradeIconGlow.png", Z.BitmapData_load("images/capUpgradeIconGlow.png", null));
     resourceManager._addResource$4("BitmapData", "CapacityUpgradeButtonLargeGlow", "images/capUpgradeIconBigGlow.png", Z.BitmapData_load("images/capUpgradeIconBigGlow.png", null));
     resourceManager._addResource$4("BitmapData", "SpeedUpgradeButton", "images/speedUpgradeIcon.png", Z.BitmapData_load("images/speedUpgradeIcon.png", null));
-    resourceManager._addResource$4("BitmapData", "OffseasonDock", "images/offseason_dock.png", Z.BitmapData_load("images/offseason_dock.png", null));
+    resourceManager._addResource$4("BitmapData", "OffseasonDock", "images/Dock_BP.png", Z.BitmapData_load("images/Dock_BP.png", null));
     resourceManager._addResource$4("BitmapData", "sardineIcon", "images/sardineIcon.png", Z.BitmapData_load("images/sardineIcon.png", null));
     resourceManager._addResource$4("BitmapData", "tunaIcon", "images/tunaIcon.png", Z.BitmapData_load("images/tunaIcon.png", null));
     resourceManager._addResource$4("BitmapData", "sharkIcon", "images/sharkIcon.png", Z.BitmapData_load("images/sharkIcon.png", null));
@@ -403,7 +405,6 @@ var $$ = {};
     resourceManager._addResource$4("BitmapData", "ecosystemScore13", "images/ecosystemScore13.png", Z.BitmapData_load("images/ecosystemScore13.png", null));
     resourceManager._addResource$4("BitmapData", "ecosystemScore14", "images/ecosystemScore14.png", Z.BitmapData_load("images/ecosystemScore14.png", null));
     resourceManager._addResource$4("BitmapData", "ecosystemScore15", "images/ecosystemScore15.png", Z.BitmapData_load("images/ecosystemScore15.png", null));
-    resourceManager._addResource$4("BitmapData", "replayButton", "images/replayButton.png", Z.BitmapData_load("images/replayButton.png", null));
     resourceManager._addResource$4("BitmapData", "timerGlow", "images/timerGlow.png", Z.BitmapData_load("images/timerGlow.png", null));
     resourceManager._addResource$4("BitmapData", "teamAScoreCircle", "images/teamAScoreCircle.png", Z.BitmapData_load("images/teamAScoreCircle.png", null));
     resourceManager._addResource$4("BitmapData", "teamBScoreCircle", "images/teamBScoreCircle.png", Z.BitmapData_load("images/teamBScoreCircle.png", null));
@@ -413,6 +414,10 @@ var $$ = {};
     resourceManager._addResource$4("BitmapData", "playButtonPressed", "images/playButtonPressed.png", Z.BitmapData_load("images/playButtonPressed.png", null));
     resourceManager._addResource$4("BitmapData", "aboutButton", "images/aboutButton.png", Z.BitmapData_load("images/aboutButton.png", null));
     resourceManager._addResource$4("BitmapData", "aboutButtonPressed", "images/aboutButtonPressed.png", Z.BitmapData_load("images/aboutButtonPressed.png", null));
+    resourceManager._addResource$4("BitmapData", "tutorial", "images/tutorial.png", Z.BitmapData_load("images/tutorial.png", null));
+    resourceManager._addResource$4("BitmapData", "end", "images/end.png", Z.BitmapData_load("images/end.png", null));
+    resourceManager._addResource$4("BitmapData", "replayButton", "images/replayButton.png", Z.BitmapData_load("images/replayButton.png", null));
+    resourceManager._addResource$4("BitmapData", "replayButtonPressed", "images/replayButtonPressed.png", Z.BitmapData_load("images/replayButtonPressed.png", null));
     resourceManager._addResource$4("Sound", "buttonClick", "sounds/button_click.mp3", Z.Sound_load("sounds/button_click.mp3", null));
     resourceManager._addResource$4("Sound", "circleUISwoosh", "sounds/circle_swoosh.mp3", Z.Sound_load("sounds/circle_swoosh.mp3", null));
     resourceManager._addResource$4("Sound", "chaChing", "sounds/cha_ching.mp3", Z.Sound_load("sounds/cha_ching.mp3", null));
@@ -441,6 +446,41 @@ var $$ = {};
     resourceManager._addResource$4("Sound", "badgeSoundLeastConcern", "sounds/badgeSoundLeastConcern.mp3", Z.Sound_load("sounds/badgeSoundLeastConcern.mp3", null));
     resourceManager._addResource$4("Sound", "badgeSoundEndangered", "sounds/badgeSoundEndangered.mp3", Z.Sound_load("sounds/badgeSoundEndangered.mp3", null));
     resourceManager._addResource$4("Sound", "badgeSoundExtinct", "sounds/badgeSoundExtinct.mp3", Z.Sound_load("sounds/badgeSoundExtinct.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_playButton", "sounds/ui_playButton.mp3", Z.Sound_load("sounds/ui_playButton.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_aboutButtonOpen", "sounds/ui_aboutButtonOpen.mp3", Z.Sound_load("sounds/ui_aboutButtonOpen.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_aboutButtonClose", "sounds/ui_aboutButtonClose.mp3", Z.Sound_load("sounds/ui_aboutButtonClose.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_tapTimer", "sounds/ui_tapTimer.mp3", Z.Sound_load("sounds/ui_tapTimer.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_selectSardineBoat", "sounds/ui_selectSardineBoat.mp3", Z.Sound_load("sounds/ui_selectSardineBoat.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_selectTunaBoat", "sounds/ui_selectTunaBoat.mp3", Z.Sound_load("sounds/ui_selectTunaBoat.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_selectSharkBoat", "sounds/ui_selectSharkBoat.mp3", Z.Sound_load("sounds/ui_selectSharkBoat.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_selectSmallNet", "sounds/ui_selectSmallNet.mp3", Z.Sound_load("sounds/ui_selectSmallNet.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_selectBigNet", "sounds/ui_selectBigNet.mp3", Z.Sound_load("sounds/ui_selectBigNet.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_rotateBuyDisc", "sounds/ui_rotateBuyDisc.mp3", Z.Sound_load("sounds/ui_rotateBuyDisc.mp3", null));
+    resourceManager._addResource$4("Sound", "ui_restartGame", "sounds/ui_restartGame.mp3", Z.Sound_load("sounds/ui_restartGame.mp3", null));
+    resourceManager._addResource$4("Sound", "transition_titleToFishing", "sounds/transition_titleToFishing.mp3", Z.Sound_load("sounds/transition_titleToFishing.mp3", null));
+    resourceManager._addResource$4("Sound", "transition_fishingToRegrowth", "sounds/transition_fishingToRegrowth.mp3", Z.Sound_load("sounds/transition_fishingToRegrowth.mp3", null));
+    resourceManager._addResource$4("Sound", "transition_regrowthToBuy", "sounds/transition_regrowthToBuy.mp3", Z.Sound_load("sounds/transition_regrowthToBuy.mp3", null));
+    resourceManager._addResource$4("Sound", "transition_buyToFishing", "sounds/transition_buyToFishing.mp3", Z.Sound_load("sounds/transition_buyToFishing.mp3", null));
+    resourceManager._addResource$4("Sound", "transition_regrowthToEnd", "sounds/transition_regrowthToEnd.mp3", Z.Sound_load("sounds/transition_regrowthToEnd.mp3", null));
+    resourceManager._addResource$4("Sound", "transition_endToSummary", "sounds/transition_endToSummary.mp3", Z.Sound_load("sounds/transition_endToSummary.mp3", null));
+    resourceManager._addResource$4("Sound", "boatFull", "sounds/boatFull.mp3", Z.Sound_load("sounds/boatFull.mp3", null));
+    resourceManager._addResource$4("Sound", "background_music", "sounds/background_music.mp3", Z.Sound_load("sounds/background_music.mp3", null));
+    resourceManager._addResource$4("Sound", "background_music_short", "sounds/background_music_short.mp3", Z.Sound_load("sounds/background_music_short.mp3", null));
+    resourceManager._addResource$4("Sound", "star0Sound", "sounds/star0Sound.mp3", Z.Sound_load("sounds/star0Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star1Sound", "sounds/star1Sound.mp3", Z.Sound_load("sounds/star1Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star2Sound", "sounds/star2Sound.mp3", Z.Sound_load("sounds/star2Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star3Sound", "sounds/star3Sound.mp3", Z.Sound_load("sounds/star3Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star4Sound", "sounds/star4Sound.mp3", Z.Sound_load("sounds/star4Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star5Sound", "sounds/star5Sound.mp3", Z.Sound_load("sounds/star5Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star6Sound", "sounds/star6Sound.mp3", Z.Sound_load("sounds/star6Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star7Sound", "sounds/star7Sound.mp3", Z.Sound_load("sounds/star7Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star8Sound", "sounds/star8Sound.mp3", Z.Sound_load("sounds/star8Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star9Sound", "sounds/star9Sound.mp3", Z.Sound_load("sounds/star9Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star10Sound", "sounds/star10Sound.mp3", Z.Sound_load("sounds/star10Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star11Sound", "sounds/star11Sound.mp3", Z.Sound_load("sounds/star11Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star12Sound", "sounds/star12Sound.mp3", Z.Sound_load("sounds/star12Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star13Sound", "sounds/star13Sound.mp3", Z.Sound_load("sounds/star13Sound.mp3", null));
+    resourceManager._addResource$4("Sound", "star14Sound", "sounds/star14Sound.mp3", Z.Sound_load("sounds/star14Sound.mp3", null));
     $.Multitouch__inputMode = "touchPoint";
     t1 = $.get$Multitouch__inputModeChangedEvent();
     if (t1._state >= 4)
@@ -495,7 +535,7 @@ var $$ = {};
       t9 = H.setRuntimeTypeInfo([], [Z.DisplayObject]);
       t10 = $.DisplayObject__nextID;
       $.DisplayObject__nextID = t10 + 1;
-      game = new F.Game(1, null, null, null, null, null, null, null, null, null, null, null, new F.TouchManager(false, null, t5, t6), t7, false, true, 2048, 1536, 0, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, false, 0, 2, 0, -1, 1, null, null, 25, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5, 0, 25, 20, 15, null, null, null, null, null, null, null, null, null, null, null, t8, null, false, null, null, null, t9, true, true, false, true, false, true, 0, t10, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+      game = new F.Game(1, null, null, null, null, null, null, null, null, null, null, null, new F.TouchManager(false, null, t5, t6), t7, false, true, 2048, 1536, 0, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, false, 0, 2, 0, -1, 1, null, null, 25, 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 5, 0, 25, 20, 15, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, t8, false, null, null, null, t9, true, true, false, true, false, true, 0, t10, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       game.Game$4(this.resourceManager_4, t2, t3, t4);
       t1.addChildAt$2(game, t1._children.length);
       t2.add$1(0, game);
@@ -510,7 +550,7 @@ var $$ = {};
     $isFunction: true
   },
   Boat: {
-    "^": "Sprite;_resourceManager,_TOTC$_juggler,_boatMove,_boatRotate,_fishes,_ecosystem,_fleet,_game,_teamA<,nothing,_console,_TOTC$_type<,_netMoney,_netCapacity,random,speedLevel,capacityLevel,speed,rotSpeed,netCapacityMax,boat,_boatImage,_tempNet,_nets,_netNames,_net,_netSkew,_turnMode,netHitBox<,_netShapeHitBox,catchType<,canCatch<,_canMove,_autoMove,_canLoadConsole,_showingFullPrompt,_showingPrompt,_arrow,_TOTC$_text,_fullText,_dragging,_touched,_newX,_newY,offseasonBoat,particleConfig,particleEmitter,mapIndex,netSize<,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
+    "^": "Sprite;_resourceManager,_TOTC$_juggler,_boatMove,_boatRotate,_fishes,_ecosystem,_fleet,_game,_teamA<,nothing,_console,_TOTC$_type<,_netMoney,_netCapacity,random,speedLevel,capacityLevel,speed,rotSpeed,netCapacityMax,boat,_boatImage,_tempNet,_nets,_netNames,_net,_netSkew,_turnMode,netHitBox<,_netShapeHitBox,catchType<,canCatch<,_canMove,_autoMove,_canLoadConsole,_showingFullPrompt,_showingPrompt,_arrow,_TOTC$_text,_fullText,_dragging,_touched,_newX,_newY,offseasonBoat,particleConfig,particleEmitter,mapIndex,netSize<,boatFullSound,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
     _bitmapLoaded$1: [function(e) {
       var t1, t2;
       this.set$pivotX(J.$div$n(this.getBoundsTransformed$1(this.get$transformationMatrix()).width, 2));
@@ -526,6 +566,8 @@ var $$ = {};
       this._net = t1;
       t2 = this.get$_netLoaded();
       t1.on$1(0, "added")._subscribe$3(t2, false, 0);
+      this._net.set$scaleX(window.devicePixelRatio);
+      this._net.set$scaleY(window.devicePixelRatio);
       this.addChildAt$2(this._net, 0);
     }, "call$1", "get$_bitmapLoaded", 2, 0, 187, 14],
     _netLoaded$1: [function(e) {
@@ -636,19 +678,37 @@ var $$ = {};
         t1 = this._netCapacity;
         if (typeof t1 !== "number")
           return t1.$add();
-        this._netCapacity = t1 + 1;
+        ++t1;
+        this._netCapacity = t1;
+        if (this.netSize === 0) {
+          if (t1 > 100)
+            this._promptBoatFull$0();
+        } else if (t1 > 200)
+          this._promptBoatFull$0();
       }
       if (t2) {
         t1 = this._netCapacity;
         if (typeof t1 !== "number")
           return t1.$add();
-        this._netCapacity = t1 + 1;
+        ++t1;
+        this._netCapacity = t1;
+        if (this.netSize === 0) {
+          if (t1 > 15)
+            this._promptBoatFull$0();
+        } else if (t1 > 30)
+          this._promptBoatFull$0();
       }
       if (t3) {
         t1 = this._netCapacity;
         if (typeof t1 !== "number")
           return t1.$add();
-        this._netCapacity = t1 + 1;
+        ++t1;
+        this._netCapacity = t1;
+        if (this.netSize === 0) {
+          if (t1 > 3)
+            this._promptBoatFull$0();
+        } else if (t1 > 8)
+          this._promptBoatFull$0();
       }
       this._changeNetGraphic$0();
     },
@@ -676,6 +736,8 @@ var $$ = {};
         this._net = t1;
         t2 = this.get$_netLoaded();
         t1.on$1(0, "added")._subscribe$3(t2, false, 0);
+        this._net.set$scaleX(window.devicePixelRatio);
+        this._net.set$scaleY(window.devicePixelRatio);
         this.addChildAt$2(this._net, 0);
         t1 = this._turnMode;
         if (t1 === 1)
@@ -801,6 +863,8 @@ var $$ = {};
         $.DisplayObject__nextID = t2 + 1;
         this._boatImage = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       }
+      this._boatImage.set$scaleX(window.devicePixelRatio);
+      this._boatImage.set$scaleY(window.devicePixelRatio);
     },
     _inProximity$3: function(myX, myY, p) {
       var t1 = H.setRuntimeTypeInfo(new Z.Point(this._x, this._y), [null]).squaredDistanceTo$1(H.setRuntimeTypeInfo(new Z.Point(myX, myY), [null]));
@@ -822,36 +886,60 @@ var $$ = {};
       }
     },
     _promptUser$0: function() {
-      var t1, t2, t3;
+      var t1, t2;
       t1 = this._fleet;
       t2 = t1.touchReminders;
       if (t2 >= 1 && !this._showingPrompt) {
         t1.touchReminders = t2 - 1;
         this._showingPrompt = true;
-        t1 = this._resourceManager.getBitmapData$1("Arrow");
-        t2 = $.DisplayObject__nextID;
-        $.DisplayObject__nextID = t2 + 1;
-        t2 = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
-        this._arrow = t2;
-        t2.set$alpha(0, 0.6);
-        t2 = this._arrow;
-        t2.set$pivotX(J.$div$n(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).width, 2));
-        t2 = this._arrow;
-        t2.set$pivotY(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height / 2);
         t1 = this._teamA;
-        t2 = this._arrow;
-        t3 = this._y;
+        t2 = this._resourceManager;
         if (t1) {
-          t2.set$y(0, t3 + t3 / 3);
+          t1 = t2.getBitmapData$1("arrowGreen");
+          t2 = $.DisplayObject__nextID;
+          $.DisplayObject__nextID = t2 + 1;
+          t2 = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+          this._arrow = t2;
+          t1 = window.devicePixelRatio;
+          if (typeof t1 !== "number")
+            return t1.$div();
+          t2.set$scaleX(t1 / 2);
           t1 = this._arrow;
-          t2 = this._x;
-          t1.set$x(0, t2 + t2 / 3);
+          t2 = window.devicePixelRatio;
+          if (typeof t2 !== "number")
+            return t2.$div();
+          t1.set$scaleY(t2 / 2);
+          this._arrow.set$alpha(0, 0.6);
+          t2 = this._arrow;
+          t2.set$pivotX(J.$div$n(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).width, 2));
+          t2 = this._arrow;
+          t2.set$pivotY(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height / 2);
+          this._arrow.set$y(0, this._y + 120);
+          this._arrow.set$x(0, this._x + 120);
           this._arrow.set$rotation(-1.5707963267948966 + this._rotation + 3.141592653589793);
         } else {
-          t2.set$y(0, t3 - t3 / 12);
+          t1 = t2.getBitmapData$1("arrowRed");
+          t2 = $.DisplayObject__nextID;
+          $.DisplayObject__nextID = t2 + 1;
+          t2 = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+          this._arrow = t2;
+          t2.set$alpha(0, 0.6);
+          t2 = this._arrow;
+          t1 = window.devicePixelRatio;
+          if (typeof t1 !== "number")
+            return t1.$div();
+          t2.set$scaleX(t1 / 2);
           t1 = this._arrow;
-          t2 = this._x;
-          t1.set$x(0, t2 - t2 / 10 + 20);
+          t2 = window.devicePixelRatio;
+          if (typeof t2 !== "number")
+            return t2.$div();
+          t1.set$scaleY(t2 / 2);
+          t2 = this._arrow;
+          t2.set$pivotX(J.$div$n(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).width, 2));
+          t2 = this._arrow;
+          t2.set$pivotY(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height / 2);
+          this._arrow.set$y(0, this._y - 120);
+          this._arrow.set$x(0, this._x - 120);
           this._arrow.set$rotation(1.5707963267948966 + this._rotation);
         }
         t1 = this._fleet;
@@ -870,6 +958,37 @@ var $$ = {};
       if (this.contains$1(0, this._arrow))
         this._fleet.removeChild$1(this._arrow);
     }, "call$0", "get$_removePrompt", 0, 0, 0],
+    _promptBoatFull$0: function() {
+      var t1, t2, t3;
+      this.boatFullSound.play$0(0);
+      if (!this._showingFullPrompt) {
+        this._showingFullPrompt = true;
+        P.print("trying to be full");
+        t1 = Z.TextField$("Your boat is full!", new Z.TextFormat("Arial", 20, 4294967264, 0, 4278190080, null, false, false, false, "left", 0, 0, 0, 0, 0, 0));
+        this._fullText = t1;
+        t1._width = C.JSInt_methods.toDouble$0(200);
+        t1._refreshPending = t1._refreshPending | 3;
+        t1.set$alpha(0, 1);
+        t1 = this._teamA;
+        t2 = this._fullText;
+        t3 = this._x;
+        if (t1) {
+          t2.set$x(0, t3 + 50);
+          this._fullText.set$y(0, this._y + 75);
+          this._fullText.set$rotation(3.141592653589793);
+        } else {
+          t2.set$x(0, t3 - 50);
+          this._fullText.set$y(0, this._y - 75);
+          this._fullText.set$rotation(0);
+        }
+        t1 = this._fleet;
+        t1.addChildAt$2(this._fullText, t1._children.length);
+        t2 = Z.Tween$(this._fullText, 1.5, Z.TransitionFunction_linear$closure());
+        t2._addTweenProperty$1(9)._targetValue = 0;
+        t2._onComplete = this.get$_promptBoatFullDone();
+        this._fleet._TOTC$_juggler.add$1(0, t2);
+      }
+    },
     _promptBoatFullDone$0: [function() {
       this._showingFullPrompt = false;
       if (this._fleet.contains$1(0, this._fullText))
@@ -919,6 +1038,8 @@ var $$ = {};
     },
     containsTouch$1: function(e) {
       var t1;
+      if (this._game.phase === 5)
+        return false;
       if (!this.nothing && !this.offseasonBoat)
         if (this._inProximity$3(e.touchX, e.touchY, 100))
           return true;
@@ -937,7 +1058,7 @@ var $$ = {};
         return false;
     },
     touchDown$1: function($event) {
-      var t1, t2, t3;
+      var t1, t2;
       t1 = this._game;
       if (!t1.gameStarted && t1.phase === 1) {
         t1.gameStarted = true;
@@ -987,38 +1108,14 @@ var $$ = {};
           $.DisplayObject__nextID = t2 + 1;
           this._boatImage = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
         }
+        this._boatImage.set$scaleX(window.devicePixelRatio);
+        this._boatImage.set$scaleY(window.devicePixelRatio);
         t1 = this.boat;
         t1.addChildAt$2(this._boatImage, t1._children.length);
         this._dragging = true;
       }
       if (!this.canCatch && !this._canMove)
-        if (!this._showingFullPrompt) {
-          this._showingFullPrompt = true;
-          P.print("trying to be full");
-          t1 = Z.TextField$("Your boat is full!", new Z.TextFormat("Arial", 20, 4294967264, 0, 4278190080, null, false, false, false, "left", 0, 0, 0, 0, 0, 0));
-          this._fullText = t1;
-          t1._width = C.JSInt_methods.toDouble$0(200);
-          t1._refreshPending = t1._refreshPending | 3;
-          t1.set$alpha(0, 1);
-          t1 = this._teamA;
-          t2 = this._fullText;
-          t3 = this._x;
-          if (t1) {
-            t2.set$x(0, t3 + 50);
-            this._fullText.set$y(0, this._y + 75);
-            this._fullText.set$rotation(3.141592653589793);
-          } else {
-            t2.set$x(0, t3 - 50);
-            this._fullText.set$y(0, this._y - 75);
-            this._fullText.set$rotation(0);
-          }
-          t1 = this._fleet;
-          t1.addChildAt$2(this._fullText, t1._children.length);
-          t2 = Z.Tween$(this._fullText, 1.5, Z.TransitionFunction_linear$closure());
-          t2._addTweenProperty$1(9)._targetValue = 0;
-          t2._onComplete = this.get$_promptBoatFullDone();
-          this._fleet._TOTC$_juggler.add$1(0, t2);
-        }
+        this._promptBoatFull$0();
       return true;
     },
     touchUp$1: function($event) {
@@ -1057,7 +1154,10 @@ var $$ = {};
       this._autoMove = false;
       this.speedLevel = 0;
       this.capacityLevel = 0;
-      this.speed = 8;
+      t1 = window.devicePixelRatio;
+      if (typeof t1 !== "number")
+        return H.iae(t1);
+      this.speed = 8 * t1;
       this.rotSpeed = 0.09;
       this.netCapacityMax = 25000;
       t1 = type !== 1;
@@ -1136,6 +1236,7 @@ var $$ = {};
       t5 = t5.getBoundsTransformed$1(t5.get$transformationMatrix()).height;
       t1._locationX = N._ensureNum0(t3 + t2);
       t1._locationY = N._ensureNum0(t4 + t5 / 2);
+      this.boatFullSound = this._resourceManager.getSound$1("boatFull");
     },
     $isAnimatable: true,
     static: {"^": "Boat_PROXIMITY,Boat_RIGHT,Boat_LEFT,Boat_STRAIGHT,Boat_BASE_SPEED,Boat_BASE_ROT_SPEED,Boat_BASE_NET_CAPACITY,Boat_SMALL_NET_SARDINE_CAPACITY,Boat_LARGE_NET_SARDINE_CAPACITY,Boat_SMALL_NET_TUNA_CAPACITY,Boat_LARGE_NET_TUNA_CAPACITY,Boat_SMALL_NET_SHARK_CAPACITY,Boat_LARGE_NET_SHARK_CAPACITY,Boat_SMALLNET,Boat_LARGENET", Boat$: function(resourceManager, juggler, type, game, f, netSize) {
@@ -1143,74 +1244,9 @@ var $$ = {};
         t1 = H.setRuntimeTypeInfo([], [Z.DisplayObject]);
         t2 = $.DisplayObject__nextID;
         $.DisplayObject__nextID = t2 + 1;
-        t2 = new F.Boat(null, null, null, null, null, null, null, null, null, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, false, false, null, null, null, false, false, null, null, false, null, null, null, netSize, false, null, null, null, t1, true, true, false, true, false, true, 0, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+        t2 = new F.Boat(null, null, null, null, null, null, null, null, null, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, false, false, null, null, null, false, false, null, null, false, null, null, null, netSize, null, false, null, null, null, t1, true, true, false, true, false, true, 0, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
         t2.Boat$6(resourceManager, juggler, type, game, f, netSize);
         return t2;
-      }}
-  },
-  DataLogger: {
-    "^": "Object;id,totalTime,teamAFinalScore,teamBFinalScore,totalStars,numOfRound,reasonLost,round0,round1,round2,round3,round4",
-    DataLogger$0: function() {
-      this.id = -1;
-      this.totalTime = -1;
-      this.teamAFinalScore = -1;
-      this.teamBFinalScore = -1;
-      this.totalStars = -1;
-      this.numOfRound = -1;
-      this.reasonLost = -1;
-      this.round0 = F.RoundLogger$(this, 0);
-      this.round1 = F.RoundLogger$(this, 1);
-      this.round2 = F.RoundLogger$(this, 2);
-      this.round3 = F.RoundLogger$(this, 3);
-      this.round4 = F.RoundLogger$(this, 4);
-    }
-  },
-  RoundLogger: {
-    "^": "Object;logger,roundNumber,roundTime,starRating,sardineCount,tunaCount,sharkCount,sardineStatus,tunaStatus,sharkStatus,teamANetSize,teamABoatType,teamASeasonProfit,teamANumOfFishCaught,teamBNetSize,teamBBoatType,teamBSeasonProfit,teamBNumOfFishCaught",
-    getData$0: function() {
-      return H.S(this.getTime$0()) + ", " + H.S(this.starRating) + ", " + H.S(this.sardineCount) + ", " + H.S(this.tunaCount) + ", " + H.S(this.sharkCount) + ", " + this.sardineStatus + ", " + this.tunaStatus + ", " + this.sharkStatus + ", " + H.S(this.teamANetSize) + ", " + this.teamABoatType + ", " + this.teamASeasonProfit + ", " + H.S(this.teamANumOfFishCaught) + ", " + H.S(this.teamBNetSize) + ", " + this.teamBBoatType + ", " + this.teamBSeasonProfit + ", " + H.S(this.teamBNumOfFishCaught) + ", ";
-    },
-    getTime$0: function() {
-      var time, t1;
-      time = this.roundTime;
-      if (time !== -1) {
-        t1 = this.roundNumber;
-        if (t1 === 0)
-          ;
-        else if (t1 === 1)
-          time -= this.logger.round0.roundTime;
-        else if (t1 === 2)
-          time -= this.logger.round1.roundTime;
-        else if (t1 === 3)
-          time -= this.logger.round2.roundTime;
-        else
-          time = t1 === 4 ? time - this.logger.round3.roundTime : null;
-        return time;
-      } else
-        return -1;
-    },
-    RoundLogger$2: function(logger, roundNumber) {
-      this.roundTime = -1;
-      this.starRating = -1;
-      this.sardineCount = -1;
-      this.tunaCount = -1;
-      this.sharkCount = -1;
-      this.sardineStatus = -1;
-      this.tunaStatus = -1;
-      this.sharkStatus = -1;
-      this.teamANetSize = -1;
-      this.teamABoatType = -1;
-      this.teamASeasonProfit = -1;
-      this.teamANumOfFishCaught = -1;
-      this.teamBNetSize = -1;
-      this.teamBBoatType = -1;
-      this.teamBSeasonProfit = -1;
-      this.teamBNumOfFishCaught = -1;
-    },
-    static: {"^": "RoundLogger_OVERPOPULATED,RoundLogger_LEAST_CONCERN,RoundLogger_ENDANGERED,RoundLogger_EXTINCT,RoundLogger_SARDINE,RoundLogger_TUNA,RoundLogger_SHARK,RoundLogger_NET_LARGE,RoundLogger_NET_SMALL", RoundLogger$: function(logger, roundNumber) {
-        var t1 = new F.RoundLogger(logger, roundNumber, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-        t1.RoundLogger$2(logger, roundNumber);
-        return t1;
       }}
   },
   Ecosystem: {
@@ -1226,7 +1262,7 @@ var $$ = {};
           t2 = t1[0];
           if (typeof t2 !== "number")
             return t2.$ge();
-          if (t2 >= 50)
+          if (t2 >= 40)
             return;
           fishImage = this._resourceManager.getBitmapData$1("Tuna");
           t2 = t1[0];
@@ -1382,7 +1418,7 @@ var $$ = {};
       this.tunaFoodCount = 0;
       this.sharkFoodCount = 0;
       this.addFish$3(4, 2, true);
-      this.addFish$3(22, 0, true);
+      this.addFish$3(18, 0, true);
       this.addFish$3(150, 1, true);
       P.Timer_Timer$periodic(C.Duration_1000000, new F.Ecosystem_closure(this));
     },
@@ -1400,7 +1436,7 @@ var $$ = {};
         t10 = H.setRuntimeTypeInfo([], [Z.DisplayObject]);
         t11 = $.DisplayObject__nextID;
         $.DisplayObject__nextID = t11 + 1;
-        t11 = new F.Ecosystem(null, null, null, null, t1, t2, t3, t4, t5, t6, 205, 0, 60, 0, 15, 0, null, null, 13, 0, 15, 15, 45, 0, null, null, null, t7, t8, t9, C.C__JSRandom, false, null, null, null, t10, true, true, false, true, false, true, 0, t11, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+        t11 = new F.Ecosystem(null, null, null, null, t1, t2, t3, t4, t5, t6, 205, 0, 50, 0, 15, 0, null, null, 6, 0, 8, 8, 23, 0, null, null, null, t7, t8, t9, C.C__JSRandom, false, null, null, null, t10, true, true, false, true, false, true, 0, t11, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
         t11.Ecosystem$4(resourceManager, juggler, g, fleet);
         return t11;
       }}
@@ -1414,9 +1450,9 @@ var $$ = {};
       t2[1] = 1;
       t2[0] = 1;
       t2[2] = 1;
-      t1.planktonCount = t1.planktonCount + 300;
-      t1.tunaFoodCount = t1.tunaFoodCount + 60;
-      t1.sharkFoodCount = t1.sharkFoodCount + 10;
+      t1.planktonCount = t1.planktonCount + 100;
+      t1.tunaFoodCount = t1.tunaFoodCount + 30;
+      t1.sharkFoodCount = t1.sharkFoodCount + 5;
       if (t1.game.gameStarted) {
         t2 = t1._fishCount;
         t1.sardineGraph.push(t2[1]);
@@ -1442,16 +1478,51 @@ var $$ = {};
     $isFunction: true
   },
   Endgame: {
-    "^": "Sprite;_resourceManager,_TOTC$_juggler,_game,_ecosystem,teamAui,teamBui,bestScoresA,bestScoresB,endgameIconTop,endgameIconBottom,emptyStars,replayButton,replayEnable,animatedRating,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
+    "^": "Sprite;_resourceManager,_TOTC$_juggler,_game,_ecosystem,teamAui,teamBui,bestScoresA,bestScoresB,endgameIconTop,endgameIconBottom,emptyStars,replayButton,replayEnable,animatedRating,star0Sound,star1Sound,star2Sound,star3Sound,star4Sound,star5Sound,star6Sound,star7Sound,star8Sound,star9Sound,star10Sound,star11Sound,star12Sound,star13Sound,star14Sound,OldStar,CurrentStar,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
     advanceTime$1: function(time) {
       return true;
     },
     showStars$0: [function() {
-      var t1, showString, t2, toShow;
+      var t1, t2, toPlay, showString, toShow;
       t1 = this.animatedRating;
-      if (t1 === this._game.starCount)
+      t2 = this._game.starCount;
+      if (t1 === t2)
         P.Timer_Timer(C.Duration_1000000, this.get$showTeamUI());
       else {
+        if (t1 === 0) {
+          if (t2 === 0)
+            toPlay = this.star0Sound;
+          else if (t2 === 1)
+            toPlay = this.star1Sound;
+          else if (t2 === 2)
+            toPlay = this.star2Sound;
+          else if (t2 === 3)
+            toPlay = this.star3Sound;
+          else if (t2 === 4)
+            toPlay = this.star4Sound;
+          else if (t2 === 5)
+            toPlay = this.star5Sound;
+          else if (t2 === 6)
+            toPlay = this.star6Sound;
+          else if (t2 === 7)
+            toPlay = this.star7Sound;
+          else if (t2 === 8)
+            toPlay = this.star8Sound;
+          else if (t2 === 9)
+            toPlay = this.star8Sound;
+          else if (t2 === 10)
+            toPlay = this.star10Sound;
+          else if (t2 === 11)
+            toPlay = this.star11Sound;
+          else if (t2 === 12)
+            toPlay = this.star12Sound;
+          else if (t2 === 13)
+            toPlay = this.star13Sound;
+          else
+            toPlay = t2 === 14 ? this.star14Sound : null;
+          toPlay.play$0(0);
+        }
+        t1 = this.animatedRating;
         if (t1 === 0)
           showString = "ecosystemScore1";
         else if (t1 === 1)
@@ -1503,6 +1574,16 @@ var $$ = {};
         t1._onComplete = this.get$showStars();
         this._TOTC$_juggler.add$1(0, t1);
         this.animatedRating = this.animatedRating + 1;
+        t1 = this.OldStar;
+        if (t1 != null) {
+          t2 = Z.Tween$(t1, 0.18, Z.TransitionFunction_easeInOutQuadratic$closure());
+          t2._addTweenProperty$1(9)._targetValue = 0;
+          this._TOTC$_juggler.add$1(0, t2);
+        }
+        t1 = this.CurrentStar;
+        if (t1 != null)
+          this.OldStar = t1;
+        this.CurrentStar = toShow;
       }
     }, "call$0", "get$showStars", 0, 0, 0],
     showGameOverReason$0: function() {
@@ -1680,6 +1761,21 @@ var $$ = {};
       this.addChildAt$2(this.endgameIconTop, t14.length);
       this.addChildAt$2(this.endgameIconBottom, t14.length);
       this.set$alpha(0, 0);
+      this.star0Sound = this._resourceManager.getSound$1("star0Sound");
+      this.star1Sound = this._resourceManager.getSound$1("star1Sound");
+      this.star2Sound = this._resourceManager.getSound$1("star2Sound");
+      this.star3Sound = this._resourceManager.getSound$1("star3Sound");
+      this.star4Sound = this._resourceManager.getSound$1("star4Sound");
+      this.star5Sound = this._resourceManager.getSound$1("star5Sound");
+      this.star6Sound = this._resourceManager.getSound$1("star6Sound");
+      this.star7Sound = this._resourceManager.getSound$1("star7Sound");
+      this.star8Sound = this._resourceManager.getSound$1("star8Sound");
+      this.star9Sound = this._resourceManager.getSound$1("star9Sound");
+      this.star10Sound = this._resourceManager.getSound$1("star10Sound");
+      this.star11Sound = this._resourceManager.getSound$1("star11Sound");
+      this.star12Sound = this._resourceManager.getSound$1("star12Sound");
+      this.star13Sound = this._resourceManager.getSound$1("star13Sound");
+      this.star14Sound = this._resourceManager.getSound$1("star14Sound");
     },
     $isAnimatable: true,
     static: {"^": "Endgame_TEAMA,Endgame_TEAMB"}
@@ -1729,8 +1825,8 @@ var $$ = {};
       if (t2) {
         this.teamScore = this._game.teamAScore;
         rotationVal = 2.356194490192345;
-        r2 = 445;
-        r3 = 200;
+        r2 = 375;
+        r3 = 290;
         offsetX = 0;
         offsetY = 0;
       } else if (t1 === 1) {
@@ -1739,8 +1835,8 @@ var $$ = {};
         offsetY = t1.height;
         this.teamScore = t1.teamBScore;
         rotationVal = -0.7853981633974483;
-        r2 = 445;
-        r3 = 200;
+        r2 = 375;
+        r3 = 290;
       } else {
         rotationVal = null;
         r2 = null;
@@ -1748,11 +1844,11 @@ var $$ = {};
         offsetX = null;
         offsetY = null;
       }
-      format = new Z.TextFormat("Arial", 36, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0);
+      format = new Z.TextFormat("Arial", 50, 4294309365, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0);
       t1 = Z.TextField$("GAME OVER", format);
       this.teamGameOverText = t1;
       t1.set$alpha(0, 1);
-      t2 = C.JSInt_methods.toDouble$0(300);
+      t2 = C.JSInt_methods.toDouble$0(600);
       t1._width = t2;
       t1._refreshPending = t1._refreshPending | 3;
       t3 = this.teamGameOverText;
@@ -1876,21 +1972,125 @@ var $$ = {};
     static: {"^": "BestScores_TEAMA,BestScores_TEAMB"}
   },
   FinalSummary: {
-    "^": "Sprite;_resourceManager,_TOTC$_juggler,_game,_ecosystem,summaryBackground,replayButton,aboutOpen,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
+    "^": "Sprite;_resourceManager,_TOTC$_juggler,_game,_ecosystem,ui_restartGameSound,summaryBackground,replayButton,summaryText,informationText,aboutOpen,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
     _replayButtonPressed$0: [function() {
+      this.ui_restartGameSound.play$0(0);
       J.reload$0$x(C.Window_methods.get$location(window));
     }, "call$0", "get$_replayButtonPressed", 0, 0, 0],
     advanceTime$1: function(time) {
       return true;
     },
+    showQuestionPrompt$0: [function() {
+      var format, t1, t2, t3;
+      format = new Z.TextFormat("Arial", 36, 4294309365, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0);
+      if (this._game.round === 4) {
+        t1 = Z.TextField$("Congratulations, your ecosystem survived for 5 rounds! \n" + "Try to earn more stars by adjusting your fishing strategy \n" + "to keep all of your fish populations healthy.", format);
+        this.summaryText = t1;
+        t1.set$alpha(0, 0);
+        t2 = this._game.width;
+        t1._width = C.JSNumber_methods.toDouble$0(t2 * 3 / 4);
+        t3 = t1._refreshPending | 3;
+        t1._refreshPending = t3;
+        t1._height = 250;
+        t1._refreshPending = t3 | 3;
+        t1.set$x(0, t2 / 8);
+        t1.set$y(0, this._game.height / 3);
+        this.addChildAt$2(this.summaryText, this._children.length);
+        t1 = Z.Tween$(this.summaryText, 0.05, Z.TransitionFunction_linear$closure());
+        t1._addTweenProperty$1(9)._targetValue = 1;
+        this._TOTC$_juggler.add$1(0, t1);
+      } else {
+        t1 = this._ecosystem._fishCount;
+        t2 = t1[1];
+        if (typeof t2 !== "number")
+          return t2.$le();
+        if (t2 <= 0) {
+          t1 = Z.TextField$("Sardines were driven to extinction by overfishing and your ecosystem collapsed! \n" + "Play again and try to maintain a healthy ecosystem by monitoring fish populations \n" + "and adjusting your fishing strategy.", format);
+          this.summaryText = t1;
+          t1.set$alpha(0, 0);
+          t2 = this._game.width;
+          t1._width = C.JSNumber_methods.toDouble$0(t2 * 3 / 4);
+          t3 = t1._refreshPending | 3;
+          t1._refreshPending = t3;
+          t1._height = 250;
+          t1._refreshPending = t3 | 3;
+          t1.set$x(0, t2 / 8);
+          t1.set$y(0, this._game.height / 3);
+          this.addChildAt$2(this.summaryText, this._children.length);
+          t1 = Z.Tween$(this.summaryText, 0.05, Z.TransitionFunction_linear$closure());
+          t1._addTweenProperty$1(9)._targetValue = 1;
+          this._TOTC$_juggler.add$1(0, t1);
+        } else {
+          t2 = t1[0];
+          if (typeof t2 !== "number")
+            return t2.$le();
+          if (t2 <= 0) {
+            t1 = Z.TextField$("Tuna were driven to extinction by overfishing and your ecosystem collapsed! \n" + "Play again and try to maintain a healthy ecosystem by monitoring fish \n" + "populations and adjusting your fishing strategy.", format);
+            this.summaryText = t1;
+            t1.set$alpha(0, 0);
+            t2 = this._game.width;
+            t1._width = C.JSNumber_methods.toDouble$0(t2 * 3 / 4);
+            t3 = t1._refreshPending | 3;
+            t1._refreshPending = t3;
+            t1._height = 250;
+            t1._refreshPending = t3 | 3;
+            t1.set$x(0, t2 / 8);
+            t1.set$y(0, this._game.height / 3);
+            this.addChildAt$2(this.summaryText, this._children.length);
+            t1 = Z.Tween$(this.summaryText, 0.05, Z.TransitionFunction_linear$closure());
+            t1._addTweenProperty$1(9)._targetValue = 1;
+            this._TOTC$_juggler.add$1(0, t1);
+          } else {
+            t1 = t1[2];
+            if (typeof t1 !== "number")
+              return t1.$le();
+            if (t1 <= 0) {
+              t1 = Z.TextField$("Sharks were driven to extinction by overfishing and your ecosystem collapsed! \n" + "Play again and try to maintain a healthy ecosystem by monitoring fish populations \n" + "and adjusting your fishing strategy.", format);
+              this.summaryText = t1;
+              t1.set$alpha(0, 0);
+              t2 = this._game.width;
+              t1._width = C.JSNumber_methods.toDouble$0(t2 * 3 / 4);
+              t3 = t1._refreshPending | 3;
+              t1._refreshPending = t3;
+              t1._height = 250;
+              t1._refreshPending = t3 | 3;
+              t1.set$x(0, t2 / 8);
+              t1.set$y(0, this._game.height / 3);
+              this.addChildAt$2(this.summaryText, this._children.length);
+              t1 = Z.Tween$(this.summaryText, 0.05, Z.TransitionFunction_linear$closure());
+              t1._addTweenProperty$1(9)._targetValue = 1;
+              this._TOTC$_juggler.add$1(0, t1);
+            }
+          }
+        }
+      }
+      t1 = Z.TextField$("Download the Seafood Watch app \n http://www.seafoodwatch.org/ \n" + "to learn more about how you can \n help protect our oceans with your \n" + "family by eating sustainable seafood!", format);
+      this.informationText = t1;
+      t1.set$alpha(0, 0);
+      t2 = this._game.width;
+      t1._width = C.JSNumber_methods.toDouble$0(t2 * 3 / 4);
+      t3 = t1._refreshPending | 3;
+      t1._refreshPending = t3;
+      t1._height = 250;
+      t1._refreshPending = t3 | 3;
+      t1.set$x(0, t2 / 8);
+      t1.set$y(0, this._game.height * 7 / 12);
+      this.addChildAt$2(this.informationText, this._children.length);
+      t2 = Z.Tween$(this.informationText, 0.05, Z.TransitionFunction_linear$closure());
+      t2._addTweenProperty$1(9)._targetValue = 1;
+      this._TOTC$_juggler.add$1(0, t2);
+      return;
+    }, "call$0", "get$showQuestionPrompt", 0, 0, 0],
     FinalSummary$4: function(_resourceManager, _juggler, _game, _ecosystem) {
-      var t1, t2;
-      t1 = this._resourceManager.getBitmapData$1("title");
+      var t1, t2, playButtonBitmap;
+      t1 = this._resourceManager.getBitmapData$1("end");
       t2 = $.DisplayObject__nextID;
       $.DisplayObject__nextID = t2 + 1;
       this.summaryBackground = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+      playButtonBitmap = this._resourceManager.getBitmapData$1("replayButton");
       t2 = this._game;
-      this.replayButton = F.MyButton$(t2, t2.width / 2, t2.height / 2 + 150, this._resourceManager.getBitmapData$1("aboutButton"), this._resourceManager.getBitmapData$1("aboutButton"), this._resourceManager.getBitmapData$1("aboutButtonPressed"), this.get$_replayButtonPressed());
+      this.replayButton = F.MyButton$(t2, t2.width / 2 - playButtonBitmap._width / 2, t2.height / 2 + 500, playButtonBitmap, playButtonBitmap, this._resourceManager.getBitmapData$1("replayButtonPressed"), this.get$_replayButtonPressed());
+      this.ui_restartGameSound = this._resourceManager.getSound$1("ui_restartGame");
       this.set$alpha(0, 0);
       t2 = this._children;
       this.addChildAt$2(this.summaryBackground, t2.length);
@@ -2277,6 +2477,8 @@ var $$ = {};
       this._dartTimer = 0;
       this._darting = false;
       this._pouncing = false;
+      this.set$scaleX(window.devicePixelRatio);
+      this.set$scaleY(window.devicePixelRatio);
       if (this.type === 0) {
         this._v = 1;
         this._minSeparation = 5;
@@ -2617,25 +2819,26 @@ var $$ = {};
     $isFunction: true
   },
   Game: {
-    "^": "Sprite;timerType,pieTimerBitmap,pieTimerBitmapButton,_resourceManager,_TOTC$_juggler,_fleet,_ecosystem,_offseason,_background,_endgame,_title,_finalSummary,tmanager,tlayer,gameStarted,newGame,width>,height>,totalTimeCounter,_mask,_maskTween,teamAMoneyText,teamBMoneyText,teamAScoreText,teamBScoreText,roundTitle,roundNumber,seasonTitle,roundNumberDiv,starCount,teamAMoney,teamBMoney,teamAScore,teamBScore,teamARoundProfit,teamBRoundProfit,teamATotalProfit,teamBTotalProfit,moneyChanged,moneyTimer,moneyTimerMax,round,gameID,regrowthInfoType,_teamAGraph,_teamBGraph,_graphTimerMax,_graphTimer,badge,timerGraphicA,timerGraphicB,timerPie,sardineBar,tunaBar,sharkBar,sardineOutline,tunaOutline,sharkOutline,timerTextA,timerTextB,gameIDText,sardineIcon,tunaIcon,sharkIcon,phase,timer,fishingTimerTick,buyTimerTick,regrowthTimerTick,transition,timerButtonBool,timerButtonReady,timerActive,timerSound,timerSoundChannel,timerSoundTimer,timerButton,clockUpdateTimer,curTimer,clockCounter,uiObjects,datalogger,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
+    "^": "Sprite;timerType,pieTimerBitmap,pieTimerBitmapButton,_resourceManager,_TOTC$_juggler,_fleet,_ecosystem,_offseason,_background,_endgame,_title,_finalSummary,tmanager,tlayer,gameStarted,newGame,width>,height>,totalTimeCounter,_mask,_maskTween,teamAMoneyText,teamBMoneyText,teamAScoreText,teamBScoreText,roundTitle,roundNumber,seasonTitle,roundNumberDiv,starCount,teamAMoney,teamBMoney,teamAScore,teamBScore,teamARoundProfit,teamBRoundProfit,teamATotalProfit,teamBTotalProfit,moneyChanged,moneyTimer,moneyTimerMax,round,gameID,regrowthInfoType,_teamAGraph,_teamBGraph,_graphTimerMax,_graphTimer,badge,timerGraphicA,timerGraphicB,timerPie,sardineBar,tunaBar,sharkBar,sardineOutline,tunaOutline,sharkOutline,timerTextA,timerTextB,gameIDText,sardineIcon,tunaIcon,sharkIcon,phase,timer,fishingTimerTick,buyTimerTick,regrowthTimerTick,transition,timerButtonBool,timerButtonReady,timerActive,timerSound,timerSoundChannel,timerSoundTimer,timerButton,clockUpdateTimer,curTimer,clockCounter,transition_titleToFishingSound,transition_fishingToRegrowthSound,transition_regrowthToBuySound,transition_buyToFishingSound,transition_regrowthToEndSound,transition_endToSummarySound,ui_tapTimerSound,background_music,background_music_short,uiObjects,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
     round$0: function($receiver) {
       return this.round.call$0();
     },
+    _playBgMusic$0: [function() {
+      this.background_music.play$2(0, true, new Z.SoundTransform(1, 0));
+      P.Timer_Timer(P.Duration$(0, 0, 0, 482429, 0, 0), this.get$_playBgMusic());
+    }, "call$0", "get$_playBgMusic", 0, 0, 0],
     advanceTime$1: function(time) {
       var t1, t2, t3, t4, a, b;
       if (this.gameStarted && this.newGame) {
         this.newGame = false;
         P.Timer_Timer$periodic(P.Duration$(0, 0, 0, 0, 0, 1), new F.Game_advanceTime_closure(this));
-        t1 = $.ws;
-        C.JSNull_methods.send$1(t1, "newgame");
-        C.JSNull_methods.get$onMessage(t1).listen$1(new F.Game_advanceTime_closure0(this));
       }
       if (!this.gameStarted) {
         t1 = this.sardineBar;
         t2 = this._ecosystem._fishCount[1];
         if (typeof t2 !== "number")
           return t2.$mul();
-        t1.set$height(0, t2 * 2 / 3);
+        t1.set$height(0, t2 * 1.5);
         t2 = this.sardineIcon;
         t1 = this.sardineBar;
         t3 = t1._y;
@@ -2646,7 +2849,7 @@ var $$ = {};
         t1 = this._ecosystem._fishCount[0];
         if (typeof t1 !== "number")
           return t1.$mul();
-        t4.set$height(0, t1 * 2);
+        t4.set$height(0, t1 * 3);
         t1 = this.tunaIcon;
         t4 = this.tunaBar;
         t3 = t4._y;
@@ -2657,7 +2860,7 @@ var $$ = {};
         t4 = this._ecosystem._fishCount[2];
         if (typeof t4 !== "number")
           return t4.$mul();
-        t2.set$height(0, t4 * 4);
+        t2.set$height(0, t4 * 6);
         t4 = this.sharkIcon;
         t2 = this.sharkBar;
         t3 = t2._y;
@@ -2755,40 +2958,49 @@ var $$ = {};
         } else if (t1 === 1)
           ;
       }
-      t1 = this.sardineBar;
-      t2 = this._ecosystem._fishCount[1];
-      if (typeof t2 !== "number")
-        return t2.$mul();
-      t1.set$height(0, t2 * 2 / 3);
-      t2 = this.sardineIcon;
-      t1 = this.sardineBar;
-      t3 = t1._y;
-      t1 = t1.getBoundsTransformed$1(t1.get$transformationMatrix()).height;
+      t1 = this._ecosystem._fishCount[1];
+      if (typeof t1 !== "number")
+        return t1.$gt();
+      t2 = this.sardineBar;
+      if (t1 > 175)
+        t2.set$height(0, 262.5);
+      else
+        t2.set$height(0, t1 * 1.5);
+      t1 = this.sardineIcon;
+      t2 = this.sardineBar;
+      t3 = t2._y;
+      t2 = t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height;
       t4 = this.sardineIcon;
-      t2.set$y(0, t3 - t1 - t4.getBoundsTransformed$1(t4.get$transformationMatrix()).height);
-      t4 = this.tunaBar;
+      t1.set$y(0, t3 - t2 - t4.getBoundsTransformed$1(t4.get$transformationMatrix()).height);
       t1 = this._ecosystem._fishCount[0];
       if (typeof t1 !== "number")
-        return t1.$mul();
-      t4.set$height(0, t1 * 2);
+        return t1.$gt();
+      t2 = this.tunaBar;
+      if (t1 > 40)
+        t2.set$height(0, 120);
+      else
+        t2.set$height(0, t1 * 3);
       t1 = this.tunaIcon;
-      t4 = this.tunaBar;
-      t3 = t4._y;
-      t4 = t4.getBoundsTransformed$1(t4.get$transformationMatrix()).height;
-      t2 = this.tunaIcon;
-      t1.set$y(0, t3 - t4 - t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height);
+      t2 = this.tunaBar;
+      t3 = t2._y;
+      t2 = t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height;
+      t4 = this.tunaIcon;
+      t1.set$y(0, t3 - t2 - t4.getBoundsTransformed$1(t4.get$transformationMatrix()).height);
+      t1 = this._ecosystem._fishCount[2];
+      if (typeof t1 !== "number")
+        return t1.$gt();
       t2 = this.sharkBar;
-      t4 = this._ecosystem._fishCount[2];
-      if (typeof t4 !== "number")
-        return t4.$mul();
-      t2.set$height(0, t4 * 4);
-      t4 = this.sharkIcon;
+      if (t1 > 13)
+        t2.set$height(0, 78);
+      else
+        t2.set$height(0, t1 * 6);
+      t1 = this.sharkIcon;
       t2 = this.sharkBar;
       t3 = t2._y;
       t2 = t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height;
-      t1 = this.sharkIcon;
-      t4.set$y(0, t3 - t2 - t1.getBoundsTransformed$1(t1.get$transformationMatrix()).height);
-      this.gameIDText.set$text(0, "Game ID: " + H.S(this.gameID));
+      t4 = this.sharkIcon;
+      t1.set$y(0, t3 - t2 - t4.getBoundsTransformed$1(t4.get$transformationMatrix()).height);
+      this.gameIDText.set$text(0, "Game ID: " + this.gameID);
       return true;
     },
     timerSoundFunction$0: [function() {
@@ -2836,7 +3048,7 @@ var $$ = {};
         t2 = t1._graphics;
         t3 = new Z._GraphicsCommandLineTo(null, null);
         t3._x = C.JSInt_methods.toDouble$0(0);
-        t4 = C.JSInt_methods.toDouble$0(60);
+        t4 = C.JSInt_methods.toDouble$0(92);
         t3._y = t4;
         t2._commands.push(t3);
         t2._identityRectangleRefresh = true;
@@ -2850,7 +3062,7 @@ var $$ = {};
         t3 = this.clockCounter;
         if (typeof t3 !== "number")
           return t3.$add();
-        t2._commands.push(Z._GraphicsCommandArc$(0, 60, 60, 0, 6.283185307179586 * t3 / 25000, false));
+        t2._commands.push(Z._GraphicsCommandArc$(0, 92, 92, 0, 6.283185307179586 * t3 / 25000, false));
         t2._identityRectangleRefresh = true;
         t1 = t1._graphics;
         t1._commands.push(new Z._GraphicsCommandClosePath());
@@ -2863,7 +3075,7 @@ var $$ = {};
         t2 = t1._graphics;
         t3 = new Z._GraphicsCommandLineTo(null, null);
         t3._x = C.JSInt_methods.toDouble$0(0);
-        t4 = C.JSInt_methods.toDouble$0(60);
+        t4 = C.JSInt_methods.toDouble$0(92);
         t3._y = t4;
         t2._commands.push(t3);
         t2._identityRectangleRefresh = true;
@@ -2877,7 +3089,7 @@ var $$ = {};
         t3 = this.clockCounter;
         if (typeof t3 !== "number")
           return t3.$add();
-        t2._commands.push(Z._GraphicsCommandArc$(0, 60, 60, 0, 6.283185307179586 * t3 / 15000, false));
+        t2._commands.push(Z._GraphicsCommandArc$(0, 92, 92, 0, 6.283185307179586 * t3 / 15000, false));
         t2._identityRectangleRefresh = true;
         t1 = t1._graphics;
         t1._commands.push(new Z._GraphicsCommandClosePath());
@@ -2890,7 +3102,7 @@ var $$ = {};
         t2 = t1._graphics;
         t3 = new Z._GraphicsCommandLineTo(null, null);
         t3._x = C.JSInt_methods.toDouble$0(0);
-        t4 = C.JSInt_methods.toDouble$0(60);
+        t4 = C.JSInt_methods.toDouble$0(92);
         t3._y = t4;
         t2._commands.push(t3);
         t2._identityRectangleRefresh = true;
@@ -2904,7 +3116,7 @@ var $$ = {};
         t3 = this.clockCounter;
         if (typeof t3 !== "number")
           return t3.$add();
-        t2._commands.push(Z._GraphicsCommandArc$(0, 60, 60, 0, 6.283185307179586 * t3 / 10000, false));
+        t2._commands.push(Z._GraphicsCommandArc$(0, 92, 92, 0, 6.283185307179586 * t3 / 10000, false));
         t2._identityRectangleRefresh = true;
         t1 = t1._graphics;
         t1._commands.push(new Z._GraphicsCommandClosePath());
@@ -2945,12 +3157,13 @@ var $$ = {};
         return false;
     },
     _nextSeason$0: [function() {
-      var t1, t2, sardineCount, tunaCount, sharkCount, rating, t10, i, data, t3, t30, tweenProperty;
+      var t1, t2, sardineCount, tunaCount, sharkCount, rating, t10, i, t3, t30, tweenProperty;
       t1 = this.phase;
       if (t1 === 1) {
         this.transition = true;
         this.phase = 3;
         this._fleet.returnBoats$0();
+        this.transition_fishingToRegrowthSound.play$0(0);
         this._fleet.set$alpha(0, 0);
         this._fleet.removeBoatsFromTouchables$0();
         this._graphTimer = 0;
@@ -2978,13 +3191,13 @@ var $$ = {};
         sharkCount = t2[2];
         if (typeof sardineCount !== "number")
           return sardineCount.$lt();
-        if (sardineCount < 150 && sardineCount > 0) {
+        if (sardineCount < 52.5 && sardineCount > 0) {
           t1._sardineStatusText = "Sardine populuation is endangered";
           t1.badgeSardine.bitmapData = t1._resourceManager.getBitmapData$1("badgeEndangered");
           t1.sardineRating = 1;
           t1.badgeSoundSardine = t1.endangeredSound;
           rating = 2;
-        } else if (sardineCount > 125) {
+        } else if (sardineCount > 148.75) {
           t1._sardineStatusText = "Sardines are overpopulated";
           t1.badgeSardine.bitmapData = t1._resourceManager.getBitmapData$1("badgeOverpopulated");
           t1.sardineRating = 3;
@@ -3005,13 +3218,13 @@ var $$ = {};
         }
         if (typeof tunaCount !== "number")
           return tunaCount.$lt();
-        if (tunaCount < 35 && tunaCount > 0) {
+        if (tunaCount < 12 && tunaCount > 0) {
           t1._tunaStatusText = "Tuna populuation is endangered";
           t1.badgeTuna.bitmapData = t1._resourceManager.getBitmapData$1("badgeEndangered");
           --rating;
           t1.tunaRating = 1;
           t1.badgeSoundTuna = t1.endangeredSound;
-        } else if (tunaCount > 25) {
+        } else if (tunaCount > 34) {
           t1._tunaStatusText = "Tunas are overpopulated";
           t1.badgeTuna.bitmapData = t1._resourceManager.getBitmapData$1("badgeOverpopulated");
           --rating;
@@ -3031,13 +3244,13 @@ var $$ = {};
         }
         if (typeof sharkCount !== "number")
           return sharkCount.$lt();
-        if (sharkCount < 5 && sharkCount > 0) {
+        if (sharkCount < 3.9 && sharkCount > 0) {
           t1._sharkStatusText = "Shark populuation is endangered";
           t1.badgeShark.bitmapData = t1._resourceManager.getBitmapData$1("badgeEndangered");
           --rating;
           t1.sharkRating = 1;
           t1.badgeSoundShark = t1.endangeredSound;
-        } else if (sharkCount > 12) {
+        } else if (sharkCount > 11.05) {
           t1._sharkStatusText = "Sharks are overpopulated";
           t1.badgeShark.bitmapData = t1._resourceManager.getBitmapData$1("badgeOverpopulated");
           --rating;
@@ -3071,48 +3284,11 @@ var $$ = {};
         if (this.round === 0)
           for (i = 0; t1 = this._fleet.boats, i < t1.length; ++i)
             t1[i]._promptUserFinished$0();
-      } else if (t1 === 3) {
-        this.logRound$0();
+      } else if (t1 === 3)
         if (this.endgame$0()) {
           this.transition = true;
-          t1 = this._ecosystem._fishCount;
-          t2 = t1[1];
-          if (typeof t2 !== "number")
-            return t2.$le();
-          if (t2 <= 0) {
-            t1 = this.datalogger;
-            t1.reasonLost = 1;
-          } else {
-            t2 = t1[0];
-            if (typeof t2 !== "number")
-              return t2.$le();
-            if (t2 <= 0) {
-              t1 = this.datalogger;
-              t1.reasonLost = 2;
-            } else {
-              t1 = t1[2];
-              if (typeof t1 !== "number")
-                return t1.$le();
-              t2 = this.datalogger;
-              if (t1 <= 0)
-                t2.reasonLost = 3;
-              else
-                t2.reasonLost = 0;
-              t1 = t2;
-            }
-          }
-          t2 = this.gameID;
-          t1.id = t2;
-          t1.totalTime = this.totalTimeCounter;
-          t1.teamAFinalScore = this.teamAScore;
-          t1.teamBFinalScore = this.teamBScore;
-          t1.totalStars = this.starCount;
-          t1.numOfRound = this.round;
-          data = H.S(t2) + ", " + t1.totalTime + ", " + t1.teamAFinalScore + ", " + t1.teamBFinalScore + ", " + t1.totalStars + ", " + t1.numOfRound + ", " + t1.reasonLost + ", " + t1.round0.getData$0() + t1.round1.getData$0() + t1.round2.getData$0() + t1.round3.getData$0() + t1.round4.getData$0();
-          t1 = $.ws;
-          C.JSNull_methods.send$1(t1, data);
-          C.JSNull_methods.send$1(t1, "endgame");
           this.phase = 4;
+          this.transition_regrowthToEndSound.play$0(0);
           t1 = Z.Tween$(this.badge, 2, Z.TransitionFunction_linear$closure());
           t1._addTweenProperty$1(9)._targetValue = 0;
           t1._onComplete = this.get$toEndGameTransitionStageOne();
@@ -3136,6 +3312,7 @@ var $$ = {};
         } else {
           this.transition = true;
           this.phase = 2;
+          this.transition_regrowthToBuySound.play$0(0);
           t1 = Z.Tween$(this.badge, 2, Z.TransitionFunction_linear$closure());
           t1._addTweenProperty$1(9)._targetValue = 0;
           t1._onComplete = this.get$toBuyPhaseTransitionStageOne();
@@ -3145,9 +3322,10 @@ var $$ = {};
           t2._addTweenProperty$1(9)._targetValue = 0;
           this._TOTC$_juggler.add$1(0, t2);
         }
-      } else if (t1 === 2) {
+      else if (t1 === 2) {
         this.transition = true;
         this.phase = 1;
+        this.transition_buyToFishingSound.play$0(0);
         this.teamARoundProfit = 0;
         this.teamBRoundProfit = 0;
         t1 = this._fleet;
@@ -3191,6 +3369,7 @@ var $$ = {};
         t1._game.tlayer.touchables.push(t1);
         t1 = Z.Tween$(t10.summaryBackground, 0.5, Z.TransitionFunction_linear$closure());
         t1._addTweenProperty$1(9)._targetValue = 1;
+        t1._onComplete = t10.get$showQuestionPrompt();
         t10._TOTC$_juggler.add$1(0, t1);
         t2 = Z.Tween$(t10.replayButton, 0.5, Z.TransitionFunction_linear$closure());
         t2._addTweenProperty$1(9)._targetValue = 1;
@@ -3198,11 +3377,14 @@ var $$ = {};
         t3 = Z.Tween$(t10, 0.5, Z.TransitionFunction_linear$closure());
         t3._addTweenProperty$1(9)._targetValue = 1;
         t10._TOTC$_juggler.add$1(0, t3);
+        this.transition_endToSummarySound.play$0(0);
       } else if (t1 === 5) {
         t1 = this._title;
         t2 = t1.playButton;
         C.JSArray_methods.remove$1(t2._game.tlayer.touchables, t2);
         t2 = t1.aboutButton;
+        C.JSArray_methods.remove$1(t2._game.tlayer.touchables, t2);
+        t2 = t1.tutorialPage;
         C.JSArray_methods.remove$1(t2._game.tlayer.touchables, t2);
         t10 = Z.Tween$(t1.titleBackground, 0.5, Z.TransitionFunction_linear$closure());
         t10._addTweenProperty$1(9)._targetValue = 0;
@@ -3216,6 +3398,7 @@ var $$ = {};
         this.removeChild$1(this._title);
         this.phase = 1;
         this.arrangeTimerUI$0();
+        this.transition_titleToFishingSound.play$0(0);
       }
     }, "call$0", "get$_nextSeason", 0, 0, 0],
     toBuyPhaseTransitionStageOne$0: [function() {
@@ -3256,7 +3439,7 @@ var $$ = {};
       this._offseason.set$y(0, -this.height);
       this.addChildAt$2(this._offseason, this._children.length);
       this.arrangeUILayers$0();
-      this.animatePieTimer$3(-this.width / 2 + 100, this.height / 2 - 103, 0.5);
+      this.animatePieTimer$3(-this.width / 2 + 125, this.height / 2 - 163, 0.5);
       t1 = Z.Tween$(this._offseason, 2.5, Z.TransitionFunction_easeInQuartic$closure());
       t1._addTweenProperty$1(1)._targetValue = 0;
       t1._onComplete = this.get$toBuyPhaseTransitionStageTwo();
@@ -3313,7 +3496,7 @@ var $$ = {};
       this.timerGraphicB.set$width(0, 125);
       this.timerTextB.set$text(0, "Fishing season");
       this._offseason.sendBoatsToFish$0();
-      this.animatePieTimer$3(this.width / 2 - 100, -this.height / 2 + 103, 0.75);
+      this.animatePieTimer$3(this.width / 2 - 125, -this.height / 2 + 163, 0.75);
       P.Timer_Timer(C.Duration_750000, this.get$toFishingPhaseStageTwo());
       t1 = Z.Tween$(this.roundNumber, 0.5, Z.TransitionFunction_linear$closure());
       t1._addTweenProperty$1(9)._targetValue = 0;
@@ -3331,7 +3514,7 @@ var $$ = {};
       t3._addTweenProperty$1(1)._targetValue = 0;
       t4 = this.round + 1;
       this.round = t4;
-      this.roundNumber.set$text(0, "" + (t4 + 1));
+      this.roundNumber.set$text(0, "" + (t4 + 1) + "/5");
       this._TOTC$_juggler.add$1(0, t1);
       this._TOTC$_juggler.add$1(0, t2);
       this._TOTC$_juggler.add$1(0, t3);
@@ -3387,16 +3570,17 @@ var $$ = {};
           if (typeof t3 !== "number")
             return t3.$gt();
           if (t3 > 0)
-            t1.addFish$3(10, 0, true);
+            t1.addFish$3(5, 0, true);
           t2 = t2[1];
           if (typeof t2 !== "number")
             return t2.$gt();
           if (t2 > 0)
-            t1.addFish$3(30, 1, true);
+            t1.addFish$3(15, 1, true);
         } catch (exception) {
           H.unwrapException(exception);
         }
 
+        this.ui_tapTimerSound.play$0(0);
         this._nextSeason$0();
         this.timerButtonReady = false;
       } else {
@@ -3426,7 +3610,7 @@ var $$ = {};
         this.swapChildren$2(this._offseason, toSwap);
     },
     arrangeTimerUI$0: function() {
-      var t1, min, lowest, t2;
+      var t1, min, lowest, t2, t3;
       t1 = this._children;
       min = H.Lists_indexOf(t1, this.timerPie, 0, t1.length);
       if (min > H.Lists_indexOf(t1, this.pieTimerBitmap, 0, t1.length)) {
@@ -3456,45 +3640,14 @@ var $$ = {};
       }
       if (lowest != null)
         this.swapChildren$2(this.timerPie, lowest);
+      t2 = H.Lists_indexOf(t1, this.pieTimerBitmap, 0, t1.length);
+      t3 = t1.length - 2;
+      if (t2 !== t3)
+        this.swapChildren$2(this.pieTimerBitmap, this.getChildAt$1(t3));
       t2 = H.Lists_indexOf(t1, this.timerButton, 0, t1.length);
       t1 = t1.length - 1;
       if (t2 !== t1)
         this.swapChildren$2(this.timerButton, this.getChildAt$1(t1));
-    },
-    logRound$0: function() {
-      var t1, curRound, t2;
-      t1 = this.round;
-      if (t1 === 0)
-        curRound = this.datalogger.round0;
-      else if (t1 === 1)
-        curRound = this.datalogger.round1;
-      else if (t1 === 2)
-        curRound = this.datalogger.round2;
-      else if (t1 === 3)
-        curRound = this.datalogger.round3;
-      else if (t1 === 4)
-        curRound = this.datalogger.round4;
-      else
-        return;
-      curRound.roundTime = this.totalTimeCounter;
-      t1 = this.badge;
-      curRound.starRating = t1.rating;
-      t2 = this._ecosystem._fishCount;
-      curRound.sardineCount = t2[1];
-      curRound.tunaCount = t2[0];
-      curRound.sharkCount = t2[2];
-      curRound.sardineStatus = t1.sardineRating;
-      curRound.tunaStatus = t1.tunaRating;
-      curRound.sharkStatus = t1.sharkRating;
-      t1 = this._fleet;
-      curRound.teamANetSize = t1.teamANetSize;
-      curRound.teamABoatType = t1.teamABoatType;
-      curRound.teamASeasonProfit = this.teamARoundProfit;
-      curRound.teamANumOfFishCaught = t1.teamACaught;
-      curRound.teamBNetSize = t1.teamBNetSize;
-      curRound.teamBBoatType = t1.teamBBoatType;
-      curRound.teamBSeasonProfit = this.teamBRoundProfit;
-      curRound.teamBNumOfFishCaught = t1.teamBCaught;
     },
     fadePieTimer$2: function(val, dt) {
       var t1, t2, t3, t4, t5, t6;
@@ -3502,7 +3655,10 @@ var $$ = {};
       t1._addTweenProperty$1(9)._targetValue = val;
       this._TOTC$_juggler.add$1(0, t1);
       t2 = Z.Tween$(this.pieTimerBitmap, dt, Z.TransitionFunction_linear$closure());
-      t2._addTweenProperty$1(9)._targetValue = val;
+      if (val !== 0)
+        t2._addTweenProperty$1(9)._targetValue = 1;
+      else
+        t2._addTweenProperty$1(9)._targetValue = val;
       this._TOTC$_juggler.add$1(0, t2);
       t3 = Z.Tween$(this.roundTitle, dt, Z.TransitionFunction_linear$closure());
       t3._addTweenProperty$1(9)._targetValue = val;
@@ -3547,6 +3703,7 @@ var $$ = {};
       t7._addTweenProperty$1(0)._deltaValue = dx;
       t7._addTweenProperty$1(1)._deltaValue = dy;
       this._TOTC$_juggler.add$1(0, t7);
+      this.arrangeTimerUI$0();
     },
     Game$4: function(resourceManager, juggler, w, h) {
       var t1, t2, t3, t4, t5, format, t6, t7;
@@ -3558,9 +3715,6 @@ var $$ = {};
       P.print("Game Height:" + C.JSNumber_methods.toString$0(this.height));
       this.transition = false;
       this.timerActive = true;
-      t1 = new F.DataLogger(null, null, null, null, null, null, null, null, null, null, null, null);
-      t1.DataLogger$0();
-      this.datalogger = t1;
       t1 = this.tmanager;
       t1.registerEvents$1(this);
       t1.layers.push(this.tlayer);
@@ -3581,7 +3735,7 @@ var $$ = {};
       t4 = H.setRuntimeTypeInfo([], [Z.DisplayObject]);
       t5 = $.DisplayObject__nextID;
       $.DisplayObject__nextID = t5 + 1;
-      t5 = new F.Endgame(t2, t3, this, t1, null, null, null, null, null, null, null, null, null, null, false, null, null, null, t4, true, true, false, true, false, true, 0, t5, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+      t5 = new F.Endgame(t2, t3, this, t1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, false, null, null, null, t4, true, true, false, true, false, true, 0, t5, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       t5.Endgame$4(t2, t3, this, t1);
       this._endgame = t5;
       t5 = this._resourceManager;
@@ -3590,7 +3744,7 @@ var $$ = {};
       t2 = H.setRuntimeTypeInfo([], [Z.DisplayObject]);
       t4 = $.DisplayObject__nextID;
       $.DisplayObject__nextID = t4 + 1;
-      t4 = new F.Title(t5, t1, this, t3, null, null, null, null, false, false, null, null, null, t2, true, true, false, true, false, true, 0, t4, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+      t4 = new F.Title(t5, t1, this, t3, null, null, null, null, null, null, null, null, false, true, false, null, null, null, t2, true, true, false, true, false, true, 0, t4, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       t4.Title$4(t5, t1, this, t3);
       this._title = t4;
       t4 = this._resourceManager;
@@ -3599,7 +3753,7 @@ var $$ = {};
       t5 = H.setRuntimeTypeInfo([], [Z.DisplayObject]);
       t2 = $.DisplayObject__nextID;
       $.DisplayObject__nextID = t2 + 1;
-      t2 = new F.FinalSummary(t4, t3, this, t1, null, null, false, false, null, null, null, t5, true, true, false, true, false, true, 0, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+      t2 = new F.FinalSummary(t4, t3, this, t1, null, null, null, null, null, false, false, null, null, null, t5, true, true, false, true, false, true, 0, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       t2.FinalSummary$4(t4, t3, this, t1);
       this._finalSummary = t2;
       this._background.set$width(0, this.width);
@@ -3617,6 +3771,13 @@ var $$ = {};
       t5.EcosystemBadge$4(t2, t1, this, t3);
       this.badge = t5;
       this.timerButtonBool = false;
+      this.transition_titleToFishingSound = this._resourceManager.getSound$1("transition_titleToFishing");
+      this.transition_fishingToRegrowthSound = this._resourceManager.getSound$1("transition_fishingToRegrowth");
+      this.transition_regrowthToBuySound = this._resourceManager.getSound$1("transition_regrowthToBuy");
+      this.transition_buyToFishingSound = this._resourceManager.getSound$1("transition_buyToFishing");
+      this.transition_regrowthToEndSound = this._resourceManager.getSound$1("transition_regrowthToEnd");
+      this.transition_endToSummarySound = this._resourceManager.getSound$1("transition_endToSummary");
+      this.ui_tapTimerSound = this._resourceManager.getSound$1("ui_tapTimer");
       t5 = this._children;
       this.addChildAt$2(this._background, t5.length);
       this.addChildAt$2(this._ecosystem, t5.length);
@@ -3723,12 +3884,12 @@ var $$ = {};
       this.timerPie = t6;
       t3.push(new Z._GraphicsCommandBeginPath());
       t2._identityRectangleRefresh = true;
-      t6.set$x(0, this.width - 100);
-      t6.set$y(0, 50);
+      t6.set$x(0, this.width - 130);
+      t6.set$y(0, 65);
       t2 = t6._graphics;
       t3 = new Z._GraphicsCommandLineTo(null, null);
       t3._x = C.JSInt_methods.toDouble$0(0);
-      t1 = C.JSInt_methods.toDouble$0(60);
+      t1 = C.JSInt_methods.toDouble$0(92);
       t3._y = t1;
       t2._commands.push(t3);
       t2._identityRectangleRefresh = true;
@@ -3739,7 +3900,7 @@ var $$ = {};
       t2._commands.push(t3);
       t2._identityRectangleRefresh = true;
       t2 = t6._graphics;
-      t2._commands.push(Z._GraphicsCommandArc$(0, 60, 60, 0, 6.283185307179586, false));
+      t2._commands.push(Z._GraphicsCommandArc$(0, 92, 92, 0, 6.283185307179586, false));
       t2._identityRectangleRefresh = true;
       t2 = t6._graphics;
       t2._commands.push(new Z._GraphicsCommandClosePath());
@@ -3755,75 +3916,80 @@ var $$ = {};
       $.DisplayObject__nextID = t2 + 1;
       t2 = new Z.Bitmap(t6, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       this.pieTimerBitmap = t2;
-      t2.set$rotation(0.7853981633974483);
-      this.pieTimerBitmap.set$alpha(0, this.timerPie._alpha + 10);
-      this.pieTimerBitmap.set$x(0, this.timerPie._x + 22);
-      this.pieTimerBitmap.set$y(0, this.timerPie._y - 62);
-      t2 = Z.TextField$("Round:", new Z.TextFormat("Arial", 15, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0));
-      this.roundTitle = t2;
-      t2.set$x(0, this.width - 65);
-      t2.set$y(0, 75);
-      t2.set$alpha(0, 0.7);
+      t2.set$alpha(0, this.timerPie._alpha + 10);
+      t2 = this.pieTimerBitmap;
+      t6 = this.timerPie._x;
+      t3 = J.$div$n(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).width, 2);
+      if (typeof t3 !== "number")
+        return H.iae(t3);
+      t2.set$x(0, t6 - t3);
+      this.pieTimerBitmap.set$y(0, this.timerPie._y - 10);
+      t3 = Z.TextField$(" Round:", new Z.TextFormat("Arial", 28, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0));
+      this.roundTitle = t3;
+      t3.set$x(0, this.timerPie._x + 40);
+      t3.set$y(0, this.timerPie._y + 40);
+      t3.set$alpha(0, 0.7);
       t6 = C.JSInt_methods.toDouble$0(300);
-      t2._width = t6;
-      t2._refreshPending = t2._refreshPending | 3;
-      t3 = this.roundTitle;
-      t3._refreshTextLineMetrics$0();
-      t2.set$pivotX(t3._width / 2);
-      t2.set$rotation(0.7853981633974483);
-      t2 = Z.TextField$("" + (this.round + 1), new Z.TextFormat("Arial", 50, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0));
-      this.roundNumber = t2;
-      t2.set$x(0, this.width - 85);
-      t2.set$y(0, 75);
-      t2.set$alpha(0, 0.7);
-      t2._width = t6;
-      t2._refreshPending = t2._refreshPending | 3;
-      t3 = this.roundNumber;
-      t3._refreshTextLineMetrics$0();
-      t2.set$pivotX(t3._width / 2);
-      t2.set$rotation(0.7853981633974483);
-      t2 = Z.TextField$("/ 5", new Z.TextFormat("Arial", 25, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0));
-      this.roundNumberDiv = t2;
-      t2.set$x(0, this.width - 80);
-      t2.set$y(0, 115);
-      t2.set$alpha(0, 0.7);
-      t2._width = t6;
-      t2._refreshPending = t2._refreshPending | 3;
-      t3 = this.roundNumberDiv;
-      t3._refreshTextLineMetrics$0();
-      t2.set$pivotX(t3._width / 2);
-      t2.set$rotation(0.7853981633974483);
-      t2 = Z.TextField$("Tap to Skip\nForward", new Z.TextFormat("Arial", 15, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0));
-      this.seasonTitle = t2;
-      t2.set$x(0, this.width - 115);
-      t2.set$y(0, 125);
-      t2.set$alpha(0, 0.7);
-      t2._width = t6;
-      t2._refreshPending = t2._refreshPending | 3;
-      t3 = this.seasonTitle;
-      t3._refreshTextLineMetrics$0();
-      t2.set$pivotX(t3._width / 2);
-      t2.set$rotation(0.7853981633974483);
-      t2 = this._resourceManager.getBitmapData$1("timer");
-      t3 = $.DisplayObject__nextID;
-      $.DisplayObject__nextID = t3 + 1;
-      t3 = new Z.Bitmap(t2, t3, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
-      this.pieTimerBitmapButton = t3;
+      t3._width = t6;
+      t3._refreshPending = t3._refreshPending | 3;
+      t2 = this.roundTitle;
+      t2._refreshTextLineMetrics$0();
+      t3.set$pivotX(t2._width / 2);
       t3.set$rotation(0.7853981633974483);
+      t3 = Z.TextField$("" + (this.round + 1) + "/5", new Z.TextFormat("Arial", 70, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0));
+      this.roundNumber = t3;
+      t3.set$x(0, this.timerPie._x + 20);
+      t3.set$y(0, this.timerPie._y + 65);
+      t3.set$alpha(0, 0.7);
+      t3.set$alpha(0, 0.7);
+      t3._width = t6;
+      t3._refreshPending = t3._refreshPending | 3;
+      t2 = this.roundNumber;
+      t2._refreshTextLineMetrics$0();
+      t3.set$pivotX(t2._width / 2);
+      t3.set$rotation(0.7853981633974483);
+      t3 = Z.TextField$("", new Z.TextFormat("Arial", 65, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0));
+      this.roundNumberDiv = t3;
+      t3.set$x(0, this.timerPie._x + 15);
+      t3.set$y(0, this.timerPie._y + 95);
+      t3.set$alpha(0, 0.7);
+      t3._width = t6;
+      t3._refreshPending = t3._refreshPending | 3;
+      t2 = this.roundNumberDiv;
+      t2._refreshTextLineMetrics$0();
+      t3.set$pivotX(t2._width / 2);
+      t3.set$rotation(0.7853981633974483);
+      t3 = Z.TextField$("Double Tap to\nSkip Forward", new Z.TextFormat("Arial", 15, 4294967295, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0));
+      this.seasonTitle = t3;
+      t3.set$x(0, this.timerPie._x - 20 - 50);
+      t3.set$y(0, this.timerPie._y + 115 + 50);
+      t3.set$alpha(0, 0.7);
+      t3._width = t6;
+      t3._refreshPending = t3._refreshPending | 3;
+      t2 = this.seasonTitle;
+      t2._refreshTextLineMetrics$0();
+      t3.set$pivotX(t2._width / 2);
+      t3.set$rotation(0.7853981633974483);
+      t3 = this._resourceManager.getBitmapData$1("timer");
+      t2 = $.DisplayObject__nextID;
+      $.DisplayObject__nextID = t2 + 1;
+      t2 = new Z.Bitmap(t3, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+      this.pieTimerBitmapButton = t2;
+      t2.set$rotation(0.7853981633974483);
       this.pieTimerBitmapButton.set$alpha(0, 0);
-      this.pieTimerBitmapButton.set$x(0, this.timerPie._x + 22);
-      this.pieTimerBitmapButton.set$y(0, this.timerPie._y - 62);
-      t3 = this.pieTimerBitmapButton;
-      t3 = Z.SimpleButton$(t3, t3, t3, t3);
-      this.timerButton = t3;
-      t2 = this.get$_timerButtonPressed();
-      t3.on$1(0, "mouseDown")._subscribe$3(t2, false, 0);
-      t2 = this.timerButton;
+      this.pieTimerBitmapButton.set$x(0, this.timerPie._x + 24);
+      this.pieTimerBitmapButton.set$y(0, this.timerPie._y - 64);
+      t2 = this.pieTimerBitmapButton;
+      t2 = Z.SimpleButton$(t2, t2, t2, t2);
+      this.timerButton = t2;
       t3 = this.get$_timerButtonPressed();
-      t2.on$1(0, "touchTap")._subscribe$3(t3, false, 0);
+      t2.on$1(0, "mouseDown")._subscribe$3(t3, false, 0);
       t3 = this.timerButton;
       t2 = this.get$_timerButtonPressed();
-      t3.on$1(0, "touchBegin")._subscribe$3(t2, false, 0);
+      t3.on$1(0, "touchTap")._subscribe$3(t2, false, 0);
+      t2 = this.timerButton;
+      t3 = this.get$_timerButtonPressed();
+      t2.on$1(0, "touchBegin")._subscribe$3(t3, false, 0);
       t1 = this.timerType;
       if (t1 === 0) {
         this.addChildAt$2(this.timerGraphicA, t5.length);
@@ -3861,7 +4027,7 @@ var $$ = {};
       t4 = this._ecosystem._fishCount[1];
       if (typeof t4 !== "number")
         return t4.$negate();
-      t1.push(Z._GraphicsCommandRect$(0, 0, 30, -t4 * 0.6666666666666666));
+      t1.push(Z._GraphicsCommandRect$(0, 0, 45, -t4 * 1.5));
       t2._identityRectangleRefresh = true;
       t3.set$x(0, 20);
       t3.set$y(0, this.height - 20);
@@ -3880,7 +4046,7 @@ var $$ = {};
       $.DisplayObject__nextID = t1 + 1;
       t1 = new Z.Shape(t4, t1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       this.sardineOutline = t1;
-      t2.push(Z._GraphicsCommandRect$(0, 0, 30, -116.66666666666666));
+      t2.push(Z._GraphicsCommandRect$(0, 0, 45, -262.5));
       t4._identityRectangleRefresh = true;
       t1.set$x(0, 20);
       t1.set$y(0, this.height - 20);
@@ -3919,9 +4085,9 @@ var $$ = {};
       t2 = this._ecosystem._fishCount[0];
       if (typeof t2 !== "number")
         return t2.$negate();
-      t7.push(Z._GraphicsCommandRect$(0, 0, 30, -t2 * 2));
+      t7.push(Z._GraphicsCommandRect$(0, 0, 45, -t2 * 3));
       t1._identityRectangleRefresh = true;
-      t4.set$x(0, 50);
+      t4.set$x(0, 65);
       t4.set$y(0, this.height - 20);
       t4.set$alpha(0, 0.6);
       t4 = t4._graphics;
@@ -3937,9 +4103,9 @@ var $$ = {};
       $.DisplayObject__nextID = t2 + 1;
       t2 = new Z.Shape(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       this.tunaOutline = t2;
-      t4.push(Z._GraphicsCommandRect$(0, 0, 30, -100));
+      t4.push(Z._GraphicsCommandRect$(0, 0, 45, -120));
       t1._identityRectangleRefresh = true;
-      t2.set$x(0, 50);
+      t2.set$x(0, 65);
       t2.set$y(0, this.height - 20);
       t2.set$alpha(0, 1);
       t2 = t2._graphics;
@@ -3976,9 +4142,9 @@ var $$ = {};
       t4 = this._ecosystem._fishCount[2];
       if (typeof t4 !== "number")
         return t4.$negate();
-      t7.push(Z._GraphicsCommandRect$(0, 0, 30, -t4 * 4));
+      t7.push(Z._GraphicsCommandRect$(0, 0, 45, -t4 * 6));
       t2._identityRectangleRefresh = true;
-      t1.set$x(0, 80);
+      t1.set$x(0, 110);
       t1.set$y(0, this.height - 20);
       t1.set$alpha(0, 0.6);
       t1 = t1._graphics;
@@ -3994,9 +4160,9 @@ var $$ = {};
       $.DisplayObject__nextID = t4 + 1;
       t4 = new Z.Shape(t2, t4, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
       this.sharkOutline = t4;
-      t1.push(Z._GraphicsCommandRect$(0, 0, 30, -52));
+      t1.push(Z._GraphicsCommandRect$(0, 0, 45, -78));
       t2._identityRectangleRefresh = true;
-      t4.set$x(0, 80);
+      t4.set$x(0, 110);
       t4.set$y(0, this.height - 20);
       t4.set$alpha(0, 1);
       t4 = t4._graphics;
@@ -4024,24 +4190,25 @@ var $$ = {};
       t1.set$y(0, t2 - t4 - t7.getBoundsTransformed$1(t7.get$transformationMatrix()).height);
       this.addChildAt$2(this.sharkIcon, t5.length);
       t3.push(this.sharkIcon);
-      t7 = Z.TextField$("Game ID: ", new Z.TextFormat("Arial", 10, 4294967295, 0, 4278190080, null, false, false, false, "center", 0, 0, 0, 0, 0, 0));
-      this.gameIDText = t7;
-      t7.set$x(0, 75);
-      t7.set$y(0, this.height - 20);
-      t7.set$alpha(0, 0.7);
-      t7._width = t6;
-      t7._refreshPending = t7._refreshPending | 3;
+      t3 = Z.TextField$("Game ID: ", new Z.TextFormat("Arial", 10, 4294967295, 0, 4278190080, null, false, false, false, "center", 0, 0, 0, 0, 0, 0));
+      this.gameIDText = t3;
+      t3.set$x(0, 75);
+      t3.set$y(0, this.height - 20);
+      t3.set$alpha(0, 0.7);
+      t3._width = t6;
+      t3._refreshPending = t3._refreshPending | 3;
       t6 = this.roundTitle;
       t6._refreshTextLineMetrics$0();
-      t7.set$pivotX(t6._width / 2);
-      t7.set$rotation(0);
-      this.addChildAt$2(this.gameIDText, t5.length);
-      t3.push(this.gameIDText);
+      t3.set$pivotX(t6._width / 2);
+      t3.set$rotation(0);
       this.timerActive = false;
       this.addChildAt$2(this._title, t5.length);
+      this.background_music = this._resourceManager.getSound$1("background_music");
+      this.background_music_short = this._resourceManager.getSound$1("background_music_short");
+      this._playBgMusic$0();
     },
     $isAnimatable: true,
-    static: {"^": "Game_TITLE_PHASE,Game_INSTRUCTION_PHASE,Game_FISHING_PHASE,Game_BUY_PHASE,Game_REGROWTH_PHASE,Game_ENDGAME_PHASE,Game_FINALSUMMARY_PHASE,Game_MAX_ROUNDS,Game_FISHING_TIMER_WIDTH,Game_REGROWTH_TIMER_WIDTH,Game_BUY_TIMER_WIDTH,Game_FISHING_TIME,Game_REGROWTH_TIME,Game_BUYING_TIME,Game_timerPieRadius,Game_TUNA,Game_SARDINE,Game_SHARK,Game_BAR_TIMER,Game_PIE_TIMER,Game_LINE_GRAPH_INFO,Game_BADGE_STAR_INFO"}
+    static: {"^": "Game_TITLE_PHASE,Game_INSTRUCTION_PHASE,Game_FISHING_PHASE,Game_BUY_PHASE,Game_REGROWTH_PHASE,Game_ENDGAME_PHASE,Game_FINALSUMMARY_PHASE,Game_MAX_ROUNDS,Game_FISHING_TIMER_WIDTH,Game_REGROWTH_TIMER_WIDTH,Game_BUY_TIMER_WIDTH,Game_FISHING_TIME,Game_REGROWTH_TIME,Game_BUYING_TIME,Game_timerPieRadius,Game_TUNA,Game_SARDINE,Game_SHARK,Game_BAR_TIMER,Game_PIE_TIMER,Game_sardineBarMult,Game_tunaBarMult,Game_sharkBarMult,Game_LINE_GRAPH_INFO,Game_BADGE_STAR_INFO"}
   },
   Game_advanceTime_closure: {
     "^": "Closure:163;this_0",
@@ -4051,13 +4218,6 @@ var $$ = {};
       t2 = t1.totalTimeCounter;
       t1.totalTimeCounter = t2 + 1;
       return t2;
-    }, "call$1", null, 2, 0, null, 14, "call"],
-    $isFunction: true
-  },
-  Game_advanceTime_closure0: {
-    "^": "Closure:194;this_1",
-    call$1: [function(e) {
-      e.get$data(e).$index(0, 0);
     }, "call$1", null, 2, 0, null, 14, "call"],
     $isFunction: true
   },
@@ -4450,7 +4610,7 @@ var $$ = {};
         if (sardineCount >= -75) {
           if (typeof tunaCount !== "number")
             return tunaCount.$lt();
-          if (tunaCount >= 10) {
+          if (tunaCount >= 0) {
             if (typeof sharkCount !== "number")
               return sharkCount.$lt();
             t1 = sharkCount < 2;
@@ -4465,7 +4625,7 @@ var $$ = {};
           if (t1) {
             if (typeof tunaCount !== "number")
               return tunaCount.$lt();
-            if (tunaCount < 25) {
+            if (tunaCount < 15) {
               if (typeof sharkCount !== "number")
                 return sharkCount.$lt();
               t2 = sharkCount < 3;
@@ -4479,7 +4639,7 @@ var $$ = {};
             if (t1) {
               if (typeof tunaCount !== "number")
                 return tunaCount.$gt();
-              if (tunaCount <= 25) {
+              if (tunaCount <= 15) {
                 if (typeof sharkCount !== "number")
                   return sharkCount.$gt();
                 t1 = sharkCount > 2;
@@ -4492,7 +4652,7 @@ var $$ = {};
             else {
               if (typeof tunaCount !== "number")
                 return tunaCount.$lt();
-              if (tunaCount < 25)
+              if (tunaCount < 15)
                 if (sardineCount <= 25) {
                   if (typeof sharkCount !== "number")
                     return sharkCount.$gt();
@@ -4505,7 +4665,7 @@ var $$ = {};
                 this._statusText.set$text(0, "There are not enough tuna! The sharks will starve.");
               else {
                 if (sardineCount < 2)
-                  t1 = tunaCount > 35 || false;
+                  t1 = tunaCount > 25 || false;
                 else
                   t1 = false;
                 t2 = this._statusText;
@@ -4694,16 +4854,13 @@ var $$ = {};
   Offseason_closure: {
     "^": "Closure:163;this_0",
     call$1: [function(bitmapData) {
-      var t1, t2, t3, t4, t5;
+      var t1, t2;
       t1 = this.this_0;
-      t2 = t1.offseasonDock;
-      t3 = t1._game.width;
-      t4 = J.getInterceptor$x(bitmapData);
-      t5 = J.$div$n(t4.get$width(bitmapData), 2);
-      if (typeof t5 !== "number")
-        return H.iae(t5);
-      t2.set$x(0, t3 / 2 - t5);
-      t1.offseasonDock.set$y(0, t1._game.height / 2 - J.$div$n(t4.get$height(bitmapData), 2));
+      t2 = J.getInterceptor$x(bitmapData);
+      t1.offseasonDock.set$pivotX(J.$div$n(t2.get$width(bitmapData), 2));
+      t1.offseasonDock.set$pivotY(J.$div$n(t2.get$height(bitmapData), 2));
+      t1.offseasonDock.set$x(0, t1._game.width / 2);
+      t1.offseasonDock.set$y(0, t1._game.height / 2);
     }, "call$1", null, 2, 0, null, 191, "call"],
     $isFunction: true
   },
@@ -4711,20 +4868,20 @@ var $$ = {};
     "^": "Closure:163;this_0",
     call$1: [function(sardineBoat) {
       Z.BitmapData_load("images/boat_tuna_a.png", null).then$1(new F.Offseason_fillDocks__closure(this.this_0, sardineBoat));
-    }, "call$1", null, 2, 0, null, 195, "call"],
+    }, "call$1", null, 2, 0, null, 194, "call"],
     $isFunction: true
   },
   Offseason_fillDocks__closure: {
     "^": "Closure:163;this_1,sardineBoat_2",
     call$1: [function(tunaBoat) {
       Z.BitmapData_load("images/boat_shark_a.png", null).then$1(new F.Offseason_fillDocks___closure(this.this_1, this.sardineBoat_2, tunaBoat));
-    }, "call$1", null, 2, 0, null, 196, "call"],
+    }, "call$1", null, 2, 0, null, 195, "call"],
     $isFunction: true
   },
   Offseason_fillDocks___closure: {
     "^": "Closure:163;this_3,sardineBoat_4,tunaBoat_5",
     call$1: [function(sharkBoat) {
-      var t1, t2, w, h, t3, i, childIndex, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, aCounter, bCounter, t21, fleetBoat, boat;
+      var t1, t2, w, h, t3, i, childIndex, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, aCounter, bCounter, t22, fleetBoat, boat;
       t1 = this.this_3;
       t2 = t1._game;
       w = t2.width;
@@ -4739,8 +4896,8 @@ var $$ = {};
           t1.removeChildAt$1(childIndex);
         }
       C.JSArray_methods.set$length(t2, 0);
-      for (t4 = w / 2, t5 = t4 + 70, t6 = h / 2, t7 = t6 - 115, t8 = t4 + 120, t9 = t6 + 0, t10 = t4 + 65, t11 = t6 + 100, t12 = J.getInterceptor$x(sharkBoat), t13 = this.tunaBoat_5, t14 = J.getInterceptor$x(t13), t15 = this.sardineBoat_4, t16 = J.getInterceptor$x(t15), t17 = t4 - 85, t18 = t6 + 115, t19 = t4 - 150, t20 = t6 - 5, t4 -= 95, t6 -= 120, aCounter = 0, bCounter = 0, i = 0; t21 = t1._fleet.boats, i < t21.length; ++i) {
-        fleetBoat = t21[i];
+      for (t4 = w / 2, t5 = t4 + 70, t6 = h / 2, t7 = t6 - 115, t8 = t4 + 120, t9 = t6 + 0, t10 = t4 + 150, t11 = t6 + 150, t12 = t6 + 155, t13 = t4 + 155, t14 = J.getInterceptor$x(sharkBoat), t15 = this.tunaBoat_5, t16 = J.getInterceptor$x(t15), t17 = this.sardineBoat_4, t18 = J.getInterceptor$x(t17), t19 = t4 - 85, t20 = t6 + 115, t4 -= 150, t21 = t6 - 5, t6 -= 150, aCounter = 0, bCounter = 0, i = 0; t22 = t1._fleet.boats, i < t22.length; ++i) {
+        fleetBoat = t22[i];
         boat = F.Boat$(t1._resourceManager, t1._TOTC$_juggler, fleetBoat.get$_TOTC$_type(), t1._game, t1._fleet, fleetBoat.get$netSize());
         t2.push(boat);
         boat.offseasonBoat = true;
@@ -4748,28 +4905,28 @@ var $$ = {};
         if (fleetBoat.get$_teamA()) {
           t1._boatsA.$indexSet(0, i, boat);
           if (fleetBoat.get$_TOTC$_type() === 1 || fleetBoat.get$_TOTC$_type() === 2) {
-            t21 = J.$div$n(t16.get$width(t15), 2);
-            if (typeof t21 === "number")
-              boat._pivotX = t21;
+            t22 = J.$div$n(t18.get$width(t17), 2);
+            if (typeof t22 === "number")
+              boat._pivotX = t22;
             boat._transformationMatrixRefresh = true;
-            t21 = J.$div$n(t16.get$height(t15), 2);
-            boat._pivotY = t21;
+            t22 = J.$div$n(t18.get$height(t17), 2);
+            boat._pivotY = t22;
             boat._transformationMatrixRefresh = true;
           } else if (fleetBoat.get$_TOTC$_type() === 3 || fleetBoat.get$_TOTC$_type() === 4) {
-            t21 = J.$div$n(t14.get$width(t13), 2);
-            if (typeof t21 === "number")
-              boat._pivotX = t21;
+            t22 = J.$div$n(t16.get$width(t15), 2);
+            if (typeof t22 === "number")
+              boat._pivotX = t22;
             boat._transformationMatrixRefresh = true;
-            t21 = J.$div$n(t14.get$height(t13), 2);
-            boat._pivotY = t21;
+            t22 = J.$div$n(t16.get$height(t15), 2);
+            boat._pivotY = t22;
             boat._transformationMatrixRefresh = true;
           } else if (fleetBoat.get$_TOTC$_type() === 5 || fleetBoat.get$_TOTC$_type() === 6) {
-            t21 = J.$div$n(t12.get$width(sharkBoat), 2);
-            if (typeof t21 === "number")
-              boat._pivotX = t21;
+            t22 = J.$div$n(t14.get$width(sharkBoat), 2);
+            if (typeof t22 === "number")
+              boat._pivotX = t22;
             boat._transformationMatrixRefresh = true;
-            t21 = J.$div$n(t12.get$height(sharkBoat), 2);
-            boat._pivotY = t21;
+            t22 = J.$div$n(t14.get$height(sharkBoat), 2);
+            boat._pivotY = t22;
             boat._transformationMatrixRefresh = true;
           }
           if (aCounter === 0) {
@@ -4782,21 +4939,21 @@ var $$ = {};
             boat._rotation = 2.5132741228718345;
             boat._transformationMatrixRefresh = true;
           } else if (aCounter === 1) {
+            boat._x = t4;
+            boat._transformationMatrixRefresh = true;
+            boat._y = t21;
+            boat._transformationMatrixRefresh = true;
+            boat._newX = t4;
+            boat._newY = t21;
+            boat._rotation = 1.5707963267948966;
+            boat._transformationMatrixRefresh = true;
+          } else if (aCounter === 2) {
             boat._x = t19;
             boat._transformationMatrixRefresh = true;
             boat._y = t20;
             boat._transformationMatrixRefresh = true;
             boat._newX = t19;
             boat._newY = t20;
-            boat._rotation = 1.5707963267948966;
-            boat._transformationMatrixRefresh = true;
-          } else if (aCounter === 2) {
-            boat._x = t17;
-            boat._transformationMatrixRefresh = true;
-            boat._y = t18;
-            boat._transformationMatrixRefresh = true;
-            boat._newX = t17;
-            boat._newY = t18;
             boat._rotation = 0.5235987755982988;
             boat._transformationMatrixRefresh = true;
           }
@@ -4804,9 +4961,9 @@ var $$ = {};
         } else {
           t1._boatsB.$indexSet(0, i, boat);
           if (bCounter === 0) {
-            boat._x = t10;
+            boat._x = t13;
             boat._transformationMatrixRefresh = true;
-            boat._y = t11;
+            boat._y = t12;
             boat._transformationMatrixRefresh = true;
             boat._newX = t10;
             boat._newY = t11;
@@ -4836,12 +4993,13 @@ var $$ = {};
         t1._game.tlayer.touchables.push(boat);
         t1.addChildAt$2(boat, H.Lists_indexOf(t3, t1.offseasonDock, 0, t3.length) + 1 + i);
       }
-    }, "call$1", null, 2, 0, null, 197, "call"],
+    }, "call$1", null, 2, 0, null, 196, "call"],
     $isFunction: true
   },
   Circle: {
-    "^": "Sprite;_resourceManager,_TOTC$_juggler,_game,_fleet,_offseason,_boatsA,_boatsB,_circle,_circleButton,_capacitySmallButton,_capacityLargeButton,_tunaButton,_sardineButton,_sharkButton,_tempButton,_yesButton,_noButton,_confirmText,_box,pushA,pushB,clicked,swoosh,buySplash,itemSuction,_teamA<,_teamAA,_upgradeMode,_rotateTween,_rotateTween2,_upgradeRotation,_upgradeRotation2,_touchMode,_circleWidth,_touchedBoat,_confirmMode,_boxConfirmMode,_boxUp,_boxX,_boxY,_boxDisplayed,wShip,wNet,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
+    "^": "Sprite;_resourceManager,_TOTC$_juggler,_game,_fleet,_offseason,_boatsA,_boatsB,_circle,_circleButton,_capacitySmallButton,_capacityLargeButton,_tunaButton,_sardineButton,_sharkButton,_tempButton,_yesButton,_noButton,_confirmText,_box,pushA,pushB,ui_selectSardineBoatSound,ui_selectTunaBoatSound,ui_selectSharkBoatSound,ui_selectSmallNetSound,ui_selectBigNetSound,ui_rotateBuyDiscSound,discChannel,_teamA<,_teamAA,_upgradeMode,_rotateTween,_rotateTween2,_upgradeRotation,_upgradeRotation2,_touchMode,_circleWidth,_touchedBoat,_confirmMode,_boxConfirmMode,_boxUp,_boxX,_boxY,_boxDisplayed,wShip,wNet,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
     _circlePressed$1: [function(e) {
+      this.discChannel = this.ui_rotateBuyDiscSound.play$0(0);
       if (this._TOTC$_juggler.contains$1(0, this._rotateTween))
         this._TOTC$_juggler.remove$1(0, this._rotateTween);
       if (this._TOTC$_juggler.contains$1(0, this._rotateTween2))
@@ -4902,19 +5060,20 @@ var $$ = {};
         temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
         t14 = this.get$_capacityLargeButtonPressed();
         temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-        t1 = Math.cos(4.1887902047863905);
+        t1 = Math.cos(4.319689898685966);
         t2 = this.wNet;
         if (typeof t2 !== "number")
           return H.iae(t2);
-        temp.set$x(0, t1 * t2);
-        t1 = Math.sin(4.1887902047863905);
+        temp.set$x(0, t1 * t2 - 40);
+        t1 = Math.sin(4.319689898685966);
         t2 = this.wNet;
         if (typeof t2 !== "number")
           return H.iae(t2);
-        temp.set$y(0, t1 * t2);
+        temp.set$y(0, t1 * t2 - 40);
         this.addChildAt$2(temp, this._children.length);
         this._capacityLargeButton = temp;
         this._capacitySmallButton = this._returnCapacityButton$0();
+        this.ui_selectBigNetSound.play$0(0);
       }
     }, "call$1", "get$_capacityLargeButtonPressed", 2, 0, 122, 14],
     _capacitySmallButtonPressed$1: [function(e) {
@@ -4972,6 +5131,7 @@ var $$ = {};
         temp.set$y(0, t1 * t2);
         this.addChildAt$2(temp, this._children.length);
         this._capacitySmallButton = temp;
+        this.ui_selectSmallNetSound.play$0(0);
       }
     }, "call$1", "get$_capacitySmallButtonPressed", 2, 0, 122, 14],
     _tunaPressed$1: [function(e) {
@@ -5021,15 +5181,16 @@ var $$ = {};
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return H.iae(t2);
-        temp.set$x(0, t1 * t2);
+        temp.set$x(0, t1 * t2 - 50);
         t1 = Math.sin(0.7853981633974483);
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return H.iae(t2);
-        temp.set$y(0, t1 * t2);
+        temp.set$y(0, t1 * t2 - 50);
         this.addChildAt$2(temp, this._children.length);
         this._tunaButton = temp;
         this._sharkButton = this._returnSharkButton$0();
+        this.ui_selectTunaBoatSound.play$0(0);
       }
     }, "call$1", "get$_tunaPressed", 2, 0, 122, 14],
     _sardinePressed$1: [function(e) {
@@ -5074,20 +5235,21 @@ var $$ = {};
         temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
         t14 = this.get$_sardinePressed();
         temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-        t1 = Math.cos(-0.19634954084936207);
+        t1 = Math.cos(-0.5890486225480862);
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return H.iae(t2);
-        temp.set$x(0, t1 * t2);
-        t1 = Math.sin(-0.19634954084936207);
+        temp.set$x(0, t1 * t2 + 10);
+        t1 = Math.sin(-0.5890486225480862);
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return H.iae(t2);
-        temp.set$y(0, t1 * t2);
+        temp.set$y(0, t1 * t2 + 10);
         this.addChildAt$2(temp, this._children.length);
         this._sardineButton = temp;
         this._tunaButton = this._returnTunaButton$0();
         this._sharkButton = this._returnSharkButton$0();
+        this.ui_selectSardineBoatSound.play$0(0);
       }
     }, "call$1", "get$_sardinePressed", 2, 0, 122, 14],
     _sharkPressed$1: [function(e) {
@@ -5134,18 +5296,19 @@ var $$ = {};
         temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
         t14 = this.get$_sharkPressed();
         temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-        t1 = Math.cos(1.9634954084936205);
+        t1 = Math.cos(2.0682151636132806);
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return H.iae(t2);
         temp.set$x(0, t1 * t2);
-        t1 = Math.sin(1.9634954084936205);
+        t1 = Math.sin(2.0682151636132806);
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return H.iae(t2);
         temp.set$y(0, t1 * t2);
         this.addChildAt$2(temp, this._children.length);
         this._sharkButton = temp;
+        this.ui_selectSharkBoatSound.play$0(0);
       }
     }, "call$1", "get$_sharkPressed", 2, 0, 122, 14],
     _returnCapacityButtonLarge$0: function() {
@@ -5187,16 +5350,16 @@ var $$ = {};
       temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
       t14 = this.get$_capacityLargeButtonPressed();
       temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-      t1 = Math.cos(4.1887902047863905);
+      t1 = Math.cos(4.319689898685966);
       t2 = this.wNet;
       if (typeof t2 !== "number")
         return H.iae(t2);
-      temp.set$x(0, t1 * t2);
-      t1 = Math.sin(4.1887902047863905);
+      temp.set$x(0, t1 * t2 - 40);
+      t1 = Math.sin(4.319689898685966);
       t2 = this.wNet;
       if (typeof t2 !== "number")
         return H.iae(t2);
-      temp.set$y(0, t1 * t2);
+      temp.set$y(0, t1 * t2 - 40);
       this.addChildAt$2(temp, this._children.length);
       return temp;
     },
@@ -5295,12 +5458,12 @@ var $$ = {};
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return H.iae(t2);
-      temp.set$x(0, t1 * t2);
+      temp.set$x(0, t1 * t2 - 50);
       t1 = Math.sin(0.7853981633974483);
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return H.iae(t2);
-      temp.set$y(0, t1 * t2);
+      temp.set$y(0, t1 * t2 - 50);
       this.addChildAt$2(temp, this._children.length);
       return temp;
     },
@@ -5343,12 +5506,12 @@ var $$ = {};
       temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
       t14 = this.get$_sharkPressed();
       temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-      t1 = Math.cos(1.9634954084936205);
+      t1 = Math.cos(2.0682151636132806);
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return H.iae(t2);
       temp.set$x(0, t1 * t2);
-      t1 = Math.sin(1.9634954084936205);
+      t1 = Math.sin(2.0682151636132806);
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return H.iae(t2);
@@ -5395,16 +5558,16 @@ var $$ = {};
       temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
       t14 = this.get$_sardinePressed();
       temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-      t1 = Math.cos(-0.19634954084936207);
+      t1 = Math.cos(-0.5890486225480862);
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return H.iae(t2);
-      temp.set$x(0, t1 * t2);
-      t1 = Math.sin(-0.19634954084936207);
+      temp.set$x(0, t1 * t2 + 10);
+      t1 = Math.sin(-0.5890486225480862);
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return H.iae(t2);
-      temp.set$y(0, t1 * t2);
+      temp.set$y(0, t1 * t2 + 10);
       this.addChildAt$2(temp, this._children.length);
       return temp;
     },
@@ -5433,10 +5596,16 @@ var $$ = {};
       this._teamA = teamA;
       this._boatsA = boatsA;
       this._boatsB = boatsB;
-      this.clicked = resourceManager.getSound$1("buttonClick");
-      this.swoosh = this._resourceManager.getSound$1("circleUISwoosh");
-      this.buySplash = this._resourceManager.getSound$1("buySplash");
-      this.itemSuction = this._resourceManager.getSound$1("itemSuction");
+      this.ui_selectSardineBoatSound = resourceManager.getSound$1("ui_selectSardineBoat");
+      this.ui_selectTunaBoatSound = this._resourceManager.getSound$1("ui_selectTunaBoat");
+      this.ui_selectSharkBoatSound = this._resourceManager.getSound$1("ui_selectSharkBoat");
+      this.ui_selectSmallNetSound = this._resourceManager.getSound$1("ui_selectSmallNet");
+      this.ui_selectBigNetSound = this._resourceManager.getSound$1("ui_selectBigNet");
+      t1 = this._resourceManager.getSound$1("ui_rotateBuyDisc");
+      this.ui_rotateBuyDiscSound = t1;
+      t1 = t1.play$0(0);
+      this.discChannel = t1;
+      t1.stop$0(0);
       if (teamA)
         this._upgradeRotation = 3.141592653589793;
       else
@@ -5444,7 +5613,7 @@ var $$ = {};
       if (teamA)
         this._upgradeRotation2 = 0;
       else
-        this._upgradeRotation2 = 0;
+        this._upgradeRotation2 = 3.141592653589793;
       t1 = this._teamA;
       t2 = this._resourceManager;
       if (t1) {
@@ -5476,7 +5645,9 @@ var $$ = {};
         t1 = t2.getBitmapData$1("TeamBCircle");
         t2 = $.DisplayObject__nextID;
         $.DisplayObject__nextID = t2 + 1;
-        this._circle = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+        t2 = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+        this._circle = t2;
+        t2.set$rotation(3.141592653589793);
         t2 = this._resourceManager.getBitmapData$1("CircleButtonUpB");
         t1 = $.DisplayObject__nextID;
         $.DisplayObject__nextID = t1 + 1;
@@ -5498,13 +5669,13 @@ var $$ = {};
         this._circleButton = Z.SimpleButton$(new Z.Bitmap(t2, t1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, t3, t4, true, null, null), new Z.Bitmap(t5, t6, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, t7, t8, true, null, null), new Z.Bitmap(t9, t10, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, t11, t12, true, null, null), new Z.Bitmap(t13, t14, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null));
         Z.BitmapData_load("images/circleUIButtonB.png", null).then$1(new F.Circle_closure0(this));
       }
+      Z.BitmapData_load("images/teamACircle.png", null).then$1(new F.Circle_closure1(this));
       t1 = this._circleButton;
       t2 = this.get$_circlePressed();
       t1.on$1(0, "mouseUp")._subscribe$3(t2, false, 0);
       t2 = this._circleButton;
       t1 = this.get$_circlePressed();
       t2.on$1(0, "touchTap")._subscribe$3(t1, false, 0);
-      Z.BitmapData_load("images/teamACircle.png", null).then$1(new F.Circle_closure1(this));
       t1 = this._children;
       this.addChildAt$2(this._circle, t1.length);
       this.addChildAt$2(this._circleButton, t1.length);
@@ -5515,7 +5686,7 @@ var $$ = {};
         t1 = H.setRuntimeTypeInfo([], [Z.DisplayObject]);
         t2 = $.DisplayObject__nextID;
         $.DisplayObject__nextID = t2 + 1;
-        t2 = new F.Circle(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null, 0, null, null, 0, 0, false, null, null, false, null, null, false, null, null, null, t1, true, true, false, true, false, true, 0, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+        t2 = new F.Circle(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null, 0, null, null, 0, 0, false, null, null, false, null, null, false, null, null, null, t1, true, true, false, true, false, true, 0, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
         t2.Circle$8(resourceManager, juggler, game, teamA, boatsA, boatsB, fleet, offseason);
         return t2;
       }}
@@ -5553,7 +5724,7 @@ var $$ = {};
       t1._circle.set$pivotX(J.$div$n(t2.get$width(bitmapData), 2));
       t1._circle.set$pivotY(J.$div$n(t2.get$height(bitmapData), 2));
       t1.wNet = J.$mul$ns(t2.get$width(bitmapData), 0.375);
-      t1.wShip = J.$mul$ns(t1.getBoundsTransformed$1(t1.get$transformationMatrix()).width, 0.1875);
+      t1.wShip = J.$mul$ns(t1.getBoundsTransformed$1(t1.get$transformationMatrix()).width, 0.175);
       t2 = t1._returnCapacityButton$0();
       t1._capacitySmallButton = t2;
       t2.set$alpha(0, 1);
@@ -5586,6 +5757,15 @@ var $$ = {};
     },
     showStars$0: [function() {
       var t1, t2, toShow;
+      if (this.animatedRating === 0) {
+        t1 = this.rating;
+        if (t1 === 1)
+          this.oneStarSound.play$0(0);
+        else if (t1 === 2)
+          this.twoStarSound.play$0(0);
+        else if (t1 === 3)
+          this.threeStarSound.play$0(0);
+      }
       t1 = this.animatedRating;
       t2 = this.rating;
       if (t1 == null ? t2 == null : t1 === t2) {
@@ -5594,20 +5774,14 @@ var $$ = {};
       } else {
         t2 = this._game;
         t2.starCount = t2.starCount + 1;
-        if (t1 === 0) {
+        if (t1 === 0)
           toShow = this.stars1;
-          this.starSound = this.oneStarSound;
-        } else if (t1 === 1) {
+        else if (t1 === 1)
           toShow = this.stars2;
-          this.starSound = this.twoStarSound;
-        } else if (t1 === 2) {
-          toShow = this.stars3;
-          this.starSound = this.threeStarSound;
-        } else
-          toShow = null;
+        else
+          toShow = t1 === 2 ? this.stars3 : null;
         t1 = Z.Tween$(toShow, 0.5, Z.TransitionFunction_easeInOutQuadratic$closure());
         t1._addTweenProperty$1(9)._targetValue = 1;
-        this.starSound.play$0(0);
         t1._onComplete = this.get$showStars();
         this._TOTC$_juggler.add$1(0, t1);
         t1 = this.animatedRating;
@@ -5688,7 +5862,7 @@ var $$ = {};
       t3.set$pivotX(J.$div$n(t3.getBoundsTransformed$1(t3.get$transformationMatrix()).width, 2));
       t2 = this.foodWeb;
       t3.set$pivotY(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height / 2);
-      t3.set$x(0, this._game.width / 2 - 100);
+      t3.set$x(0, this._game.width / 2 - 350);
       t3.set$y(0, this._game.height / 2);
       t3.set$alpha(0, 0);
       this.addChildAt$2(this.foodWeb, t1.length);
@@ -5801,8 +5975,8 @@ var $$ = {};
       t2.set$pivotX(J.$div$n(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).width, 2));
       t3 = this.badgeSardine;
       t2.set$pivotY(t3.getBoundsTransformed$1(t3.get$transformationMatrix()).height / 2);
-      t2.set$x(0, this._game.width / 2);
-      t2.set$y(0, this._game.height / 2 + 150);
+      t2.set$x(0, this._game.width / 2 - 100);
+      t2.set$y(0, this._game.height / 2 + 300);
       t2.set$alpha(0, 0);
       t2.set$rotation(-0.7853981633974483);
       this.addChildAt$2(this.badgeSardine, t1.length);
@@ -5814,7 +5988,7 @@ var $$ = {};
       t3.set$pivotX(J.$div$n(t3.getBoundsTransformed$1(t3.get$transformationMatrix()).width, 2));
       t2 = this.badgeTuna;
       t3.set$pivotY(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).height / 2);
-      t3.set$x(0, this._game.width / 2 - 150);
+      t3.set$x(0, this._game.width / 2 - 400);
       t3.set$y(0, this._game.height / 2 + 30);
       t3.set$alpha(0, 0);
       t3.set$rotation(-0.7853981633974483);
@@ -5827,8 +6001,8 @@ var $$ = {};
       t2.set$pivotX(J.$div$n(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).width, 2));
       t3 = this.badgeShark;
       t2.set$pivotY(t3.getBoundsTransformed$1(t3.get$transformationMatrix()).height / 2);
-      t2.set$x(0, this._game.width / 2 + 30);
-      t2.set$y(0, this._game.height / 2 - 140);
+      t2.set$x(0, this._game.width / 2 - 60);
+      t2.set$y(0, this._game.height / 2 - 240);
       t2.set$alpha(0, 0);
       t2.set$rotation(-0.7853981633974483);
       this.addChildAt$2(this.badgeShark, t1.length);
@@ -5937,8 +6111,8 @@ var $$ = {};
         rotationVal = 2.356194490192345;
         boxX = 500;
         boxY = 75;
-        r1 = 250;
-        r2 = 210;
+        r1 = 375;
+        r2 = 290;
         r3 = 200;
         r4 = 150;
         offsetX = 0;
@@ -5950,8 +6124,8 @@ var $$ = {};
         offsetY = t1.height;
         boxY = offsetY - 75;
         rotationVal = -0.7853981633974483;
-        r1 = 250;
-        r2 = 210;
+        r1 = 375;
+        r2 = 290;
         r3 = 200;
         r4 = 150;
       } else {
@@ -5985,12 +6159,12 @@ var $$ = {};
       t3.set$x(0, boxX);
       t3.set$y(0, boxY);
       t3.set$alpha(0, 0);
-      format = new Z.TextFormat("Arial", 36, 4294967295, 0, 4278190080, null, true, false, false, "right", 0, 0, 0, 0, 0, 0);
+      format = new Z.TextFormat("Arial", 50, 4294309365, 0, 4278190080, null, true, false, false, "center", 0, 0, 0, 0, 0, 0);
       t3 = Z.TextField$("", format);
       this.scorePrompt = t3;
       t3.set$alpha(0, 0);
       t2 = this.uiBox;
-      t3._width = J.toDouble$0$n(J.$add$ns(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).width, 50));
+      t3._width = J.toDouble$0$n(J.$add$ns(t2.getBoundsTransformed$1(t2.get$transformationMatrix()).width, 150));
       t3._refreshPending = t3._refreshPending | 3;
       t2 = this.scorePrompt;
       t2._refreshTextLineMetrics$0();
@@ -6084,7 +6258,7 @@ var $$ = {};
       }}
   },
   Title: {
-    "^": "Sprite;_resourceManager,_TOTC$_juggler,_game,_ecosystem,titleBackground,aboutPage,playButton,aboutButton,aboutOpen,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
+    "^": "Sprite;_resourceManager,_TOTC$_juggler,_game,_ecosystem,titleBackground,aboutPage,tutorialPage,playButton,aboutButton,ui_playButtonSound,ui_aboutButtonOpenSound,ui_aboutButtonCloseSound,aboutOpen,tutorialOpen,buttonMode,hitArea,_graphics,_dropTarget,_children,_mouseChildren,_tabChildren,doubleClickEnabled,mouseEnabled,useHandCursor,tabEnabled,tabIndex,_stagexl$_id,_x,_y,_pivotX,_pivotY,_scaleX,_scaleY,_skewX,_skewY,_rotation,_alpha,_visible,_off,_stagexl$_mask,_shadow,_stagexl$_compositeOperation,_filters,_cacheTextureQuad,_cacheDebugBorder,_stagexl$_name,_parent,_tmpMatrix,_transformationMatrix,_transformationMatrixRefresh,userData,_eventStreams",
     advanceTime$1: function(time) {
       return true;
     },
@@ -6097,6 +6271,7 @@ var $$ = {};
       C.JSArray_methods.remove$1(t1._game.tlayer.touchables, t1);
       t1 = this.aboutPage;
       t1._game.tlayer.touchables.push(t1);
+      this.ui_aboutButtonOpenSound.play$0(0);
       P.print("Width:" + C.JSNumber_methods.toString$0(this._game.width));
       P.print("height:" + C.JSNumber_methods.toString$0(this._game.height));
       t1 = Z.Tween$(this.aboutPage, 0.5, Z.TransitionFunction_linear$closure());
@@ -6118,6 +6293,7 @@ var $$ = {};
       t1._game.tlayer.touchables.push(t1);
       t1 = this.aboutPage;
       C.JSArray_methods.remove$1(t1._game.tlayer.touchables, t1);
+      this.ui_aboutButtonCloseSound.play$0(0);
       t1 = Z.Tween$(this.aboutPage, 0.5, Z.TransitionFunction_linear$closure());
       t1._addTweenProperty$1(9)._targetValue = 0;
       this._TOTC$_juggler.add$1(0, t1);
@@ -6128,26 +6304,72 @@ var $$ = {};
       t3._addTweenProperty$1(9)._targetValue = 1;
       this._TOTC$_juggler.add$1(0, t3);
     }, "call$0", "get$hideAbout", 0, 0, 0],
+    showTutorial$0: [function() {
+      var t1, t2, t3;
+      this.tutorialOpen = true;
+      t1 = this.playButton;
+      C.JSArray_methods.remove$1(t1._game.tlayer.touchables, t1);
+      t1 = this.aboutButton;
+      C.JSArray_methods.remove$1(t1._game.tlayer.touchables, t1);
+      t1 = this.tutorialPage;
+      t1._game.tlayer.touchables.push(t1);
+      this.ui_aboutButtonOpenSound.play$0(0);
+      t1 = Z.Tween$(this.tutorialPage, 0.5, Z.TransitionFunction_linear$closure());
+      t1._addTweenProperty$1(9)._targetValue = 1;
+      this._TOTC$_juggler.add$1(0, t1);
+      t2 = Z.Tween$(this.playButton, 0.5, Z.TransitionFunction_linear$closure());
+      t2._addTweenProperty$1(9)._targetValue = 0;
+      this._TOTC$_juggler.add$1(0, t2);
+      t3 = Z.Tween$(this.aboutButton, 0.5, Z.TransitionFunction_linear$closure());
+      t3._addTweenProperty$1(9)._targetValue = 0;
+      this._TOTC$_juggler.add$1(0, t3);
+    }, "call$0", "get$showTutorial", 0, 0, 0],
+    hideTutorial$0: [function() {
+      this.tutorialOpen = false;
+      this.ui_aboutButtonCloseSound.play$0(0);
+      this._game._nextSeason$0();
+      var t1 = Z.Tween$(this.tutorialPage, 0.5, Z.TransitionFunction_linear$closure());
+      t1._addTweenProperty$1(9)._targetValue = 0;
+      this._TOTC$_juggler.add$1(0, t1);
+    }, "call$0", "get$hideTutorial", 0, 0, 0],
     Title$4: function(_resourceManager, _juggler, _game, _ecosystem) {
-      var t1, t2;
+      var t1, t2, playButtonBitmap, aboutButtonBitmap;
       t1 = this._resourceManager.getBitmapData$1("title");
       t2 = $.DisplayObject__nextID;
       $.DisplayObject__nextID = t2 + 1;
-      this.titleBackground = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+      t2 = new Z.Bitmap(t1, t2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, true, false, null, null, null, null, null, false, "", null, Z.Matrix$fromIdentity(), Z.Matrix$fromIdentity(), true, null, null);
+      this.titleBackground = t2;
+      t2.set$width(0, this._game.width);
+      this.titleBackground.set$height(0, this._game.height);
+      t2 = F.MyButton$(this._game, 0, 0, this._resourceManager.getBitmapData$1("tutorial"), this._resourceManager.getBitmapData$1("tutorial"), this._resourceManager.getBitmapData$1("tutorial"), this.get$hideTutorial());
+      this.tutorialPage = t2;
+      t2.set$alpha(0, 0);
+      t2 = this.tutorialPage;
+      C.JSArray_methods.remove$1(t2._game.tlayer.touchables, t2);
+      this.tutorialPage.set$width(0, this._game.width);
+      this.tutorialPage.set$height(0, this._game.height);
       t2 = F.MyButton$(this._game, 0, 0, this._resourceManager.getBitmapData$1("about"), this._resourceManager.getBitmapData$1("about"), this._resourceManager.getBitmapData$1("about"), this.get$hideAbout());
       this.aboutPage = t2;
       t2.set$alpha(0, 0);
       t2 = this.aboutPage;
       C.JSArray_methods.remove$1(t2._game.tlayer.touchables, t2);
+      this.aboutPage.set$width(0, this._game.width);
+      this.aboutPage.set$height(0, this._game.height);
+      playButtonBitmap = this._resourceManager.getBitmapData$1("playButton");
       t2 = this._game;
-      this.playButton = F.MyButton$(t2, t2.width / 2, t2.height / 2 - 150, this._resourceManager.getBitmapData$1("playButton"), this._resourceManager.getBitmapData$1("playButton"), this._resourceManager.getBitmapData$1("playButtonPressed"), this._game.get$_nextSeason());
+      this.playButton = F.MyButton$(t2, t2.width / 2 - playButtonBitmap._width / 2, t2.height / 2 + 250, playButtonBitmap, playButtonBitmap, this._resourceManager.getBitmapData$1("playButtonPressed"), this.get$showTutorial());
+      aboutButtonBitmap = this._resourceManager.getBitmapData$1("aboutButton");
       t2 = this._game;
-      this.aboutButton = F.MyButton$(t2, t2.width / 2, t2.height / 2 + 150, this._resourceManager.getBitmapData$1("aboutButton"), this._resourceManager.getBitmapData$1("aboutButton"), this._resourceManager.getBitmapData$1("aboutButtonPressed"), this.get$showAbout());
+      this.aboutButton = F.MyButton$(t2, t2.width / 2 - aboutButtonBitmap._width / 2, t2.height / 2 + 500, aboutButtonBitmap, aboutButtonBitmap, this._resourceManager.getBitmapData$1("aboutButtonPressed"), this.get$showAbout());
+      this.ui_playButtonSound = this._resourceManager.getSound$1("ui_playButton");
+      this.ui_aboutButtonOpenSound = this._resourceManager.getSound$1("ui_aboutButtonOpen");
+      this.ui_aboutButtonCloseSound = this._resourceManager.getSound$1("ui_aboutButtonClose");
       t2 = this._children;
       this.addChildAt$2(this.titleBackground, t2.length);
       this.addChildAt$2(this.playButton, t2.length);
       this.addChildAt$2(this.aboutButton, t2.length);
       this.addChildAt$2(this.aboutPage, t2.length);
+      this.addChildAt$2(this.tutorialPage, t2.length);
     },
     $isAnimatable: true
   },
@@ -7757,11 +7979,11 @@ var $$ = {};
     }
   },
   _Copier_visitMap_closure: {
-    "^": "Closure:199;box_0,this_1",
+    "^": "Closure:198;box_0,this_1",
     call$2: [function(key, val) {
       var t1 = this.this_1;
       J.$indexSet$ax(this.box_0.copy_0, t1._dispatch$1(key), t1._dispatch$1(val));
-    }, "call$2", null, 4, 0, null, 33, 198, "call"],
+    }, "call$2", null, 4, 0, null, 33, 197, "call"],
     $isFunction: true
   },
   _Serializer: {
@@ -9068,7 +9290,7 @@ var $$ = {};
     $isFunction: true
   },
   Primitives_functionNoSuchMethod_closure: {
-    "^": "Closure:200;box_0,arguments_1,namedArgumentList_2",
+    "^": "Closure:199;box_0,arguments_1,namedArgumentList_2",
     call$2: [function($name, argument) {
       var t1 = this.box_0;
       t1.names_1 = t1.names_1 + "$" + H.S($name);
@@ -9079,14 +9301,14 @@ var $$ = {};
     $isFunction: true
   },
   Primitives_applyFunction_closure: {
-    "^": "Closure:200;box_0,defaultArguments_1",
+    "^": "Closure:199;box_0,defaultArguments_1",
     call$2: [function(parameter, value) {
       var t1 = this.defaultArguments_1;
       if (t1.containsKey$1(parameter))
         t1.$indexSet(0, parameter, value);
       else
         this.box_0.bad_0 = true;
-    }, "call$2", null, 4, 0, null, 201, 23, "call"],
+    }, "call$2", null, 4, 0, null, 200, 23, "call"],
     $isFunction: true
   },
   TypeErrorDecoder: {
@@ -9446,7 +9668,7 @@ var $$ = {};
     $isFunction: true
   },
   initHooks_closure0: {
-    "^": "Closure:202;getUnknownTag_1",
+    "^": "Closure:201;getUnknownTag_1",
     call$2: [function(o, tag) {
       return this.getUnknownTag_1(o, tag);
     }, "call$2", null, 4, 0, null, 160, 82, "call"],
@@ -10565,7 +10787,7 @@ var $$ = {};
       return H.computeSignature(function(T) {
         return {func: "void__T", void: true, args: [T]};
       }, this.$receiver, "_AsBroadcastStreamController");
-    }, 203],
+    }, 202],
     addError$2: [function(error, stackTrace) {
       var t1 = this._state;
       if ((t1 & 4) === 0 && (t1 & 2) !== 0) {
@@ -10581,7 +10803,7 @@ var $$ = {};
       }
     }, function(error) {
       return this.addError$2(error, null);
-    }, "addError$1", "call$2", "call$1", "get$addError", 2, 2, 204, 68, 124, 125],
+    }, "addError$1", "call$2", "call$1", "get$addError", 2, 2, 203, 68, 124, 125],
     close$0: [function(_) {
       var t1 = this._state;
       if ((t1 & 4) === 0 && (t1 & 2) !== 0) {
@@ -10590,7 +10812,7 @@ var $$ = {};
         return P._BroadcastStreamController.prototype.get$done.call(this);
       }
       return P._BroadcastStreamController.prototype.close$0.call(this, this);
-    }, "call$0", "get$close", 0, 0, 205],
+    }, "call$0", "get$close", 0, 0, 204],
     _callOnCancel$0: function() {
       var t1 = this._pending;
       if (t1 != null && t1.lastPendingEvent != null) {
@@ -10608,7 +10830,7 @@ var $$ = {};
     $isFuture: true
   },
   Future_wait_handleError: {
-    "^": "Closure:199;box_0,eagerError_1",
+    "^": "Closure:198;box_0,eagerError_1",
     call$2: [function(theError, theStackTrace) {
       var t1, t2, remaining;
       t1 = this.box_0;
@@ -10625,11 +10847,11 @@ var $$ = {};
         }
       else if (remaining === 0 && !this.eagerError_1)
         t1.completer_0.completeError$2(t1.error_3, t1.stackTrace_4);
-    }, "call$2", null, 4, 0, null, 206, 207, "call"],
+    }, "call$2", null, 4, 0, null, 205, 206, "call"],
     $isFunction: true
   },
   Future_wait_closure: {
-    "^": "Closure:208;box_0,eagerError_2,pos_3",
+    "^": "Closure:207;box_0,eagerError_2,pos_3",
     call$1: [function(value) {
       var t1, remaining, t2, t3;
       t1 = this.box_0;
@@ -10664,7 +10886,7 @@ var $$ = {};
       t1._asyncComplete$1(value);
     }, function($receiver) {
       return this.complete$1($receiver, null);
-    }, "complete$0", "call$1", "call$0", "get$complete", 0, 2, 209, 68, 23],
+    }, "complete$0", "call$1", "call$0", "get$complete", 0, 2, 208, 68, 23],
     completeError$2: [function(error, stackTrace) {
       var t1;
       if (error == null)
@@ -10675,7 +10897,7 @@ var $$ = {};
       t1._asyncCompleteError$2(error, stackTrace);
     }, function(error) {
       return this.completeError$2(error, null);
-    }, "completeError$1", "call$2", "call$1", "get$completeError", 2, 2, 204, 68, 124, 125]
+    }, "completeError$1", "call$2", "call$1", "get$completeError", 2, 2, 203, 68, 124, 125]
   },
   _Future: {
     "^": "Object;_state,_zone<,_resultOrListeners,_nextListener@,_onValueCallback,_errorTestCallback,_onErrorCallback,_whenCompleteActionCallback",
@@ -10982,7 +11204,7 @@ var $$ = {};
     $isFunction: true
   },
   _Future__chainForeignFuture_closure0: {
-    "^": "Closure:210;target_1",
+    "^": "Closure:209;target_1",
     call$2: [function(error, stackTrace) {
       this.target_1._completeError$2(error, stackTrace);
     }, function(error) {
@@ -11012,7 +11234,7 @@ var $$ = {};
     $isFunction: true
   },
   _Future__propagateToListeners_handleValueCallback: {
-    "^": "Closure:211;box_1,listener_3,sourceValue_4,zone_5",
+    "^": "Closure:210;box_1,listener_3,sourceValue_4,zone_5",
     call$0: [function() {
       var e, s, t1, t2, exception;
       try {
@@ -11142,11 +11364,11 @@ var $$ = {};
     "^": "Closure:163;box_2,listener_11",
     call$1: [function(ignored) {
       P._Future__propagateToListeners(this.box_2.source_4, this.listener_11);
-    }, "call$1", null, 2, 0, null, 212, "call"],
+    }, "call$1", null, 2, 0, null, 211, "call"],
     $isFunction: true
   },
   _Future__propagateToListeners_handleWhenCompleteCallback_closure0: {
-    "^": "Closure:210;box_0,listener_12",
+    "^": "Closure:209;box_0,listener_12",
     call$2: [function(error, stackTrace) {
       var t1, completeResult;
       t1 = this.box_0;
@@ -11245,11 +11467,11 @@ var $$ = {};
     $isFunction: true
   },
   Stream_contains__closure0: {
-    "^": "Closure:214;box_0,future_6",
+    "^": "Closure:213;box_0,future_6",
     call$1: [function(isMatch) {
       if (isMatch === true)
         P._cancelAndValue(this.box_0.subscription_0, this.future_6, true);
-    }, "call$1", null, 2, 0, null, 213, "call"],
+    }, "call$1", null, 2, 0, null, 212, "call"],
     $isFunction: true
   },
   Stream_contains_closure0: {
@@ -11281,7 +11503,7 @@ var $$ = {};
   Stream_forEach__closure0: {
     "^": "Closure:163;",
     call$1: [function(_) {
-    }, "call$1", null, 2, 0, null, 215, "call"],
+    }, "call$1", null, 2, 0, null, 214, "call"],
     $isFunction: true
   },
   Stream_forEach_closure0: {
@@ -11296,7 +11518,7 @@ var $$ = {};
     call$1: [function(_) {
       var t1 = this.box_0;
       t1.count_0 = t1.count_0 + 1;
-    }, "call$1", null, 2, 0, null, 215, "call"],
+    }, "call$1", null, 2, 0, null, 214, "call"],
     $isFunction: true
   },
   Stream_length_closure0: {
@@ -11921,7 +12143,7 @@ var $$ = {};
       t2 = t1._pauseCounter;
       if (t2 > 0)
         t1._pauseCounter = t2 - 1;
-    }, "call$1", null, 2, 0, null, 215, "call"],
+    }, "call$1", null, 2, 0, null, 214, "call"],
     $isFunction: true
   },
   _AsBroadcastStream: {
@@ -12039,7 +12261,7 @@ var $$ = {};
     $isFunction: true
   },
   _cancelAndErrorClosure_closure: {
-    "^": "Closure:216;subscription_0,future_1",
+    "^": "Closure:215;subscription_0,future_1",
     call$2: [function(error, stackTrace) {
       return P._cancelAndError(this.subscription_0, this.future_1, error, stackTrace);
     }, "call$2", null, 4, 0, null, 124, 125, "call"],
@@ -12122,10 +12344,10 @@ var $$ = {};
       return H.computeSignature(function(S, T) {
         return {func: "void__S", void: true, args: [S]};
       }, this.$receiver, "_ForwardingStreamSubscription");
-    }, 203],
+    }, 202],
     _handleError$2: [function(error, stackTrace) {
       this._addError$2(error, stackTrace);
-    }, "call$2", "get$_handleError", 4, 0, 217, 124, 125],
+    }, "call$2", "get$_handleError", 4, 0, 216, 124, 125],
     _handleDone$0: [function() {
       this._close$0();
     }, "call$0", "get$_handleDone", 0, 0, 0],
@@ -12620,7 +12842,7 @@ var $$ = {};
     "^": "Closure:163;this_0",
     call$1: [function(each) {
       return this.this_0.$index(0, each);
-    }, "call$1", null, 2, 0, null, 218, "call"],
+    }, "call$1", null, 2, 0, null, 217, "call"],
     $isFunction: true
   },
   HashMapKeyIterable: {
@@ -12888,7 +13110,7 @@ var $$ = {};
     "^": "Closure:163;this_0",
     call$1: [function(each) {
       return this.this_0.$index(0, each);
-    }, "call$1", null, 2, 0, null, 218, "call"],
+    }, "call$1", null, 2, 0, null, 217, "call"],
     $isFunction: true
   },
   LinkedHashMapCell: {
@@ -13437,7 +13659,7 @@ var $$ = {};
     $isEfficientLength: true
   },
   Maps_mapToString_closure: {
-    "^": "Closure:199;box_0,result_1",
+    "^": "Closure:198;box_0,result_1",
     call$2: [function(k, v) {
       var t1 = this.box_0;
       if (!t1.first_0)
@@ -13447,7 +13669,7 @@ var $$ = {};
       t1.write$1(k);
       t1.write$1(": ");
       t1.write$1(v);
-    }, "call$2", null, 4, 0, null, 219, 220, "call"],
+    }, "call$2", null, 4, 0, null, 218, 219, "call"],
     $isFunction: true
   },
   ListQueue: {
@@ -13559,7 +13781,7 @@ var $$ = {};
     return P._convertJsonToDart(parsed, reviver);
   }, "call$2", "_parseJson$closure", 4, 0, null, 26, 142],
   _convertJsonToDart_closure: {
-    "^": "Closure:199;",
+    "^": "Closure:198;",
     call$2: [function(key, value) {
       return value;
     }, "call$2", null, 4, 0, null, 33, 23, "call"],
@@ -13705,14 +13927,14 @@ var $$ = {};
     H.printString(line);
   }, "call$1", "print$closure", 2, 0, null, 4],
   Function__toMangledNames_closure: {
-    "^": "Closure:199;result_0",
+    "^": "Closure:198;result_0",
     call$2: [function(symbol, value) {
       this.result_0.$indexSet(0, symbol.get$_name(), value);
-    }, "call$2", null, 4, 0, null, 221, 23, "call"],
+    }, "call$2", null, 4, 0, null, 220, 23, "call"],
     $isFunction: true
   },
   NoSuchMethodError_toString_closure: {
-    "^": "Closure:222;box_0",
+    "^": "Closure:221;box_0",
     call$2: [function(key, value) {
       var t1 = this.box_0;
       if (t1.i_1 > 0)
@@ -13852,7 +14074,7 @@ var $$ = {};
       }}
   },
   Duration_toString_sixDigits: {
-    "^": "Closure:223;",
+    "^": "Closure:222;",
     call$1: [function(n) {
       if (n >= 100000)
         return "" + n;
@@ -13869,7 +14091,7 @@ var $$ = {};
     $isFunction: true
   },
   Duration_toString_twoDigits: {
-    "^": "Closure:223;",
+    "^": "Closure:222;",
     call$1: [function(n) {
       if (n >= 10)
         return "" + n;
@@ -14398,7 +14620,7 @@ var $$ = {};
       return receiver.preventDefault();
     },
     $isEvent0: true,
-    "%": "AudioProcessingEvent|AutocompleteErrorEvent|BeforeUnloadEvent|CSSFontFaceLoadEvent|CloseEvent|CustomEvent|DeviceMotionEvent|HashChangeEvent|IDBVersionChangeEvent|MIDIConnectionEvent|MIDIMessageEvent|MediaKeyEvent|MediaKeyMessageEvent|MediaKeyNeededEvent|MediaStreamEvent|MediaStreamTrackEvent|MutationEvent|OfflineAudioCompletionEvent|OverflowEvent|PageTransitionEvent|PopStateEvent|RTCDTMFToneChangeEvent|RTCDataChannelEvent|RTCIceCandidateEvent|SecurityPolicyViolationEvent|SpeechInputEvent|SpeechRecognitionEvent|TrackEvent|TransitionEvent|WebKitAnimationEvent|WebKitTransitionEvent;Event"
+    "%": "AudioProcessingEvent|AutocompleteErrorEvent|BeforeUnloadEvent|CSSFontFaceLoadEvent|CloseEvent|CustomEvent|DeviceMotionEvent|HashChangeEvent|IDBVersionChangeEvent|MIDIConnectionEvent|MIDIMessageEvent|MediaKeyEvent|MediaKeyMessageEvent|MediaKeyNeededEvent|MediaStreamEvent|MediaStreamTrackEvent|MessageEvent|MutationEvent|OfflineAudioCompletionEvent|OverflowEvent|PageTransitionEvent|PopStateEvent|RTCDTMFToneChangeEvent|RTCDataChannelEvent|RTCIceCandidateEvent|SecurityPolicyViolationEvent|SpeechInputEvent|SpeechRecognitionEvent|TrackEvent|TransitionEvent|WebKitAnimationEvent|WebKitTransitionEvent;Event"
   },
   EventTarget: {
     "^": "Interceptor;",
@@ -14548,10 +14770,6 @@ var $$ = {};
       return receiver.stop();
     },
     "%": "MediaStream"
-  },
-  MessageEvent: {
-    "^": "Event0;",
-    "%": "MessageEvent"
   },
   MetaElement: {
     "^": "HtmlElement;name=",
@@ -14951,14 +15169,14 @@ var $$ = {};
     "^": "Closure:163;",
     call$1: [function(xhr) {
       return J.get$responseText$x(xhr);
-    }, "call$1", null, 2, 0, null, 224, "call"],
+    }, "call$1", null, 2, 0, null, 223, "call"],
     $isFunction: true
   },
   HttpRequest_request_closure0: {
-    "^": "Closure:199;xhr_0",
+    "^": "Closure:198;xhr_0",
     call$2: [function(header, value) {
       this.xhr_0.setRequestHeader(header, value);
-    }, "call$2", null, 4, 0, null, 225, 23, "call"],
+    }, "call$2", null, 4, 0, null, 224, 23, "call"],
     $isFunction: true
   },
   HttpRequest_request_closure: {
@@ -16215,7 +16433,7 @@ var $$ = {};
     return t1;
   },
   convertDartToNative_Dictionary_closure: {
-    "^": "Closure:200;object_0",
+    "^": "Closure:199;object_0",
     call$2: [function(key, value) {
       this.object_0[key] = value;
     }, "call$2", null, 4, 0, null, 33, 23, "call"],
@@ -16239,23 +16457,23 @@ var $$ = {};
     $isFunction: true
   },
   convertNativeToDart_AcceptStructuredClone_readSlot: {
-    "^": "Closure:227;copies_2",
+    "^": "Closure:226;copies_2",
     call$1: [function(i) {
       var t1 = this.copies_2;
       if (i >= t1.length)
         return H.ioore(t1, i);
       return t1[i];
-    }, "call$1", null, 2, 0, null, 226, "call"],
+    }, "call$1", null, 2, 0, null, 225, "call"],
     $isFunction: true
   },
   convertNativeToDart_AcceptStructuredClone_writeSlot: {
-    "^": "Closure:228;copies_3",
+    "^": "Closure:227;copies_3",
     call$2: [function(i, x) {
       var t1 = this.copies_3;
       if (i >= t1.length)
         return H.ioore(t1, i);
       t1[i] = x;
-    }, "call$2", null, 4, 0, null, 226, 21, "call"],
+    }, "call$2", null, 4, 0, null, 225, 21, "call"],
     $isFunction: true
   },
   convertNativeToDart_AcceptStructuredClone_walk: {
@@ -16845,7 +17063,7 @@ var $$ = {};
     "^": "Closure:163;",
     call$1: [function(renderTexture) {
       return Z.BitmapData$fromRenderTextureQuad(renderTexture.get$quad(), null, null);
-    }, "call$1", null, 2, 0, null, 229, "call"],
+    }, "call$1", null, 2, 0, null, 228, "call"],
     $isFunction: true
   },
   BitmapDataLoadOptions: {
@@ -16898,11 +17116,13 @@ var $$ = {};
       this._transformationMatrixRefresh = true;
     },
     set$scaleX: function(value) {
-      this._scaleX = value;
+      if (typeof value === "number")
+        this._scaleX = value;
       this._transformationMatrixRefresh = true;
     },
     set$scaleY: function(value) {
-      this._scaleY = value;
+      if (typeof value === "number")
+        this._scaleY = value;
       this._transformationMatrixRefresh = true;
     },
     set$skewX: function(value) {
@@ -17716,7 +17936,7 @@ var $$ = {};
         this._currentState = this.upState;
       else
         this._currentState = mouseEvent.get$buttonDown() ? this.downState : this.overState;
-    }, "call$1", "get$_onMouseEvent", 2, 0, 230, 231],
+    }, "call$1", "get$_onMouseEvent", 2, 0, 229, 230],
     _onTouchEvent$1: [function(touchEvent) {
       if (touchEvent.get$isPrimaryTouchPoint())
         switch (J.get$type$x(touchEvent)) {
@@ -17733,7 +17953,7 @@ var $$ = {};
             this._currentState = this.upState;
             break;
         }
-    }, "call$1", "get$_onTouchEvent", 2, 0, 232, 233],
+    }, "call$1", "get$_onTouchEvent", 2, 0, 231, 232],
     SimpleButton$4: function(upState, overState, downState, hitTestState) {
       this.useHandCursor = true;
       this.on$1(0, C.EventStreamProvider_mouseOver.eventType).listen$1(this.get$_onMouseEvent());
@@ -17955,7 +18175,7 @@ var $$ = {};
     },
     _onMouseCursorChanged$1: [function(action) {
       J.set$cursor$x(this._canvas.style, Z.Mouse__getCssStyle(this._mouseCursor));
-    }, "call$1", "get$_onMouseCursorChanged", 2, 0, 24, 234],
+    }, "call$1", "get$_onMouseCursorChanged", 2, 0, 24, 233],
     _onMouseEvent$1: [function($event) {
       var t1, t2, button, stagePoint, t3, t4, mouseButton, target, mouseCursor, p, oldTargetList, newTargetList, p0, t5, commonCount, t6, ot, nt, localPoint, i, target0, mouseEventType, isClick, isDoubleClick;
       t1 = J.getInterceptor$x($event);
@@ -18079,7 +18299,7 @@ var $$ = {};
           t3.dispatchEvent$1(target, new Z.MouseEvent(localPoint.x, localPoint.y, stagePoint.x, stagePoint.y, 0, 0, mouseButton.buttonDown, 0, t1.get$altKey($event), t1.get$ctrlKey($event), t1.get$shiftKey($event), mouseEventType, true, 2, null, null, false, false));
         }
       }
-    }, "call$1", "get$_onMouseEvent", 2, 0, 235, 236],
+    }, "call$1", "get$_onMouseEvent", 2, 0, 234, 235],
     _onMouseWheelEvent$1: [function($event) {
       var t1, stagePoint, target, localPoint, mouseEvent;
       t1 = J.getInterceptor$x($event);
@@ -18092,7 +18312,7 @@ var $$ = {};
       target.dispatchEvent$1(0, mouseEvent);
       if (mouseEvent._stopsPropagation)
         t1.preventDefault$0($event);
-    }, "call$1", "get$_onMouseWheelEvent", 2, 0, 237, 236],
+    }, "call$1", "get$_onMouseWheelEvent", 2, 0, 236, 235],
     _onMultitouchInputModeChanged$1: [function(inputMode) {
       var t1, t2, t3, t4, t5, t6;
       H.IterableMixinWorkaround_forEach(this._touchEventSubscriptions, new Z.Stage__onMultitouchInputModeChanged_closure());
@@ -18117,7 +18337,7 @@ var $$ = {};
         t6._tryResume$0();
         this._touchEventSubscriptions = [t1, t2, t3, t4, t5, t6];
       }
-    }, "call$1", "get$_onMultitouchInputModeChanged", 2, 0, 24, 238],
+    }, "call$1", "get$_onMultitouchInputModeChanged", 2, 0, 24, 237],
     _onTouchEvent$1: [function($event) {
       var jsEvent, t1, t2, jsChangedTouches, eventType, jsChangedTouch, identifier, client, altKey, ctrlKey, shiftKey, changedTouch;
       if ($.get$_isCocoonJS() === true) {
@@ -18149,7 +18369,7 @@ var $$ = {};
           this._onTouchEventProcessor$6(eventType, t2.get$identifier(changedTouch), t2.get$client(changedTouch), altKey, ctrlKey, shiftKey);
         }
       }
-    }, "call$1", "get$_onTouchEvent", 2, 0, 239, 236],
+    }, "call$1", "get$_onTouchEvent", 2, 0, 238, 235],
     _onTouchEventProcessor$6: function(eventType, identifier, client, altKey, ctrlKey, shiftKey) {
       var stagePoint, target, t1, touch, t2, oldTarget, oldTargetList, newTargetList, p, commonCount, t3, t4, t5, ot, localPoint, i, target0, touchEventType, isTap;
       stagePoint = this._clientTransformation.transformPoint$1(client);
@@ -18235,7 +18455,7 @@ var $$ = {};
       if (t1.get$keyCode($event) === 8)
         t1.preventDefault$0($event);
       return;
-    }, "call$1", "get$_onKeyEvent", 2, 0, 240, 236],
+    }, "call$1", "get$_onKeyEvent", 2, 0, 239, 235],
     Stage$6$color$frameRate$height$webGL$width: function(canvas, color, frameRate, height, webGL, width) {
       var t1, t2, exception;
       if (!J.getInterceptor(canvas).$isCanvasElement)
@@ -18487,7 +18707,7 @@ var $$ = {};
       J.preventDefault$0$x(contextEvent);
       this._contextValid = false;
       this._dispatchEventInternal$3(new Z.Event("contextLost", false, 2, null, null, false, false), this, 2);
-    }, "call$1", "get$_onContextLost", 2, 0, 241, 242],
+    }, "call$1", "get$_onContextLost", 2, 0, 240, 241],
     _onContextRestored$1: [function(contextEvent) {
       var t1;
       this._contextValid = true;
@@ -18495,7 +18715,7 @@ var $$ = {};
       $.RenderContextWebGL__globalContextIdentifier = t1;
       this._contextIdentifier = t1;
       this._dispatchEventInternal$3(new Z.Event("contextRestored", false, 2, null, null, false, false), this, 2);
-    }, "call$1", "get$_onContextRestored", 2, 0, 241, 242],
+    }, "call$1", "get$_onContextRestored", 2, 0, 240, 241],
     _updateStencilDepth$1: function(stencilDepth) {
       var t1 = this._renderFrameBuffer;
       if (t1 != null) {
@@ -18621,7 +18841,7 @@ var $$ = {};
         }
         Z._dispatchBroadcastEvent(this._exitFrameEvent, $.get$_exitFrameSubscriptions());
       }
-    }, "call$1", "get$_onAnimationFrame", 2, 0, 243, 244]
+    }, "call$1", "get$_onAnimationFrame", 2, 0, 242, 243]
   },
   RenderProgram: {
     "^": "Object;",
@@ -19002,7 +19222,7 @@ var $$ = {};
       t2 = new Z.RenderTexture(0, 0, true, 1, 0, 0, null, null, -1, null, null);
       t2.RenderTexture$fromImage$2(image, t1);
       return t2;
-    }, "call$1", null, 2, 0, null, 245, "call"],
+    }, "call$1", null, 2, 0, null, 244, "call"],
     $isFunction: true
   },
   RenderTextureQuad: {
@@ -19695,10 +19915,12 @@ var $$ = {};
       return this._audio.duration;
     },
     play$2: function(_, loop, soundTransform) {
-      var t1;
-      soundTransform = new Z.SoundTransform(1, 0);
+      var t1, t2;
+      if (soundTransform == null)
+        soundTransform = new Z.SoundTransform(1, 0);
       t1 = P.Duration$(0, 0, 0, C.JSNumber_methods.toInt$0(C.JSInt_methods.roundToDouble$0(3600000)), 0, 0);
-      t1 = new Z.AudioElementSoundChannel(this, null, loop, false, soundTransform, null, 0, t1, null, null);
+      t2 = soundTransform != null ? soundTransform : new Z.SoundTransform(1, 0);
+      t1 = new Z.AudioElementSoundChannel(this, null, loop, false, t2, null, 0, t1, null, null);
       t1.AudioElementSoundChannel$5(this, 0, 3600, loop, soundTransform);
       return t1;
     },
@@ -19726,7 +19948,7 @@ var $$ = {};
       var soundChannel = H.IterableMixinWorkaround_firstWhere(this._soundChannels, new Z.AudioElementSound__onAudioEnded_closure($event), null);
       if (soundChannel != null)
         J.stop$0$x(soundChannel);
-    }, "call$1", "get$_onAudioEnded", 2, 0, 246, 236],
+    }, "call$1", "get$_onAudioEnded", 2, 0, 245, 235],
     AudioElementSound$0: function() {
       var t1 = C.EventStreamProvider_ended.forElement$1(this._audio);
       H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._html$_target, t1._html$_eventType, W._wrapZone(this.get$_onAudioEnded()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
@@ -19776,7 +19998,7 @@ var $$ = {};
       if (t1._state !== 0)
         H.throwExpression(new P.StateError("Future already completed"));
       t1._asyncComplete$1(this.sound_1);
-    }, "call$1", null, 2, 0, null, 236, "call"],
+    }, "call$1", null, 2, 0, null, 235, "call"],
     $isFunction: true
   },
   AudioElementSound_load_onError: {
@@ -19799,7 +20021,7 @@ var $$ = {};
         } else
           this.loadCompleter_6.completeError$1(new P.StateError("Failed to load audio."));
       }
-    }, "call$1", null, 2, 0, null, 236, "call"],
+    }, "call$1", null, 2, 0, null, 235, "call"],
     $isFunction: true
   },
   AudioElementSound_load_onError_closure: {
@@ -19817,7 +20039,7 @@ var $$ = {};
     "^": "Closure:163;audio_0",
     call$1: [function(_) {
       return this.audio_0;
-    }, "call$1", null, 2, 0, null, 215, "call"],
+    }, "call$1", null, 2, 0, null, 214, "call"],
     $isFunction: true
   },
   AudioElementSound__onAudioEnded_closure: {
@@ -19827,7 +20049,7 @@ var $$ = {};
       t1 = sc.get$_audio();
       t2 = J.get$target$x(this.event_0);
       return t1 == null ? t2 == null : t1 === t2;
-    }, "call$1", null, 2, 0, null, 247, "call"],
+    }, "call$1", null, 2, 0, null, 246, "call"],
     $isFunction: true
   },
   AudioElementSoundChannel: {
@@ -19872,7 +20094,7 @@ var $$ = {};
           this._segmentTimer = P.Timer_Timer(this._segmentDuration, this.get$_onSegmentTimer());
         this._volumeChangedSubscription = audioElementMixer.onVolumeChanged.listen$1(this.get$_onMixerVolume());
       }
-    }, "call$1", "get$_onAudioElement", 2, 0, 248, 249],
+    }, "call$1", "get$_onAudioElement", 2, 0, 247, 248],
     _onSegmentTimer$0: [function() {
       var t1 = !this._loop;
       if (t1)
@@ -19889,7 +20111,7 @@ var $$ = {};
       if (typeof volume !== "number")
         return H.iae(volume);
       J.set$volume$x(t1, t2 * volume);
-    }, "call$1", "get$_onMixerVolume", 2, 0, 243, 250],
+    }, "call$1", "get$_onMixerVolume", 2, 0, 242, 249],
     AudioElementSoundChannel$5: function(audioElementSound, startTime, duration, loop, soundTransform) {
       audioElementSound._requestAudioElement$1(this).then$1(this.get$_onAudioElement());
     }
@@ -19900,7 +20122,8 @@ var $$ = {};
       return 0 / 0;
     },
     play$2: function(_, loop, soundTransform) {
-      soundTransform = new Z.SoundTransform(1, 0);
+      if (soundTransform == null)
+        soundTransform = new Z.SoundTransform(1, 0);
       return new Z.MockSoundChannel(loop, soundTransform, null);
     },
     play$0: function($receiver) {
@@ -19934,9 +20157,11 @@ var $$ = {};
     },
     play$2: function(_, loop, soundTransform) {
       var t1, t2;
-      soundTransform = new Z.SoundTransform(1, 0);
+      if (soundTransform == null)
+        soundTransform = new Z.SoundTransform(1, 0);
       t1 = J.get$duration$x(this._buffer);
-      t2 = new Z.WebAudioApiSoundChannel(soundTransform, loop, null, this, null, null);
+      t2 = soundTransform != null ? soundTransform : new Z.SoundTransform(1, 0);
+      t2 = new Z.WebAudioApiSoundChannel(t2, loop, null, this, null, null);
       t2.WebAudioApiSoundChannel$5(this, 0, t1, loop, soundTransform);
       return t2;
     },
@@ -19972,11 +20197,11 @@ var $$ = {};
     call$1: [function(request) {
       var t1 = this.loadCompleter_3;
       J.decodeAudioData$1$x(this.audioContext_4, J.get$response$x(request)).then$1(new Z.WebAudioApiSound_load_audioRequestFinished_closure(this.sound_2, t1)).catchError$1(new Z.WebAudioApiSound_load_audioRequestFinished_closure0(this.box_0, this.url_1, t1));
-    }, "call$1", null, 2, 0, null, 251, "call"],
+    }, "call$1", null, 2, 0, null, 250, "call"],
     $isFunction: true
   },
   WebAudioApiSound_load_audioRequestFinished_closure: {
-    "^": "Closure:253;sound_5,loadCompleter_6",
+    "^": "Closure:252;sound_5,loadCompleter_6",
     call$1: [function(buffer) {
       var t1, t2;
       t1 = this.sound_5;
@@ -19985,7 +20210,7 @@ var $$ = {};
       if (t2._state !== 0)
         H.throwExpression(new P.StateError("Future already completed"));
       t2._asyncComplete$1(t1);
-    }, "call$1", null, 2, 0, null, 252, "call"],
+    }, "call$1", null, 2, 0, null, 251, "call"],
     $isFunction: true
   },
   WebAudioApiSound_load_audioRequestFinished_closure0: {
@@ -20566,7 +20791,7 @@ var $$ = {};
           this._refreshPending = this._refreshPending | 3;
         }
       }
-    }, "call$1", "get$_onKeyDown", 2, 0, 254, 255],
+    }, "call$1", "get$_onKeyDown", 2, 0, 253, 254],
     _onTextInput$1: [function(textEvent) {
       var textLength, caretIndex, newText, t1, t2;
       if (this._type === "input") {
@@ -20588,7 +20813,7 @@ var $$ = {};
         this._caretTime = 0;
         this._refreshPending = this._refreshPending | 3;
       }
-    }, "call$1", "get$_onTextInput", 2, 0, 256, 257],
+    }, "call$1", "get$_onTextInput", 2, 0, 255, 256],
     _onMouseDown$1: [function(mouseEvent) {
       var mouseX, mouseY, canvasContext, t1, line, textLineMetrics, text, lineX, t2, t3, t4, bestDistance, bestIndex, c, width, distance;
       mouseX = J.toDouble$0$n(mouseEvent.get$localX());
@@ -20619,7 +20844,7 @@ var $$ = {};
           this._refreshPending = this._refreshPending | 3;
         }
       }
-    }, "call$1", "get$_onMouseDown", 2, 0, 258, 231],
+    }, "call$1", "get$_onMouseDown", 2, 0, 257, 230],
     TextField$2: function(text, textFormat) {
       this.set$text(0, text);
       this._defaultTextFormat = new Z.TextFormat(textFormat.font, textFormat.size, textFormat.color, textFormat.strokeWidth, textFormat.strokeColor, textFormat.fillGradient, textFormat.bold, textFormat.italic, textFormat.underline, textFormat.align, textFormat.topMargin, textFormat.bottomMargin, textFormat.leftMargin, textFormat.rightMargin, textFormat.indent, textFormat.leading);
@@ -20684,7 +20909,7 @@ var $$ = {};
         J.set$src$x(t2, J.substring$2$s(t3, 0, match._match.index) + "webp");
       else
         J.set$src$x(t2, t3);
-    }, "call$1", "get$_onWebpSupported", 2, 0, 259, 260],
+    }, "call$1", "get$_onWebpSupported", 2, 0, 258, 259],
     _onImageLoad$1: [function($event) {
       var t1;
       this._onLoadSubscription.cancel$0();
@@ -20693,12 +20918,12 @@ var $$ = {};
       if (t1._state !== 0)
         H.throwExpression(new P.StateError("Future already completed"));
       t1._asyncComplete$1(this._image);
-    }, "call$1", "get$_onImageLoad", 2, 0, 246, 236],
+    }, "call$1", "get$_onImageLoad", 2, 0, 245, 235],
     _onImageError$1: [function($event) {
       this._onLoadSubscription.cancel$0();
       this._onErrorSubscription.cancel$0();
       this._completer.completeError$1(new P.StateError("Failed to load image."));
-    }, "call$1", "get$_onImageError", 2, 0, 246, 236],
+    }, "call$1", "get$_onImageError", 2, 0, 245, 235],
     _ImageLoader$3: function(url, webpAvailable, corsEnabled) {
       var t1, t2, t3;
       this._url = url;
@@ -20796,14 +21021,14 @@ var $$ = {};
     call$1: [function(_) {
       var t1 = this.this_0;
       t1._dispatchEventInternal$3(new Z.Event("progress", false, 2, null, null, false, false), t1, 2);
-    }, "call$1", null, 2, 0, null, 215, "call"],
+    }, "call$1", null, 2, 0, null, 214, "call"],
     $isFunction: true
   },
   ResourceManager_load_closure: {
     "^": "Closure:163;",
     call$1: [function(r) {
       return J.get$complete$x(r);
-    }, "call$1", null, 2, 0, null, 261, "call"],
+    }, "call$1", null, 2, 0, null, 260, "call"],
     $isFunction: true
   },
   ResourceManager_load_closure0: {
@@ -20824,14 +21049,14 @@ var $$ = {};
     call$1: [function(r) {
       var t1 = J.getInterceptor$x(r);
       return t1.get$value(r) == null && t1.get$error(r) == null;
-    }, "call$1", null, 2, 0, null, 261, "call"],
+    }, "call$1", null, 2, 0, null, 260, "call"],
     $isFunction: true
   },
   ResourceManager_failedResources_closure: {
     "^": "Closure:163;",
     call$1: [function(r) {
       return J.get$error$x(r) != null;
-    }, "call$1", null, 2, 0, null, 261, "call"],
+    }, "call$1", null, 2, 0, null, 260, "call"],
     $isFunction: true
   },
   ResourceManagerResource: {
@@ -20867,7 +21092,7 @@ var $$ = {};
     "^": "Closure:163;this_0",
     call$1: [function(resource) {
       this.this_0._stagexl$_value = resource;
-    }, "call$1", null, 2, 0, null, 262, "call"],
+    }, "call$1", null, 2, 0, null, 261, "call"],
     $isFunction: true
   },
   ResourceManagerResource_closure0: {
@@ -20969,11 +21194,11 @@ var $$ = {};
         t1 = t2;
       t2 = this.completer_2;
       Z.RenderTexture_load(imageUrl, t1.autoHiDpi, t1.webp, t1.corsEnabled).then$1(new Z.TextureAtlas_load__closure(t2, this.textureAtlas_3)).catchError$1(new Z.TextureAtlas_load__closure0(t2));
-    }, "call$1", null, 2, 0, null, 263, "call"],
+    }, "call$1", null, 2, 0, null, 262, "call"],
     $isFunction: true
   },
   TextureAtlas_load__closure: {
-    "^": "Closure:264;completer_4,textureAtlas_5",
+    "^": "Closure:263;completer_4,textureAtlas_5",
     call$1: [function(renderTexture) {
       var t1, t2;
       t1 = this.textureAtlas_5;
@@ -20982,7 +21207,7 @@ var $$ = {};
       if (t2._state !== 0)
         H.throwExpression(new P.StateError("Future already completed"));
       t2._asyncComplete$1(t1);
-    }, "call$1", null, 2, 0, null, 229, "call"],
+    }, "call$1", null, 2, 0, null, 228, "call"],
     $isFunction: true
   },
   TextureAtlas_load__closure0: {
@@ -21016,11 +21241,11 @@ var $$ = {};
       }}
   },
   _checkWebpSupport_closure: {
-    "^": "Closure:265;",
+    "^": "Closure:264;",
     call$1: [function(image) {
       var t1 = J.getInterceptor$x(image);
       return J.$eq(t1.get$width(image), 2) && t1.get$height(image) === 2;
-    }, "call$1", null, 2, 0, null, 245, "call"],
+    }, "call$1", null, 2, 0, null, 244, "call"],
     $isFunction: true
   },
   _checkWebpSupport_closure0: {
@@ -21034,7 +21259,7 @@ var $$ = {};
     "^": "Closure:163;ua_0",
     call$1: [function(id) {
       return C.JSString_methods.indexOf$1(this.ua_0, id) >= 0;
-    }, "call$1", null, 2, 0, null, 266, "call"],
+    }, "call$1", null, 2, 0, null, 265, "call"],
     $isFunction: true
   }
 }],
@@ -21478,7 +21703,7 @@ var $$ = {};
     },
     _stagexl_particle$_onContextRestored$1: [function(e) {
       this._stagexl_particle$_program = null;
-    }, "call$1", "get$_stagexl_particle$_onContextRestored", 2, 0, 267, 14],
+    }, "call$1", "get$_stagexl_particle$_onContextRestored", 2, 0, 266, 14],
     _ParticleRenderProgram$0: function() {
       var t1, t2, i, j, t3;
       for (t1 = this._indexList, t2 = t1.length - 6, i = 0, j = 0; i <= t2; i += 6, j += 4) {
@@ -21631,9 +21856,6 @@ P._BroadcastSubscription.$isStreamSubscription = true;
 P._BroadcastSubscription.$isObject = true;
 Z.RenderTexture.$isRenderTexture = true;
 Z.RenderTexture.$isObject = true;
-W.MessageEvent.$isMessageEvent = true;
-W.MessageEvent.$isEvent0 = true;
-W.MessageEvent.$isObject = true;
 P.Comparable.$isComparable = true;
 P.Comparable.$isObject = true;
 W.EventTarget.$isEventTarget = true;
@@ -22244,7 +22466,6 @@ C.UnknownJavaScriptObject_methods = J.UnknownJavaScriptObject.prototype;
 C.Window_methods = W.Window.prototype;
 C._CustomEventStreamProvider__determineMouseWheelEventType = new W._CustomEventStreamProvider(W.Element__determineMouseWheelEventType$closure());
 $.libraries_to_load = {};
-$.ws = null;
 $.Primitives_mirrorFunctionCacheName = "$cachedFunction";
 $.Primitives_mirrorInvokeCacheName = "$cachedInvocation";
 $.Closure_functionCounter = 0;
@@ -22675,7 +22896,6 @@ false,
 "bitmapData",
 {func: "void__Timer", void: true, args: [P.Timer]},
 "updater",
-{func: "dynamic__MessageEvent", args: [W.MessageEvent]},
 "sardineBoat",
 "tunaBoat",
 "sharkBoat",
@@ -26571,7 +26791,7 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   main_closure.prototype = $desc;
-  function Boat(_resourceManager, _TOTC$_juggler, _boatMove, _boatRotate, _fishes, _ecosystem, _fleet, _game, _teamA, nothing, _console, _TOTC$_type, _netMoney, _netCapacity, random, speedLevel, capacityLevel, speed, rotSpeed, netCapacityMax, boat, _boatImage, _tempNet, _nets, _netNames, _net, _netSkew, _turnMode, netHitBox, _netShapeHitBox, catchType, canCatch, _canMove, _autoMove, _canLoadConsole, _showingFullPrompt, _showingPrompt, _arrow, _TOTC$_text, _fullText, _dragging, _touched, _newX, _newY, offseasonBoat, particleConfig, particleEmitter, mapIndex, netSize, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
+  function Boat(_resourceManager, _TOTC$_juggler, _boatMove, _boatRotate, _fishes, _ecosystem, _fleet, _game, _teamA, nothing, _console, _TOTC$_type, _netMoney, _netCapacity, random, speedLevel, capacityLevel, speed, rotSpeed, netCapacityMax, boat, _boatImage, _tempNet, _nets, _netNames, _net, _netSkew, _turnMode, netHitBox, _netShapeHitBox, catchType, canCatch, _canMove, _autoMove, _canLoadConsole, _showingFullPrompt, _showingPrompt, _arrow, _TOTC$_text, _fullText, _dragging, _touched, _newX, _newY, offseasonBoat, particleConfig, particleEmitter, mapIndex, netSize, boatFullSound, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
     this._resourceManager = _resourceManager;
     this._TOTC$_juggler = _TOTC$_juggler;
     this._boatMove = _boatMove;
@@ -26621,6 +26841,7 @@ function dart_precompiled($collectedClasses) {
     this.particleEmitter = particleEmitter;
     this.mapIndex = mapIndex;
     this.netSize = netSize;
+    this.boatFullSound = boatFullSound;
     this.buttonMode = buttonMode;
     this.hitArea = hitArea;
     this._graphics = _graphics;
@@ -26685,54 +26906,6 @@ function dart_precompiled($collectedClasses) {
   Boat.prototype.get$netSize = function() {
     return this.netSize;
   };
-  function DataLogger(id, totalTime, teamAFinalScore, teamBFinalScore, totalStars, numOfRound, reasonLost, round0, round1, round2, round3, round4) {
-    this.id = id;
-    this.totalTime = totalTime;
-    this.teamAFinalScore = teamAFinalScore;
-    this.teamBFinalScore = teamBFinalScore;
-    this.totalStars = totalStars;
-    this.numOfRound = numOfRound;
-    this.reasonLost = reasonLost;
-    this.round0 = round0;
-    this.round1 = round1;
-    this.round2 = round2;
-    this.round3 = round3;
-    this.round4 = round4;
-  }
-  DataLogger.builtin$cls = "DataLogger";
-  if (!"name" in DataLogger)
-    DataLogger.name = "DataLogger";
-  $desc = $collectedClasses.DataLogger;
-  if ($desc instanceof Array)
-    $desc = $desc[1];
-  DataLogger.prototype = $desc;
-  function RoundLogger(logger, roundNumber, roundTime, starRating, sardineCount, tunaCount, sharkCount, sardineStatus, tunaStatus, sharkStatus, teamANetSize, teamABoatType, teamASeasonProfit, teamANumOfFishCaught, teamBNetSize, teamBBoatType, teamBSeasonProfit, teamBNumOfFishCaught) {
-    this.logger = logger;
-    this.roundNumber = roundNumber;
-    this.roundTime = roundTime;
-    this.starRating = starRating;
-    this.sardineCount = sardineCount;
-    this.tunaCount = tunaCount;
-    this.sharkCount = sharkCount;
-    this.sardineStatus = sardineStatus;
-    this.tunaStatus = tunaStatus;
-    this.sharkStatus = sharkStatus;
-    this.teamANetSize = teamANetSize;
-    this.teamABoatType = teamABoatType;
-    this.teamASeasonProfit = teamASeasonProfit;
-    this.teamANumOfFishCaught = teamANumOfFishCaught;
-    this.teamBNetSize = teamBNetSize;
-    this.teamBBoatType = teamBBoatType;
-    this.teamBSeasonProfit = teamBSeasonProfit;
-    this.teamBNumOfFishCaught = teamBNumOfFishCaught;
-  }
-  RoundLogger.builtin$cls = "RoundLogger";
-  if (!"name" in RoundLogger)
-    RoundLogger.name = "RoundLogger";
-  $desc = $collectedClasses.RoundLogger;
-  if ($desc instanceof Array)
-    $desc = $desc[1];
-  RoundLogger.prototype = $desc;
   function Ecosystem(_resourceManager, _TOTC$_juggler, game, _fleet, fishes, _babies, _fishCount, sardineGraph, tunaGraph, sharkGraph, largestSardinePop, lowestSardinePop, largestTunaPop, lowestTunaPop, largestSharkPop, lowestSharkPop, _tunaBloodData, _sardineBloodData, tunaBirthTimerMax, tunaBirthTimer, sardineBirthTimerMax, sardineBirthTimer, sharkBirthTimerMax, sharkBirthTimer, planktonCount, tunaFoodCount, sharkFoodCount, sardineCatchSounds, tunaCatchSounds, sharkCatchSounds, random, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
     this._resourceManager = _resourceManager;
     this._TOTC$_juggler = _TOTC$_juggler;
@@ -26843,7 +27016,7 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   Ecosystem_removeFish_closure0.prototype = $desc;
-  function Endgame(_resourceManager, _TOTC$_juggler, _game, _ecosystem, teamAui, teamBui, bestScoresA, bestScoresB, endgameIconTop, endgameIconBottom, emptyStars, replayButton, replayEnable, animatedRating, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
+  function Endgame(_resourceManager, _TOTC$_juggler, _game, _ecosystem, teamAui, teamBui, bestScoresA, bestScoresB, endgameIconTop, endgameIconBottom, emptyStars, replayButton, replayEnable, animatedRating, star0Sound, star1Sound, star2Sound, star3Sound, star4Sound, star5Sound, star6Sound, star7Sound, star8Sound, star9Sound, star10Sound, star11Sound, star12Sound, star13Sound, star14Sound, OldStar, CurrentStar, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
     this._resourceManager = _resourceManager;
     this._TOTC$_juggler = _TOTC$_juggler;
     this._game = _game;
@@ -26858,6 +27031,23 @@ function dart_precompiled($collectedClasses) {
     this.replayButton = replayButton;
     this.replayEnable = replayEnable;
     this.animatedRating = animatedRating;
+    this.star0Sound = star0Sound;
+    this.star1Sound = star1Sound;
+    this.star2Sound = star2Sound;
+    this.star3Sound = star3Sound;
+    this.star4Sound = star4Sound;
+    this.star5Sound = star5Sound;
+    this.star6Sound = star6Sound;
+    this.star7Sound = star7Sound;
+    this.star8Sound = star8Sound;
+    this.star9Sound = star9Sound;
+    this.star10Sound = star10Sound;
+    this.star11Sound = star11Sound;
+    this.star12Sound = star12Sound;
+    this.star13Sound = star13Sound;
+    this.star14Sound = star14Sound;
+    this.OldStar = OldStar;
+    this.CurrentStar = CurrentStar;
     this.buttonMode = buttonMode;
     this.hitArea = hitArea;
     this._graphics = _graphics;
@@ -27024,13 +27214,16 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   BestScores.prototype = $desc;
-  function FinalSummary(_resourceManager, _TOTC$_juggler, _game, _ecosystem, summaryBackground, replayButton, aboutOpen, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
+  function FinalSummary(_resourceManager, _TOTC$_juggler, _game, _ecosystem, ui_restartGameSound, summaryBackground, replayButton, summaryText, informationText, aboutOpen, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
     this._resourceManager = _resourceManager;
     this._TOTC$_juggler = _TOTC$_juggler;
     this._game = _game;
     this._ecosystem = _ecosystem;
+    this.ui_restartGameSound = ui_restartGameSound;
     this.summaryBackground = summaryBackground;
     this.replayButton = replayButton;
+    this.summaryText = summaryText;
+    this.informationText = informationText;
     this.aboutOpen = aboutOpen;
     this.buttonMode = buttonMode;
     this.hitArea = hitArea;
@@ -27246,7 +27439,7 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   Fleet_closure.prototype = $desc;
-  function Game(timerType, pieTimerBitmap, pieTimerBitmapButton, _resourceManager, _TOTC$_juggler, _fleet, _ecosystem, _offseason, _background, _endgame, _title, _finalSummary, tmanager, tlayer, gameStarted, newGame, width, height, totalTimeCounter, _mask, _maskTween, teamAMoneyText, teamBMoneyText, teamAScoreText, teamBScoreText, roundTitle, roundNumber, seasonTitle, roundNumberDiv, starCount, teamAMoney, teamBMoney, teamAScore, teamBScore, teamARoundProfit, teamBRoundProfit, teamATotalProfit, teamBTotalProfit, moneyChanged, moneyTimer, moneyTimerMax, round, gameID, regrowthInfoType, _teamAGraph, _teamBGraph, _graphTimerMax, _graphTimer, badge, timerGraphicA, timerGraphicB, timerPie, sardineBar, tunaBar, sharkBar, sardineOutline, tunaOutline, sharkOutline, timerTextA, timerTextB, gameIDText, sardineIcon, tunaIcon, sharkIcon, phase, timer, fishingTimerTick, buyTimerTick, regrowthTimerTick, transition, timerButtonBool, timerButtonReady, timerActive, timerSound, timerSoundChannel, timerSoundTimer, timerButton, clockUpdateTimer, curTimer, clockCounter, uiObjects, datalogger, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
+  function Game(timerType, pieTimerBitmap, pieTimerBitmapButton, _resourceManager, _TOTC$_juggler, _fleet, _ecosystem, _offseason, _background, _endgame, _title, _finalSummary, tmanager, tlayer, gameStarted, newGame, width, height, totalTimeCounter, _mask, _maskTween, teamAMoneyText, teamBMoneyText, teamAScoreText, teamBScoreText, roundTitle, roundNumber, seasonTitle, roundNumberDiv, starCount, teamAMoney, teamBMoney, teamAScore, teamBScore, teamARoundProfit, teamBRoundProfit, teamATotalProfit, teamBTotalProfit, moneyChanged, moneyTimer, moneyTimerMax, round, gameID, regrowthInfoType, _teamAGraph, _teamBGraph, _graphTimerMax, _graphTimer, badge, timerGraphicA, timerGraphicB, timerPie, sardineBar, tunaBar, sharkBar, sardineOutline, tunaOutline, sharkOutline, timerTextA, timerTextB, gameIDText, sardineIcon, tunaIcon, sharkIcon, phase, timer, fishingTimerTick, buyTimerTick, regrowthTimerTick, transition, timerButtonBool, timerButtonReady, timerActive, timerSound, timerSoundChannel, timerSoundTimer, timerButton, clockUpdateTimer, curTimer, clockCounter, transition_titleToFishingSound, transition_fishingToRegrowthSound, transition_regrowthToBuySound, transition_buyToFishingSound, transition_regrowthToEndSound, transition_endToSummarySound, ui_tapTimerSound, background_music, background_music_short, uiObjects, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
     this.timerType = timerType;
     this.pieTimerBitmap = pieTimerBitmap;
     this.pieTimerBitmapButton = pieTimerBitmapButton;
@@ -27327,8 +27520,16 @@ function dart_precompiled($collectedClasses) {
     this.clockUpdateTimer = clockUpdateTimer;
     this.curTimer = curTimer;
     this.clockCounter = clockCounter;
+    this.transition_titleToFishingSound = transition_titleToFishingSound;
+    this.transition_fishingToRegrowthSound = transition_fishingToRegrowthSound;
+    this.transition_regrowthToBuySound = transition_regrowthToBuySound;
+    this.transition_buyToFishingSound = transition_buyToFishingSound;
+    this.transition_regrowthToEndSound = transition_regrowthToEndSound;
+    this.transition_endToSummarySound = transition_endToSummarySound;
+    this.ui_tapTimerSound = ui_tapTimerSound;
+    this.background_music = background_music;
+    this.background_music_short = background_music_short;
     this.uiObjects = uiObjects;
-    this.datalogger = datalogger;
     this.buttonMode = buttonMode;
     this.hitArea = hitArea;
     this._graphics = _graphics;
@@ -27391,16 +27592,6 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   Game_advanceTime_closure.prototype = $desc;
-  function Game_advanceTime_closure0(this_1) {
-    this.this_1 = this_1;
-  }
-  Game_advanceTime_closure0.builtin$cls = "Game_advanceTime_closure0";
-  if (!"name" in Game_advanceTime_closure0)
-    Game_advanceTime_closure0.name = "Game_advanceTime_closure0";
-  $desc = $collectedClasses.Game_advanceTime_closure0;
-  if ($desc instanceof Array)
-    $desc = $desc[1];
-  Game_advanceTime_closure0.prototype = $desc;
   function Game_startTimer_closure(this_0) {
     this.this_0 = this_0;
   }
@@ -27603,7 +27794,7 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   Offseason_fillDocks___closure.prototype = $desc;
-  function Circle(_resourceManager, _TOTC$_juggler, _game, _fleet, _offseason, _boatsA, _boatsB, _circle, _circleButton, _capacitySmallButton, _capacityLargeButton, _tunaButton, _sardineButton, _sharkButton, _tempButton, _yesButton, _noButton, _confirmText, _box, pushA, pushB, clicked, swoosh, buySplash, itemSuction, _teamA, _teamAA, _upgradeMode, _rotateTween, _rotateTween2, _upgradeRotation, _upgradeRotation2, _touchMode, _circleWidth, _touchedBoat, _confirmMode, _boxConfirmMode, _boxUp, _boxX, _boxY, _boxDisplayed, wShip, wNet, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
+  function Circle(_resourceManager, _TOTC$_juggler, _game, _fleet, _offseason, _boatsA, _boatsB, _circle, _circleButton, _capacitySmallButton, _capacityLargeButton, _tunaButton, _sardineButton, _sharkButton, _tempButton, _yesButton, _noButton, _confirmText, _box, pushA, pushB, ui_selectSardineBoatSound, ui_selectTunaBoatSound, ui_selectSharkBoatSound, ui_selectSmallNetSound, ui_selectBigNetSound, ui_rotateBuyDiscSound, discChannel, _teamA, _teamAA, _upgradeMode, _rotateTween, _rotateTween2, _upgradeRotation, _upgradeRotation2, _touchMode, _circleWidth, _touchedBoat, _confirmMode, _boxConfirmMode, _boxUp, _boxX, _boxY, _boxDisplayed, wShip, wNet, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
     this._resourceManager = _resourceManager;
     this._TOTC$_juggler = _TOTC$_juggler;
     this._game = _game;
@@ -27625,10 +27816,13 @@ function dart_precompiled($collectedClasses) {
     this._box = _box;
     this.pushA = pushA;
     this.pushB = pushB;
-    this.clicked = clicked;
-    this.swoosh = swoosh;
-    this.buySplash = buySplash;
-    this.itemSuction = itemSuction;
+    this.ui_selectSardineBoatSound = ui_selectSardineBoatSound;
+    this.ui_selectTunaBoatSound = ui_selectTunaBoatSound;
+    this.ui_selectSharkBoatSound = ui_selectSharkBoatSound;
+    this.ui_selectSmallNetSound = ui_selectSmallNetSound;
+    this.ui_selectBigNetSound = ui_selectBigNetSound;
+    this.ui_rotateBuyDiscSound = ui_rotateBuyDiscSound;
+    this.discChannel = discChannel;
     this._teamA = _teamA;
     this._teamAA = _teamAA;
     this._upgradeMode = _upgradeMode;
@@ -27884,16 +28078,21 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   ScoreCounter.prototype = $desc;
-  function Title(_resourceManager, _TOTC$_juggler, _game, _ecosystem, titleBackground, aboutPage, playButton, aboutButton, aboutOpen, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
+  function Title(_resourceManager, _TOTC$_juggler, _game, _ecosystem, titleBackground, aboutPage, tutorialPage, playButton, aboutButton, ui_playButtonSound, ui_aboutButtonOpenSound, ui_aboutButtonCloseSound, aboutOpen, tutorialOpen, buttonMode, hitArea, _graphics, _dropTarget, _children, _mouseChildren, _tabChildren, doubleClickEnabled, mouseEnabled, useHandCursor, tabEnabled, tabIndex, _stagexl$_id, _x, _y, _pivotX, _pivotY, _scaleX, _scaleY, _skewX, _skewY, _rotation, _alpha, _visible, _off, _stagexl$_mask, _shadow, _stagexl$_compositeOperation, _filters, _cacheTextureQuad, _cacheDebugBorder, _stagexl$_name, _parent, _tmpMatrix, _transformationMatrix, _transformationMatrixRefresh, userData, _eventStreams) {
     this._resourceManager = _resourceManager;
     this._TOTC$_juggler = _TOTC$_juggler;
     this._game = _game;
     this._ecosystem = _ecosystem;
     this.titleBackground = titleBackground;
     this.aboutPage = aboutPage;
+    this.tutorialPage = tutorialPage;
     this.playButton = playButton;
     this.aboutButton = aboutButton;
+    this.ui_playButtonSound = ui_playButtonSound;
+    this.ui_aboutButtonOpenSound = ui_aboutButtonOpenSound;
+    this.ui_aboutButtonCloseSound = ui_aboutButtonCloseSound;
     this.aboutOpen = aboutOpen;
+    this.tutorialOpen = tutorialOpen;
     this.buttonMode = buttonMode;
     this.hitArea = hitArea;
     this._graphics = _graphics;
@@ -33213,5 +33412,5 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   _ParticleRenderProgram.prototype = $desc;
-  return [HtmlElement, AnchorElement, Animation, AnimationEvent, AreaElement, AudioElement, AutocompleteErrorEvent, BRElement, BaseElement, BeforeLoadEvent, BeforeUnloadEvent, Blob, BodyElement, ButtonElement, CDataSection, CanvasElement, CanvasGradient, CanvasPattern, CanvasRenderingContext, CanvasRenderingContext2D, CharacterData, CloseEvent, Comment, CompositionEvent, ContentElement, CssFontFaceLoadEvent, CssStyleDeclaration, CustomEvent, DListElement, DataListElement, DetailsElement, DeviceMotionEvent, DeviceOrientationEvent, DialogElement, DivElement, Document, DocumentFragment, DomError, DomException, Element, EmbedElement, ErrorEvent, Event0, EventTarget, FieldSetElement, File, FileError, FocusEvent, FormElement, HRElement, HashChangeEvent, HeadElement, HeadingElement, HtmlCollection, HtmlDocument, HtmlFormControlsCollection, HtmlHtmlElement, HtmlOptionsCollection, HttpRequest, HttpRequestEventTarget, IFrameElement, ImageData, ImageElement, InputElement, KeyboardEvent, KeygenElement, LIElement, LabelElement, LegendElement, LinkElement, Location, MapElement, MediaElement, MediaError, MediaKeyError, MediaKeyEvent, MediaKeyMessageEvent, MediaKeyNeededEvent, MediaStream, MediaStreamEvent, MediaStreamTrackEvent, MenuElement, MessageEvent, MetaElement, MeterElement, MidiConnectionEvent, MidiMessageEvent, ModElement, MouseEvent0, Navigator, NavigatorUserMediaError, Node, NodeList, OListElement, ObjectElement, OptGroupElement, OptionElement, OutputElement, OverflowEvent, PageTransitionEvent, ParagraphElement, ParamElement, PopStateEvent, PositionError, PreElement, ProcessingInstruction, ProgressElement, ProgressEvent, QuoteElement, ResourceProgressEvent, RtcDataChannelEvent, RtcDtmfToneChangeEvent, RtcIceCandidateEvent, Screen, ScriptElement, SecurityPolicyViolationEvent, SelectElement, ShadowElement, ShadowRoot, SourceElement, SpanElement, SpeechInputEvent, SpeechRecognitionError, SpeechRecognitionEvent, SpeechSynthesisEvent, StorageEvent, StyleElement, TableCaptionElement, TableCellElement, TableColElement, TableElement, TableRowElement, TableSectionElement, TemplateElement, Text, TextAreaElement, TextEvent, TextMetrics, TimedItem, TitleElement, Touch, TouchEvent0, TouchList, TrackElement, TrackEvent, TransitionEvent, UIEvent, UListElement, UnknownElement, VideoElement, WheelEvent, Window, XmlDocument, _Attr, _ClientRect, _DocumentType, _HTMLAppletElement, _HTMLDirectoryElement, _HTMLFontElement, _HTMLFrameElement, _HTMLFrameSetElement, _HTMLMarqueeElement, _MutationEvent, _Notation, _XMLHttpRequestProgressEvent, KeyRange, VersionChangeEvent, AElement, AltGlyphElement, AnimateElement, AnimateMotionElement, AnimateTransformElement, AnimatedEnumeration, AnimatedLength, AnimatedLengthList, AnimatedNumber, AnimatedNumberList, AnimatedString, AnimationElement, CircleElement, ClipPathElement, DefsElement, DescElement, DiscardElement, EllipseElement, FEBlendElement, FEColorMatrixElement, FEComponentTransferElement, FECompositeElement, FEConvolveMatrixElement, FEDiffuseLightingElement, FEDisplacementMapElement, FEDistantLightElement, FEFloodElement, FEFuncAElement, FEFuncBElement, FEFuncGElement, FEFuncRElement, FEGaussianBlurElement, FEImageElement, FEMergeElement, FEMergeNodeElement, FEMorphologyElement, FEOffsetElement, FEPointLightElement, FESpecularLightingElement, FESpotLightElement, FETileElement, FETurbulenceElement, FilterElement, ForeignObjectElement, GElement, GeometryElement, GraphicsElement, ImageElement0, LineElement, LinearGradientElement, MarkerElement, MaskElement, MetadataElement, PathElement, PatternElement, PolygonElement, PolylineElement, RadialGradientElement, Rect, RectElement, ScriptElement0, SetElement, StopElement, StyleElement0, SvgElement, SvgSvgElement, SwitchElement, SymbolElement, TSpanElement, TextContentElement, TextElement, TextPathElement, TextPositioningElement, TitleElement0, UseElement, ViewElement, ZoomEvent, _GradientElement, _SVGAltGlyphDefElement, _SVGAltGlyphItemElement, _SVGComponentTransferFunctionElement, _SVGCursorElement, _SVGFEDropShadowElement, _SVGFontElement, _SVGFontFaceElement, _SVGFontFaceFormatElement, _SVGFontFaceNameElement, _SVGFontFaceSrcElement, _SVGFontFaceUriElement, _SVGGlyphElement, _SVGGlyphRefElement, _SVGHKernElement, _SVGMPathElement, _SVGMissingGlyphElement, _SVGVKernElement, AudioBuffer, AudioBufferSourceNode, AudioContext, AudioDestinationNode, AudioNode, AudioParam, AudioProcessingEvent, AudioSourceNode, GainNode, OfflineAudioCompletionEvent, OfflineAudioContext, Buffer, ContextEvent, Framebuffer, Program, Renderbuffer, RenderingContext, Shader, Texture, UniformLocation, SqlError, NativeByteBuffer, NativeTypedData, NativeByteData, NativeFloat32List, NativeFloat64List, NativeInt16List, NativeInt32List, NativeInt8List, NativeUint16List, NativeUint32List, NativeUint8ClampedList, NativeUint8List, main_closure, Boat, DataLogger, RoundLogger, Ecosystem, Ecosystem_closure, Ecosystem_removeFish_closure, Ecosystem_removeFish_closure0, Endgame, Endgame_showTeamUI_closure, EndGameTeamUI, BestScores, FinalSummary, Fish, Fish_closure, Fish_closure0, Fish_closure1, Fleet, Fleet_closure, Game, Game_advanceTime_closure, Game_advanceTime_closure0, Game_startTimer_closure, Game_startTimer_closure0, Game_startTimer_closure1, Graph, Offseason, Offseason_closure, Offseason_fillDocks_closure, Offseason_fillDocks__closure, Offseason_fillDocks___closure, Circle, Circle_closure, Circle_closure0, Circle_closure1, Circle_closure2, EcosystemBadge, ScoreCounter, Title, MyButton, TouchManager, TouchManager_registerEvents_closure, TouchManager_registerEvents_closure0, TouchManager_registerEvents_closure1, TouchManager_registerEvents_closure2, TouchManager_registerEvents_closure3, TouchManager_registerEvents_closure4, TouchManager_registerEvents_closure5, TouchLayer, TouchBinding, Touchable, Contact, JS_CONST, Interceptor, JSBool, JSNull, JavaScriptObject, PlainJavaScriptObject, UnknownJavaScriptObject, JSArray, JSNumber, JSInt, JSDouble, JSString, startRootIsolate_closure, startRootIsolate_closure0, _Manager, _IsolateContext, _IsolateContext_handlePing_closure, _EventLoop, _EventLoop__runHelper_next, _IsolateEvent, _MainManagerStub, IsolateNatives__processWorkerMessage_closure, IsolateNatives__startIsolate_runStartFunction, _BaseSendPort, _NativeJsSendPort, _NativeJsSendPort_send_closure, _WorkerSendPort, RawReceivePortImpl, _JsSerializer, _JsCopier, _JsDeserializer, _JsVisitedMap, _MessageTraverserVisitedMap, _MessageTraverser, _Copier, _Copier_visitMap_closure, _Serializer, _Deserializer, TimerImpl, TimerImpl_internalCallback, TimerImpl_internalCallback0, TimerImpl$periodic_closure, CapabilityImpl, JSInvocationMirror, ReflectionInfo, ReflectionInfo_sortedIndex_closure, Primitives_functionNoSuchMethod_closure, Primitives_applyFunction_closure, TypeErrorDecoder, NullError, JsNoSuchMethodError, UnknownJsTypeError, unwrapException_saveStackTrace, _StackTrace, invokeClosure_closure, invokeClosure_closure0, invokeClosure_closure1, invokeClosure_closure2, invokeClosure_closure3, Closure, TearOffClosure, BoundClosure, CastErrorImplementation, RuntimeError, RuntimeType, RuntimeFunctionType, DynamicRuntimeType, TypeImpl, initHooks_closure, initHooks_closure0, initHooks_closure1, JSSyntaxRegExp, _MatchImplementation, StringMatch, ListIterable, ListIterator, MappedIterable, EfficientLengthMappedIterable, MappedIterator, MappedListIterable, WhereIterable, WhereIterator, FixedLengthListMixin, Symbol0, _AsyncError, _BroadcastSubscription, _BroadcastStreamController, _SyncBroadcastStreamController, _SyncBroadcastStreamController__sendData_closure, _SyncBroadcastStreamController__sendError_closure, _SyncBroadcastStreamController__sendDone_closure, _AsBroadcastStreamController, Future, Future_wait_handleError, Future_wait_closure, _Completer, _AsyncCompleter, _Future, _Future__addListener_closure, _Future__chainForeignFuture_closure, _Future__chainForeignFuture_closure0, _Future__asyncComplete_closure, _Future__asyncComplete_closure0, _Future__asyncCompleteError_closure, _Future__propagateToListeners_handleValueCallback, _Future__propagateToListeners_handleError, _Future__propagateToListeners_handleWhenCompleteCallback, _Future__propagateToListeners_handleWhenCompleteCallback_closure, _Future__propagateToListeners_handleWhenCompleteCallback_closure0, _AsyncCallbackEntry, Stream, Stream_contains_closure, Stream_contains__closure, Stream_contains__closure0, Stream_contains_closure0, Stream_forEach_closure, Stream_forEach__closure, Stream_forEach__closure0, Stream_forEach_closure0, Stream_length_closure, Stream_length_closure0, Stream_first_closure, Stream_first_closure0, StreamSubscription, _StreamController, _StreamController__subscribe_closure, _StreamController__recordCancel_complete, _SyncStreamControllerDispatch, _AsyncStreamControllerDispatch, _NoCallbacks, _NoCallbackAsyncStreamController, _StreamController__AsyncStreamControllerDispatch, _NoCallbackSyncStreamController, _StreamController__SyncStreamControllerDispatch, _ControllerStream, _ControllerSubscription, _EventSink, _BufferingStreamSubscription, _BufferingStreamSubscription__sendError_sendError, _BufferingStreamSubscription__sendDone_sendDone, _StreamImpl, _DelayedEvent, _DelayedData, _DelayedError, _DelayedDone, _PendingEvents, _PendingEvents_schedule_closure, _StreamImplEvents, _DummyStreamSubscription, _DummyStreamSubscription_pause_closure, _AsBroadcastStream, _BroadcastSubscriptionWrapper, _cancelAndError_closure, _cancelAndErrorClosure_closure, _cancelAndValue_closure, _ForwardingStream, _ForwardingStreamSubscription, _MapStream, Timer, _BaseZone, _BaseZone_bindCallback_closure, _BaseZone_bindCallback_closure0, _BaseZone_bindUnaryCallback_closure, _BaseZone_bindUnaryCallback_closure0, _rootHandleUncaughtError_closure, _rootHandleUncaughtError__closure, _RootZone, _HashMap, _HashMap_values_closure, HashMapKeyIterable, HashMapKeyIterator, _LinkedHashMap, _LinkedHashMap_values_closure, LinkedHashMapCell, LinkedHashMapKeyIterable, LinkedHashMapKeyIterator, _HashSet, _IdentityHashSet, HashSetIterator, _LinkedHashSet, LinkedHashSetCell, LinkedHashSetIterator, _HashSetBase, IterableBase, ListMixin, Maps_mapToString_closure, ListQueue, _ListQueueIterator, _convertJsonToDart_closure, _convertJsonToDart_walk, Codec, Converter, JsonCodec, JsonDecoder, Function__toMangledNames_closure, NoSuchMethodError_toString_closure, Comparable, DateTime, Duration, Duration_toString_sixDigits, Duration_toString_twoDigits, Error, NullThrownError, ArgumentError, RangeError, NoSuchMethodError, UnsupportedError, UnimplementedError, StateError, ConcurrentModificationError, OutOfMemoryError, StackOverflowError, CyclicInitializationError, _ExceptionImplementation, FormatException, IntegerDivisionByZeroException, Expando, Function, Iterator, Map, Null, Object, StackTrace, StringBuffer, Symbol, Interceptor_CssStyleDeclarationBase, CssStyleDeclarationBase, Interceptor_ListMixin, Interceptor_ListMixin_ImmutableListMixin, HttpRequest_getString_closure, HttpRequest_request_closure0, HttpRequest_request_closure, Interceptor_ListMixin0, Interceptor_ListMixin_ImmutableListMixin0, Interceptor_ListMixin1, Interceptor_ListMixin_ImmutableListMixin1, EventStreamProvider, _EventStream, _ElementEventStreamImpl, _EventStreamSubscription, _CustomEventStreamProvider, ImmutableListMixin, FixedSizeListIterator, _DOMWindowCrossFrame, _LocationWrapper, AudioContext_decodeAudioData_closure, AudioContext_decodeAudioData_closure0, Capability, JsObject, JsFunction, JsArray, JsObject_ListMixin, _convertToJS_closure, _convertToJS_closure0, _wrapToDart_closure, _wrapToDart_closure0, _wrapToDart_closure1, _JSRandom, Point0, _RectangleBase, Rectangle, NativeTypedArray, NativeTypedArrayOfDouble, NativeTypedArray_ListMixin, NativeTypedArray_ListMixin_FixedLengthListMixin, NativeTypedArrayOfInt, NativeTypedArray_ListMixin0, NativeTypedArray_ListMixin_FixedLengthListMixin0, convertDartToNative_Dictionary_closure, convertNativeToDart_AcceptStructuredClone_findSlot, convertNativeToDart_AcceptStructuredClone_readSlot, convertNativeToDart_AcceptStructuredClone_writeSlot, convertNativeToDart_AcceptStructuredClone_walk, Animatable, _AnimatableLink, Juggler, Transition, TweenProperty, Tween, Bitmap, BitmapData, BitmapData_load_closure, BitmapDataLoadOptions, DisplayObject, DisplayObjectContainer, Graphics, _GraphicsCommand, _GraphicsBounds, _GraphicsCommandBeginPath, _GraphicsCommandClosePath, _GraphicsCommandMoveTo, _GraphicsCommandLineTo, _GraphicsCommandArc, _GraphicsCommandRect, _GraphicsCommandStroke, _GraphicsCommandStrokeColor, _GraphicsCommandFill, _GraphicsCommandFillColor, GraphicsGradient, InteractiveObject, Shape, SimpleButton, Sprite, _MouseButton, _Touch, Stage, Stage__onMultitouchInputModeChanged_closure, Stage__onTouchEventProcessor_closure, RenderContext, RenderContextCanvas, RenderContextWebGL, RenderFrameBuffer, RenderLoop, RenderProgram, RenderProgramQuad, RenderProgramTriangle, _ContextState, RenderState, RenderTexture, RenderTexture_load_closure, RenderTextureQuad, BroadcastEvent, EnterFrameEvent, ExitFrameEvent, RenderEvent, Event, EventDispatcher, EventStream, EventStreamProvider0, EventStreamSubscription, KeyboardEvent0, MouseEvent, TextEvent0, TouchEvent, Matrix, Point, Rectangle0, Vector, AudioElementMixer, AudioElementSound, AudioElementSound_load_onCanPlay, AudioElementSound_load_onError, AudioElementSound_load_onError_closure, AudioElementSound__requestAudioElement_closure, AudioElementSound__onAudioEnded_closure, AudioElementSoundChannel, MockSound, MockSoundChannel, WebAudioApiMixer, WebAudioApiSound, WebAudioApiSound_load_audioRequestFinished, WebAudioApiSound_load_audioRequestFinished_closure, WebAudioApiSound_load_audioRequestFinished_closure0, WebAudioApiSound_load_audioRequestFinished__closure, WebAudioApiSound_load_audioRequestNext, WebAudioApiSound_load_audioRequestNext_closure, WebAudioApiSoundChannel, Sound, SoundChannel, SoundLoadOptions, SoundTransform, _getFontStyleMetrics_closure, _FontStyleMetrics, TextField, TextFormat, TextLineMetrics, MouseCursorData, _ImageLoader, ResourceManager, ResourceManager__addResource_closure, ResourceManager_load_closure, ResourceManager_load_closure0, ResourceManager_pendingResources_closure, ResourceManager_failedResources_closure, ResourceManagerResource, ResourceManagerResource_closure, ResourceManagerResource_closure0, ResourceManagerResource_closure1, TextureAtlas, TextureAtlas_load_closure, TextureAtlas_load__closure, TextureAtlas_load__closure0, TextureAtlas_load_closure0, TextureAtlas_frameNames_closure, TextureAtlasFrame, _checkWebpSupport_closure, _checkWebpSupport_closure0, _checkMobileDevice_closure, _Particle, _ParticleColor, ParticleEmitter, _ParticleRenderProgram];
+  return [HtmlElement, AnchorElement, Animation, AnimationEvent, AreaElement, AudioElement, AutocompleteErrorEvent, BRElement, BaseElement, BeforeLoadEvent, BeforeUnloadEvent, Blob, BodyElement, ButtonElement, CDataSection, CanvasElement, CanvasGradient, CanvasPattern, CanvasRenderingContext, CanvasRenderingContext2D, CharacterData, CloseEvent, Comment, CompositionEvent, ContentElement, CssFontFaceLoadEvent, CssStyleDeclaration, CustomEvent, DListElement, DataListElement, DetailsElement, DeviceMotionEvent, DeviceOrientationEvent, DialogElement, DivElement, Document, DocumentFragment, DomError, DomException, Element, EmbedElement, ErrorEvent, Event0, EventTarget, FieldSetElement, File, FileError, FocusEvent, FormElement, HRElement, HashChangeEvent, HeadElement, HeadingElement, HtmlCollection, HtmlDocument, HtmlFormControlsCollection, HtmlHtmlElement, HtmlOptionsCollection, HttpRequest, HttpRequestEventTarget, IFrameElement, ImageData, ImageElement, InputElement, KeyboardEvent, KeygenElement, LIElement, LabelElement, LegendElement, LinkElement, Location, MapElement, MediaElement, MediaError, MediaKeyError, MediaKeyEvent, MediaKeyMessageEvent, MediaKeyNeededEvent, MediaStream, MediaStreamEvent, MediaStreamTrackEvent, MenuElement, MessageEvent, MetaElement, MeterElement, MidiConnectionEvent, MidiMessageEvent, ModElement, MouseEvent0, Navigator, NavigatorUserMediaError, Node, NodeList, OListElement, ObjectElement, OptGroupElement, OptionElement, OutputElement, OverflowEvent, PageTransitionEvent, ParagraphElement, ParamElement, PopStateEvent, PositionError, PreElement, ProcessingInstruction, ProgressElement, ProgressEvent, QuoteElement, ResourceProgressEvent, RtcDataChannelEvent, RtcDtmfToneChangeEvent, RtcIceCandidateEvent, Screen, ScriptElement, SecurityPolicyViolationEvent, SelectElement, ShadowElement, ShadowRoot, SourceElement, SpanElement, SpeechInputEvent, SpeechRecognitionError, SpeechRecognitionEvent, SpeechSynthesisEvent, StorageEvent, StyleElement, TableCaptionElement, TableCellElement, TableColElement, TableElement, TableRowElement, TableSectionElement, TemplateElement, Text, TextAreaElement, TextEvent, TextMetrics, TimedItem, TitleElement, Touch, TouchEvent0, TouchList, TrackElement, TrackEvent, TransitionEvent, UIEvent, UListElement, UnknownElement, VideoElement, WheelEvent, Window, XmlDocument, _Attr, _ClientRect, _DocumentType, _HTMLAppletElement, _HTMLDirectoryElement, _HTMLFontElement, _HTMLFrameElement, _HTMLFrameSetElement, _HTMLMarqueeElement, _MutationEvent, _Notation, _XMLHttpRequestProgressEvent, KeyRange, VersionChangeEvent, AElement, AltGlyphElement, AnimateElement, AnimateMotionElement, AnimateTransformElement, AnimatedEnumeration, AnimatedLength, AnimatedLengthList, AnimatedNumber, AnimatedNumberList, AnimatedString, AnimationElement, CircleElement, ClipPathElement, DefsElement, DescElement, DiscardElement, EllipseElement, FEBlendElement, FEColorMatrixElement, FEComponentTransferElement, FECompositeElement, FEConvolveMatrixElement, FEDiffuseLightingElement, FEDisplacementMapElement, FEDistantLightElement, FEFloodElement, FEFuncAElement, FEFuncBElement, FEFuncGElement, FEFuncRElement, FEGaussianBlurElement, FEImageElement, FEMergeElement, FEMergeNodeElement, FEMorphologyElement, FEOffsetElement, FEPointLightElement, FESpecularLightingElement, FESpotLightElement, FETileElement, FETurbulenceElement, FilterElement, ForeignObjectElement, GElement, GeometryElement, GraphicsElement, ImageElement0, LineElement, LinearGradientElement, MarkerElement, MaskElement, MetadataElement, PathElement, PatternElement, PolygonElement, PolylineElement, RadialGradientElement, Rect, RectElement, ScriptElement0, SetElement, StopElement, StyleElement0, SvgElement, SvgSvgElement, SwitchElement, SymbolElement, TSpanElement, TextContentElement, TextElement, TextPathElement, TextPositioningElement, TitleElement0, UseElement, ViewElement, ZoomEvent, _GradientElement, _SVGAltGlyphDefElement, _SVGAltGlyphItemElement, _SVGComponentTransferFunctionElement, _SVGCursorElement, _SVGFEDropShadowElement, _SVGFontElement, _SVGFontFaceElement, _SVGFontFaceFormatElement, _SVGFontFaceNameElement, _SVGFontFaceSrcElement, _SVGFontFaceUriElement, _SVGGlyphElement, _SVGGlyphRefElement, _SVGHKernElement, _SVGMPathElement, _SVGMissingGlyphElement, _SVGVKernElement, AudioBuffer, AudioBufferSourceNode, AudioContext, AudioDestinationNode, AudioNode, AudioParam, AudioProcessingEvent, AudioSourceNode, GainNode, OfflineAudioCompletionEvent, OfflineAudioContext, Buffer, ContextEvent, Framebuffer, Program, Renderbuffer, RenderingContext, Shader, Texture, UniformLocation, SqlError, NativeByteBuffer, NativeTypedData, NativeByteData, NativeFloat32List, NativeFloat64List, NativeInt16List, NativeInt32List, NativeInt8List, NativeUint16List, NativeUint32List, NativeUint8ClampedList, NativeUint8List, main_closure, Boat, Ecosystem, Ecosystem_closure, Ecosystem_removeFish_closure, Ecosystem_removeFish_closure0, Endgame, Endgame_showTeamUI_closure, EndGameTeamUI, BestScores, FinalSummary, Fish, Fish_closure, Fish_closure0, Fish_closure1, Fleet, Fleet_closure, Game, Game_advanceTime_closure, Game_startTimer_closure, Game_startTimer_closure0, Game_startTimer_closure1, Graph, Offseason, Offseason_closure, Offseason_fillDocks_closure, Offseason_fillDocks__closure, Offseason_fillDocks___closure, Circle, Circle_closure, Circle_closure0, Circle_closure1, Circle_closure2, EcosystemBadge, ScoreCounter, Title, MyButton, TouchManager, TouchManager_registerEvents_closure, TouchManager_registerEvents_closure0, TouchManager_registerEvents_closure1, TouchManager_registerEvents_closure2, TouchManager_registerEvents_closure3, TouchManager_registerEvents_closure4, TouchManager_registerEvents_closure5, TouchLayer, TouchBinding, Touchable, Contact, JS_CONST, Interceptor, JSBool, JSNull, JavaScriptObject, PlainJavaScriptObject, UnknownJavaScriptObject, JSArray, JSNumber, JSInt, JSDouble, JSString, startRootIsolate_closure, startRootIsolate_closure0, _Manager, _IsolateContext, _IsolateContext_handlePing_closure, _EventLoop, _EventLoop__runHelper_next, _IsolateEvent, _MainManagerStub, IsolateNatives__processWorkerMessage_closure, IsolateNatives__startIsolate_runStartFunction, _BaseSendPort, _NativeJsSendPort, _NativeJsSendPort_send_closure, _WorkerSendPort, RawReceivePortImpl, _JsSerializer, _JsCopier, _JsDeserializer, _JsVisitedMap, _MessageTraverserVisitedMap, _MessageTraverser, _Copier, _Copier_visitMap_closure, _Serializer, _Deserializer, TimerImpl, TimerImpl_internalCallback, TimerImpl_internalCallback0, TimerImpl$periodic_closure, CapabilityImpl, JSInvocationMirror, ReflectionInfo, ReflectionInfo_sortedIndex_closure, Primitives_functionNoSuchMethod_closure, Primitives_applyFunction_closure, TypeErrorDecoder, NullError, JsNoSuchMethodError, UnknownJsTypeError, unwrapException_saveStackTrace, _StackTrace, invokeClosure_closure, invokeClosure_closure0, invokeClosure_closure1, invokeClosure_closure2, invokeClosure_closure3, Closure, TearOffClosure, BoundClosure, CastErrorImplementation, RuntimeError, RuntimeType, RuntimeFunctionType, DynamicRuntimeType, TypeImpl, initHooks_closure, initHooks_closure0, initHooks_closure1, JSSyntaxRegExp, _MatchImplementation, StringMatch, ListIterable, ListIterator, MappedIterable, EfficientLengthMappedIterable, MappedIterator, MappedListIterable, WhereIterable, WhereIterator, FixedLengthListMixin, Symbol0, _AsyncError, _BroadcastSubscription, _BroadcastStreamController, _SyncBroadcastStreamController, _SyncBroadcastStreamController__sendData_closure, _SyncBroadcastStreamController__sendError_closure, _SyncBroadcastStreamController__sendDone_closure, _AsBroadcastStreamController, Future, Future_wait_handleError, Future_wait_closure, _Completer, _AsyncCompleter, _Future, _Future__addListener_closure, _Future__chainForeignFuture_closure, _Future__chainForeignFuture_closure0, _Future__asyncComplete_closure, _Future__asyncComplete_closure0, _Future__asyncCompleteError_closure, _Future__propagateToListeners_handleValueCallback, _Future__propagateToListeners_handleError, _Future__propagateToListeners_handleWhenCompleteCallback, _Future__propagateToListeners_handleWhenCompleteCallback_closure, _Future__propagateToListeners_handleWhenCompleteCallback_closure0, _AsyncCallbackEntry, Stream, Stream_contains_closure, Stream_contains__closure, Stream_contains__closure0, Stream_contains_closure0, Stream_forEach_closure, Stream_forEach__closure, Stream_forEach__closure0, Stream_forEach_closure0, Stream_length_closure, Stream_length_closure0, Stream_first_closure, Stream_first_closure0, StreamSubscription, _StreamController, _StreamController__subscribe_closure, _StreamController__recordCancel_complete, _SyncStreamControllerDispatch, _AsyncStreamControllerDispatch, _NoCallbacks, _NoCallbackAsyncStreamController, _StreamController__AsyncStreamControllerDispatch, _NoCallbackSyncStreamController, _StreamController__SyncStreamControllerDispatch, _ControllerStream, _ControllerSubscription, _EventSink, _BufferingStreamSubscription, _BufferingStreamSubscription__sendError_sendError, _BufferingStreamSubscription__sendDone_sendDone, _StreamImpl, _DelayedEvent, _DelayedData, _DelayedError, _DelayedDone, _PendingEvents, _PendingEvents_schedule_closure, _StreamImplEvents, _DummyStreamSubscription, _DummyStreamSubscription_pause_closure, _AsBroadcastStream, _BroadcastSubscriptionWrapper, _cancelAndError_closure, _cancelAndErrorClosure_closure, _cancelAndValue_closure, _ForwardingStream, _ForwardingStreamSubscription, _MapStream, Timer, _BaseZone, _BaseZone_bindCallback_closure, _BaseZone_bindCallback_closure0, _BaseZone_bindUnaryCallback_closure, _BaseZone_bindUnaryCallback_closure0, _rootHandleUncaughtError_closure, _rootHandleUncaughtError__closure, _RootZone, _HashMap, _HashMap_values_closure, HashMapKeyIterable, HashMapKeyIterator, _LinkedHashMap, _LinkedHashMap_values_closure, LinkedHashMapCell, LinkedHashMapKeyIterable, LinkedHashMapKeyIterator, _HashSet, _IdentityHashSet, HashSetIterator, _LinkedHashSet, LinkedHashSetCell, LinkedHashSetIterator, _HashSetBase, IterableBase, ListMixin, Maps_mapToString_closure, ListQueue, _ListQueueIterator, _convertJsonToDart_closure, _convertJsonToDart_walk, Codec, Converter, JsonCodec, JsonDecoder, Function__toMangledNames_closure, NoSuchMethodError_toString_closure, Comparable, DateTime, Duration, Duration_toString_sixDigits, Duration_toString_twoDigits, Error, NullThrownError, ArgumentError, RangeError, NoSuchMethodError, UnsupportedError, UnimplementedError, StateError, ConcurrentModificationError, OutOfMemoryError, StackOverflowError, CyclicInitializationError, _ExceptionImplementation, FormatException, IntegerDivisionByZeroException, Expando, Function, Iterator, Map, Null, Object, StackTrace, StringBuffer, Symbol, Interceptor_CssStyleDeclarationBase, CssStyleDeclarationBase, Interceptor_ListMixin, Interceptor_ListMixin_ImmutableListMixin, HttpRequest_getString_closure, HttpRequest_request_closure0, HttpRequest_request_closure, Interceptor_ListMixin0, Interceptor_ListMixin_ImmutableListMixin0, Interceptor_ListMixin1, Interceptor_ListMixin_ImmutableListMixin1, EventStreamProvider, _EventStream, _ElementEventStreamImpl, _EventStreamSubscription, _CustomEventStreamProvider, ImmutableListMixin, FixedSizeListIterator, _DOMWindowCrossFrame, _LocationWrapper, AudioContext_decodeAudioData_closure, AudioContext_decodeAudioData_closure0, Capability, JsObject, JsFunction, JsArray, JsObject_ListMixin, _convertToJS_closure, _convertToJS_closure0, _wrapToDart_closure, _wrapToDart_closure0, _wrapToDart_closure1, _JSRandom, Point0, _RectangleBase, Rectangle, NativeTypedArray, NativeTypedArrayOfDouble, NativeTypedArray_ListMixin, NativeTypedArray_ListMixin_FixedLengthListMixin, NativeTypedArrayOfInt, NativeTypedArray_ListMixin0, NativeTypedArray_ListMixin_FixedLengthListMixin0, convertDartToNative_Dictionary_closure, convertNativeToDart_AcceptStructuredClone_findSlot, convertNativeToDart_AcceptStructuredClone_readSlot, convertNativeToDart_AcceptStructuredClone_writeSlot, convertNativeToDart_AcceptStructuredClone_walk, Animatable, _AnimatableLink, Juggler, Transition, TweenProperty, Tween, Bitmap, BitmapData, BitmapData_load_closure, BitmapDataLoadOptions, DisplayObject, DisplayObjectContainer, Graphics, _GraphicsCommand, _GraphicsBounds, _GraphicsCommandBeginPath, _GraphicsCommandClosePath, _GraphicsCommandMoveTo, _GraphicsCommandLineTo, _GraphicsCommandArc, _GraphicsCommandRect, _GraphicsCommandStroke, _GraphicsCommandStrokeColor, _GraphicsCommandFill, _GraphicsCommandFillColor, GraphicsGradient, InteractiveObject, Shape, SimpleButton, Sprite, _MouseButton, _Touch, Stage, Stage__onMultitouchInputModeChanged_closure, Stage__onTouchEventProcessor_closure, RenderContext, RenderContextCanvas, RenderContextWebGL, RenderFrameBuffer, RenderLoop, RenderProgram, RenderProgramQuad, RenderProgramTriangle, _ContextState, RenderState, RenderTexture, RenderTexture_load_closure, RenderTextureQuad, BroadcastEvent, EnterFrameEvent, ExitFrameEvent, RenderEvent, Event, EventDispatcher, EventStream, EventStreamProvider0, EventStreamSubscription, KeyboardEvent0, MouseEvent, TextEvent0, TouchEvent, Matrix, Point, Rectangle0, Vector, AudioElementMixer, AudioElementSound, AudioElementSound_load_onCanPlay, AudioElementSound_load_onError, AudioElementSound_load_onError_closure, AudioElementSound__requestAudioElement_closure, AudioElementSound__onAudioEnded_closure, AudioElementSoundChannel, MockSound, MockSoundChannel, WebAudioApiMixer, WebAudioApiSound, WebAudioApiSound_load_audioRequestFinished, WebAudioApiSound_load_audioRequestFinished_closure, WebAudioApiSound_load_audioRequestFinished_closure0, WebAudioApiSound_load_audioRequestFinished__closure, WebAudioApiSound_load_audioRequestNext, WebAudioApiSound_load_audioRequestNext_closure, WebAudioApiSoundChannel, Sound, SoundChannel, SoundLoadOptions, SoundTransform, _getFontStyleMetrics_closure, _FontStyleMetrics, TextField, TextFormat, TextLineMetrics, MouseCursorData, _ImageLoader, ResourceManager, ResourceManager__addResource_closure, ResourceManager_load_closure, ResourceManager_load_closure0, ResourceManager_pendingResources_closure, ResourceManager_failedResources_closure, ResourceManagerResource, ResourceManagerResource_closure, ResourceManagerResource_closure0, ResourceManagerResource_closure1, TextureAtlas, TextureAtlas_load_closure, TextureAtlas_load__closure, TextureAtlas_load__closure0, TextureAtlas_load_closure0, TextureAtlas_frameNames_closure, TextureAtlasFrame, _checkWebpSupport_closure, _checkWebpSupport_closure0, _checkMobileDevice_closure, _Particle, _ParticleColor, ParticleEmitter, _ParticleRenderProgram];
 }

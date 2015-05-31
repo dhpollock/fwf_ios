@@ -12,7 +12,7 @@ class Game extends Sprite implements Animatable{
   
   
   static const MAX_ROUNDS = 4;
-//  static const MAX_ROUNDS = 1;
+//  static const MAX_ROUNDS = 0;
   
   static const FISHING_TIMER_WIDTH = 125;
   static const REGROWTH_TIMER_WIDTH = 125;
@@ -25,7 +25,7 @@ class Game extends Sprite implements Animatable{
 //  static const REGROWTH_TIME = 10;
 //  static const BUYING_TIME = 10;
   
-  static const timerPieRadius = 60;
+  static const timerPieRadius = 92;
   static const TUNA = 0;
   static const SARDINE = 1;
   static const SHARK = 2;
@@ -33,6 +33,11 @@ class Game extends Sprite implements Animatable{
   //Timer Type
   static const BAR_TIMER = 0;
   static const PIE_TIMER = 1;
+  
+  static const sardineBarMult = 1.5;
+  static const tunaBarMult = 3;
+  static const sharkBarMult = 6;
+  
   num timerType = PIE_TIMER; // TOGGLE VARIABLE
   Bitmap pieTimerBitmap, pieTimerBitmapButton;
   
@@ -114,9 +119,22 @@ class Game extends Sprite implements Animatable{
   // Slider _teamASlider, _teamBSlider;
   // int sliderPrompt = 6;
   
+  
+  Sound transition_titleToFishingSound;
+  Sound transition_fishingToRegrowthSound;
+  Sound transition_regrowthToBuySound;
+  Sound transition_buyToFishingSound;
+  Sound transition_regrowthToEndSound;
+  Sound transition_endToSummarySound;
+  
+  Sound ui_tapTimerSound;
+  
+  Sound background_music;
+  Sound background_music_short;
+  
   List<DisplayObject> uiObjects = new List<DisplayObject>();
   
-  DataLogger datalogger;
+//  DataLogger datalogger;
   
   Game(ResourceManager resourceManager, Juggler juggler, int w, int h) {
     _resourceManager = resourceManager;
@@ -129,7 +147,7 @@ class Game extends Sprite implements Animatable{
       
     transition = false;
     timerActive = true;
-    datalogger = new DataLogger();
+//    datalogger = new DataLogger();
     
     tmanager.registerEvents(this);
     tmanager.addTouchLayer(tlayer);
@@ -151,6 +169,15 @@ class Game extends Sprite implements Animatable{
 
     badge = new EcosystemBadge(_resourceManager, _juggler, this, _ecosystem);
     timerButtonBool = false;
+    
+    transition_titleToFishingSound = _resourceManager.getSound("transition_titleToFishing");
+    transition_fishingToRegrowthSound = _resourceManager.getSound("transition_fishingToRegrowth");
+    transition_regrowthToBuySound =_resourceManager.getSound("transition_regrowthToBuy");
+    transition_buyToFishingSound = _resourceManager.getSound("transition_buyToFishing");
+    transition_regrowthToEndSound = _resourceManager.getSound("transition_regrowthToEnd");
+    transition_endToSummarySound = _resourceManager.getSound("transition_endToSummary");
+    ui_tapTimerSound = _resourceManager.getSound("ui_tapTimer");
+    
     addChild(_background);
     addChild(_ecosystem);
     addChild(_mask);
@@ -165,7 +192,17 @@ class Game extends Sprite implements Animatable{
     _loadTextAndShapes();
     timerActive = false;
     addChild(_title);
+    
+    background_music = _resourceManager.getSound("background_music");
+    background_music_short = _resourceManager.getSound("background_music_short");
+    _playBgMusic();
 
+  }
+  
+  void _playBgMusic(){
+    SoundTransform soundTransform = new SoundTransform();
+    SoundChannel music = background_music.play(true, soundTransform);
+    new Timer(new Duration(milliseconds:482429),_playBgMusic);
   }
 
   bool advanceTime(num time) {
@@ -173,20 +210,20 @@ class Game extends Sprite implements Animatable{
     if(gameStarted && newGame){
       newGame = false;
       new Timer.periodic(new Duration(seconds:1), (var e) => totalTimeCounter++);
-      ws.send('newgame');
-      ws.onMessage.listen((html.MessageEvent e) {
-        handleMsg(e.data);
-      });
+//      ws.send('newgame');
+//      ws.onMessage.listen((html.MessageEvent e) {
+//        handleMsg(e.data);
+//      });
     }
     
     if (gameStarted == false){
-      sardineBar.height = _ecosystem._fishCount[SARDINE]*2/3;
+      sardineBar.height = _ecosystem._fishCount[SARDINE] * sardineBarMult;
       sardineIcon.y = sardineBar.y - sardineBar.height - sardineIcon.height;
  
-      tunaBar.height = _ecosystem._fishCount[TUNA] * 2;
+      tunaBar.height = _ecosystem._fishCount[TUNA] * tunaBarMult;
       tunaIcon.y = tunaBar.y - tunaBar.height - tunaIcon.height;
       
-      sharkBar.height = _ecosystem._fishCount[SHARK]* 4;
+      sharkBar.height = _ecosystem._fishCount[SHARK]* sharkBarMult;
       sharkIcon.y = sharkBar.y - sharkBar.height - sharkIcon.height;
       return true;
     }
@@ -225,13 +262,30 @@ class Game extends Sprite implements Animatable{
     }
     
     //Update the population bar graph size
-    sardineBar.height = _ecosystem._fishCount[SARDINE]*2/3;
+    
+    if(_ecosystem._fishCount[SARDINE] > Ecosystem.MAX_SARDINE){
+      sardineBar.height =  Ecosystem.MAX_SARDINE* sardineBarMult;
+    }
+    else{
+      sardineBar.height = _ecosystem._fishCount[SARDINE] * sardineBarMult;
+    }
     sardineIcon.y = sardineBar.y - sardineBar.height - sardineIcon.height;
     
-    tunaBar.height = _ecosystem._fishCount[TUNA] * 2;
+    
+    if(_ecosystem._fishCount[TUNA] > Ecosystem.MAX_TUNA){
+      tunaBar.height = Ecosystem.MAX_TUNA* tunaBarMult;
+    }
+    else{
+      tunaBar.height = _ecosystem._fishCount[TUNA] * tunaBarMult;
+    }
     tunaIcon.y = tunaBar.y - tunaBar.height - tunaIcon.height;
     
-    sharkBar.height = _ecosystem._fishCount[SHARK]* 4;
+    if(_ecosystem._fishCount[SHARK] > Ecosystem.MAX_SHARK){
+      sharkBar.height = Ecosystem.MAX_SHARK* sharkBarMult;
+    }
+    else{
+      sharkBar.height = _ecosystem._fishCount[SHARK]* sharkBarMult;
+    }
     sharkIcon.y = sharkBar.y - sharkBar.height - sharkIcon.height;
     
     gameIDText.text = "Game ID: $gameID";
@@ -365,6 +419,7 @@ class Game extends Sprite implements Animatable{
       transition = true;
       phase = REGROWTH_PHASE;
       _fleet.returnBoats();
+      transition_fishingToRegrowthSound.play();
 
       _fleet.alpha = 0;
       _fleet.removeBoatsFromTouchables();
@@ -404,7 +459,7 @@ class Game extends Sprite implements Animatable{
         transition = true;
         logEndGame();
         phase = ENDGAME_PHASE;
-        
+        transition_regrowthToEndSound.play();
         
         
         Tween t1 = new Tween (badge, 2, TransitionFunction.linear);
@@ -427,7 +482,7 @@ class Game extends Sprite implements Animatable{
         
         transition = true;
         phase = BUY_PHASE;
-        
+        transition_regrowthToBuySound.play();
         Tween t1 = new Tween (badge, 2, TransitionFunction.linear);
         t1.animate.alpha.to(0);
         t1.onComplete = toBuyPhaseTransitionStageOne;
@@ -444,7 +499,7 @@ class Game extends Sprite implements Animatable{
     } else if (phase==BUY_PHASE) {
       transition = true;
       phase = FISHING_PHASE;
-      
+      transition_buyToFishingSound.play();
       teamARoundProfit = 0;
       teamBRoundProfit = 0;
       
@@ -472,6 +527,7 @@ class Game extends Sprite implements Animatable{
       _endgame.hide();
 //      addChild(_finalSummary);
       _finalSummary.show();
+      transition_endToSummarySound.play();
       
     }
     
@@ -480,6 +536,7 @@ class Game extends Sprite implements Animatable{
       removeChild(_title);
       phase=FISHING_PHASE;
       arrangeTimerUI();
+      transition_titleToFishingSound.play();
       
     }
   }
@@ -509,7 +566,7 @@ class Game extends Sprite implements Animatable{
     
     arrangeUILayers();
 
-   animatePieTimer(-width/2+100, height/2-103,.5);
+   animatePieTimer(-width/2+125, height/2-163,.5);
     
     Tween t1 = new Tween(_offseason, 2.5, TransitionFunction.easeInQuartic);
     t1.animate.y.to(0);
@@ -552,7 +609,7 @@ class Game extends Sprite implements Animatable{
       timerTextB.text = "Fishing season";
 
       _offseason.sendBoatsToFish();
-      animatePieTimer(width/2-100, -height/2+103, .750);
+      animatePieTimer(width/2-125, -height/2+163, .750);
       
       Timer timer = new Timer(const Duration(milliseconds: 750), toFishingPhaseStageTwo);
       
@@ -576,7 +633,7 @@ class Game extends Sprite implements Animatable{
     t3.animate.y.to(0);
     
     round++;
-    roundNumber.text = "${round+1}";
+    roundNumber.text = "${round+1}/5";
     
 //    Tween t4 = new Tween(roundNumber, .5, TransitionFunction.linear);
 //    t4.animate.alpha.to(.7);
@@ -651,6 +708,7 @@ class Game extends Sprite implements Animatable{
       _ecosystem.timerSkipped();
       }
       catch(e){};
+      ui_tapTimerSound.play();
       _nextSeason();
       timerButtonReady = false;
     }
@@ -737,8 +795,8 @@ class Game extends Sprite implements Animatable{
     
     timerPie = new Shape();
     timerPie..graphics.beginPath()
-            ..x = width - 100
-            ..y = 50
+            ..x = width - 130
+            ..y = 65
             ..graphics.lineTo(0, timerPieRadius)
             ..graphics.lineTo(timerPieRadius, timerPieRadius)
             ..graphics.arc(0, timerPieRadius, timerPieRadius, 0, 2*math.PI, false)
@@ -747,43 +805,44 @@ class Game extends Sprite implements Animatable{
             ..alpha = .70;
         
     pieTimerBitmap = new Bitmap(_resourceManager.getBitmapData("timer"));
-    pieTimerBitmap.rotation = math.PI/4;
+//    pieTimerBitmap.rotation = math.PI/4;
     pieTimerBitmap.alpha = timerPie.alpha+10;
-    pieTimerBitmap.x = timerPie.x +22;
-    pieTimerBitmap.y = timerPie.y - 62;
+    pieTimerBitmap.x = timerPie.x - pieTimerBitmap.width/2;
+    pieTimerBitmap.y = timerPie.y-10;
     
-    format = new TextFormat("Arial", 15, Color.White, align: "center", bold:true);
+    format = new TextFormat("Arial", 28, Color.White, align: "center", bold:true);
     
-    roundTitle = new TextField("Round:", format);
-    roundTitle..x = width - 65
-              ..y = 75
+    roundTitle = new TextField(" Round:", format);
+    roundTitle..x = timerPie.x+ 40
+              ..y = timerPie.y+40
               ..alpha = .7
               ..width = 300
               ..pivotX = roundTitle.width/2
               ..rotation = math.PI/4;
     
-    format = new TextFormat("Arial", 50, Color.White, align: "center", bold:true);
-    roundNumber = new TextField("${round+1}", format);
-    roundNumber..x = width - 85
-               ..y = 75
+    format = new TextFormat("Arial", 70, Color.White, align: "center", bold:true);
+    roundNumber = new TextField("${round+1}/5", format);
+    roundNumber..x = timerPie.x +20
+               ..y = timerPie.y + 65
+                   ..alpha = .7
                ..alpha = .7
                ..width = 300
                ..pivotX = roundNumber.width/2
                ..rotation = math.PI/4; 
     
-    format = new TextFormat("Arial", 25, Color.White, align: "center", bold:true);
-    roundNumberDiv = new TextField("/ 5", format);
-    roundNumberDiv..x = width - 80
-               ..y = 115
+    format = new TextFormat("Arial", 65, Color.White, align: "center", bold:true);
+    roundNumberDiv = new TextField("", format);
+    roundNumberDiv..x = timerPie.x +15
+               ..y = timerPie.y + 95
                ..alpha = .7
                ..width = 300
                ..pivotX = roundNumberDiv.width/2
                ..rotation = math.PI/4; 
     
     format = new TextFormat("Arial", 15, Color.White, align: "center", bold:true);
-    seasonTitle = new TextField("Tap to Skip\nForward", format);
-    seasonTitle..x = width - 115
-               ..y = 125
+    seasonTitle = new TextField("Double Tap to\nSkip Forward", format);
+    seasonTitle..x = timerPie.x - 20 -50
+               ..y = timerPie.y + 115 + 50
                ..alpha = .7
                ..width = 300
                ..pivotX = seasonTitle.width/2
@@ -792,8 +851,8 @@ class Game extends Sprite implements Animatable{
     pieTimerBitmapButton = new Bitmap(_resourceManager.getBitmapData("timer"));
     pieTimerBitmapButton.rotation = math.PI/4;
     pieTimerBitmapButton.alpha = 0;
-    pieTimerBitmapButton.x = timerPie.x +22;
-    pieTimerBitmapButton.y = timerPie.y - 62;
+    pieTimerBitmapButton.x = timerPie.x +24;
+    pieTimerBitmapButton.y = timerPie.y - 64;
     
 //    Bitmap pieTimerBitmapButtonGlow = new Bitmap(_resourceManager.getBitmapData("timerGlow"));
 //    pieTimerBitmapButtonGlow.rotation = math.PI/4;
@@ -836,12 +895,13 @@ class Game extends Sprite implements Animatable{
     }
     
     
-    num sardineMultiplier = 2/3;
-    num tunaMultiplier = 2;
-    num sharkMulitplier = 4;
+    num sardineMultiplier = sardineBarMult;
+    num tunaMultiplier = tunaBarMult;
+    num sharkMulitplier = sharkBarMult;
+    num barWidth = 45;
     //Text and Shapes for population bar graph
     sardineBar = new Shape();
-    sardineBar..graphics.rect(0, 0, 30, -_ecosystem._fishCount[SARDINE]*sardineMultiplier)
+    sardineBar..graphics.rect(0, 0, barWidth, -_ecosystem._fishCount[SARDINE]*sardineMultiplier)
               ..x  = 20
               ..y = height - 20
               ..alpha = .6
@@ -850,7 +910,7 @@ class Game extends Sprite implements Animatable{
     uiObjects.add(sardineBar);
     
     sardineOutline = new Shape();
-    sardineOutline..graphics.rect(0, 0, 30, -(Ecosystem.MAX_SARDINE)*sardineMultiplier)
+    sardineOutline..graphics.rect(0, 0, barWidth, -(Ecosystem.MAX_SARDINE)*sardineMultiplier)
                   ..x = 20
                   ..y = height - 20
                   ..alpha = 1
@@ -866,8 +926,8 @@ class Game extends Sprite implements Animatable{
     
     
     tunaBar = new Shape();
-    tunaBar..graphics.rect(0, 0, 30, -_ecosystem._fishCount[TUNA]*tunaMultiplier)
-              ..x  = 50
+    tunaBar..graphics.rect(0, 0, barWidth, -_ecosystem._fishCount[TUNA]*tunaMultiplier)
+              ..x  = 20 + barWidth
               ..y = height - 20
               ..alpha = .6
               ..graphics.fillColor(Color.Orange);
@@ -876,8 +936,8 @@ class Game extends Sprite implements Animatable{
     
     
     tunaOutline = new Shape();
-    tunaOutline..graphics.rect(0, 0, 30, -Ecosystem.MAX_TUNA*tunaMultiplier)
-                  ..x = 50
+    tunaOutline..graphics.rect(0, 0, barWidth, -Ecosystem.MAX_TUNA*tunaMultiplier)
+                  ..x = 20 + barWidth
                   ..y = height - 20
                   ..alpha = 1
                   ..graphics.strokeColor(Color.Orange,3);
@@ -891,8 +951,8 @@ class Game extends Sprite implements Animatable{
     uiObjects.add(tunaIcon);
     
     sharkBar = new Shape();
-    sharkBar..graphics.rect(0, 0, 30, -_ecosystem._fishCount[SHARK]*sharkMulitplier)
-              ..x  = 80
+    sharkBar..graphics.rect(0, 0, barWidth, -_ecosystem._fishCount[SHARK]*sharkMulitplier)
+              ..x  = 20+2*barWidth
               ..y = height - 20
               ..alpha = .6
               ..graphics.fillColor(Color.Yellow);
@@ -900,8 +960,8 @@ class Game extends Sprite implements Animatable{
     uiObjects.add(sharkBar);
     
     sharkOutline = new Shape();
-    sharkOutline..graphics.rect(0, 0, 30, -Ecosystem.MAX_SHARK*sharkMulitplier)
-                  ..x = 80
+    sharkOutline..graphics.rect(0, 0, barWidth, -Ecosystem.MAX_SHARK*sharkMulitplier)
+                  ..x = 20+2*barWidth
                   ..y = height - 20
                   ..alpha = 1
                   ..graphics.strokeColor(Color.Yellow,3);
@@ -924,8 +984,8 @@ class Game extends Sprite implements Animatable{
               ..width = 300
               ..pivotX = roundTitle.width/2
               ..rotation = 0;
-    addChild(gameIDText);
-    uiObjects.add(gameIDText);
+//    addChild(gameIDText);
+//    uiObjects.add(gameIDText);
     
   }
   
@@ -978,62 +1038,66 @@ class Game extends Sprite implements Animatable{
     if(lowest != null){
       swapChildren(timerPie, lowest);
     }
+    
+    if(getChildIndex(pieTimerBitmap) != this.numChildren-2){
+      swapChildren(pieTimerBitmap, getChildAt(this.numChildren-2));
+    }
     if(getChildIndex(timerButton) != this.numChildren-1){
       swapChildren(timerButton, getChildAt(this.numChildren-1));
     }
   }
   
   void logRound(){
-    RoundLogger curRound;
-    if(round == 0) curRound = datalogger.round0;
-    else if(round == 1) curRound = datalogger.round1;
-    else if(round == 2) curRound = datalogger.round2;
-    else if(round == 3) curRound = datalogger.round3;
-    else if(round == 4) curRound = datalogger.round4;
-//    else if(round == 5) curRound = datalogger.round5;
-    else return;
-    
-    curRound.roundTime = totalTimeCounter;
-    curRound.starRating = badge.rating;
-    curRound.sardineCount = _ecosystem._fishCount[Ecosystem.SARDINE];
-    curRound.tunaCount = _ecosystem._fishCount[Ecosystem.TUNA];
-    curRound.sharkCount = _ecosystem._fishCount[Ecosystem.SHARK];
-    curRound.sardineStatus = badge.sardineRating;
-    curRound.tunaStatus = badge.tunaRating;
-    curRound.sharkStatus = badge.sharkRating;
-    curRound.teamANetSize = _fleet.teamANetSize;
-    curRound.teamABoatType = _fleet.teamABoatType;
-    curRound.teamASeasonProfit = teamARoundProfit;
-    curRound.teamANumOfFishCaught = _fleet.teamACaught;
-    curRound.teamBNetSize = _fleet.teamBNetSize;
-    curRound.teamBBoatType = _fleet.teamBBoatType;
-    curRound.teamBSeasonProfit = teamBRoundProfit;
-    curRound.teamBNumOfFishCaught = _fleet.teamBCaught;
+//    RoundLogger curRound;
+//    if(round == 0) curRound = datalogger.round0;
+//    else if(round == 1) curRound = datalogger.round1;
+//    else if(round == 2) curRound = datalogger.round2;
+//    else if(round == 3) curRound = datalogger.round3;
+//    else if(round == 4) curRound = datalogger.round4;
+////    else if(round == 5) curRound = datalogger.round5;
+//    else return;
+//    
+//    curRound.roundTime = totalTimeCounter;
+//    curRound.starRating = badge.rating;
+//    curRound.sardineCount = _ecosystem._fishCount[Ecosystem.SARDINE];
+//    curRound.tunaCount = _ecosystem._fishCount[Ecosystem.TUNA];
+//    curRound.sharkCount = _ecosystem._fishCount[Ecosystem.SHARK];
+//    curRound.sardineStatus = badge.sardineRating;
+//    curRound.tunaStatus = badge.tunaRating;
+//    curRound.sharkStatus = badge.sharkRating;
+//    curRound.teamANetSize = _fleet.teamANetSize;
+//    curRound.teamABoatType = _fleet.teamABoatType;
+//    curRound.teamASeasonProfit = teamARoundProfit;
+//    curRound.teamANumOfFishCaught = _fleet.teamACaught;
+//    curRound.teamBNetSize = _fleet.teamBNetSize;
+//    curRound.teamBBoatType = _fleet.teamBBoatType;
+//    curRound.teamBSeasonProfit = teamBRoundProfit;
+//    curRound.teamBNumOfFishCaught = _fleet.teamBCaught;
   }
   
   void logEndGame(){
     
-    if(_ecosystem._fishCount[SARDINE] <= 0){
-      datalogger.reasonLost = 1;
-    }
-    else if(_ecosystem._fishCount[TUNA] <= 0){
-      datalogger.reasonLost = 2;
-    }
-    else if(_ecosystem._fishCount[SHARK] <= 0){
-          datalogger.reasonLost = 3;
-        }
-    else{
-      datalogger.reasonLost = 0;
-    }
-    
-    datalogger.id = gameID;
-    datalogger.totalTime = totalTimeCounter;
-    datalogger.teamAFinalScore = teamAScore;
-    datalogger.teamBFinalScore = teamBScore;
-    datalogger.totalStars = starCount;
-    datalogger.numOfRound = round;
-    
-    datalogger.send();
+//    if(_ecosystem._fishCount[SARDINE] <= 0){
+//      datalogger.reasonLost = 1;
+//    }
+//    else if(_ecosystem._fishCount[TUNA] <= 0){
+//      datalogger.reasonLost = 2;
+//    }
+//    else if(_ecosystem._fishCount[SHARK] <= 0){
+//          datalogger.reasonLost = 3;
+//        }
+//    else{
+//      datalogger.reasonLost = 0;
+//    }
+//    
+//    datalogger.id = gameID;
+//    datalogger.totalTime = totalTimeCounter;
+//    datalogger.teamAFinalScore = teamAScore;
+//    datalogger.teamBFinalScore = teamBScore;
+//    datalogger.totalStars = starCount;
+//    datalogger.numOfRound = round;
+//    
+//    datalogger.send();
   }
   
   void  handleMsg(data){
@@ -1051,7 +1115,12 @@ class Game extends Sprite implements Animatable{
     _juggler.add(t1);
     
     Tween t2 = new Tween(pieTimerBitmap, dt, TransitionFunction.linear);
-    t2.animate.alpha.to(val);
+    if(val != 0){
+      t2.animate.alpha.to(1);
+    }
+    else{
+      t2.animate.alpha.to(val);
+    }
     _juggler.add(t2);
     
     Tween t3 = new Tween(roundTitle, dt, TransitionFunction.linear);
@@ -1107,6 +1176,9 @@ class Game extends Sprite implements Animatable{
       t7.animate.x.by(dx);
       t7.animate.y.by(dy);
       _juggler.add(t7);
+      
+      arrangeTimerUI();
+     
       
   }
 }

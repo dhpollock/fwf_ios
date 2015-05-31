@@ -9,16 +9,34 @@ class Title extends Sprite implements Animatable{
    
    Bitmap titleBackground;
    MyButton aboutPage;
+   MyButton tutorialPage;
 //   Bitmap endgameIconBottom;
 //   Bitmap emptyStars;
    
    MyButton playButton;
    MyButton aboutButton;
+   Sound ui_playButtonSound;
+   Sound ui_aboutButtonOpenSound;
+   Sound ui_aboutButtonCloseSound;
+   
    //SimpleButton replayButton;
    var aboutOpen = false;
+   var tutorialOpen = true;
   Title(this._resourceManager, this._juggler, this._game, this._ecosystem) {
     
     titleBackground = new Bitmap(_resourceManager.getBitmapData("title"));
+    titleBackground.width = _game.width;
+    titleBackground.height = _game.height;
+    
+    tutorialPage = new MyButton(_game,0, 0, 
+           _resourceManager.getBitmapData("tutorial"),
+          _resourceManager.getBitmapData("tutorial"),
+          _resourceManager.getBitmapData("tutorial"),
+          hideTutorial);
+    tutorialPage.alpha = 0;
+    tutorialPage.hide();
+    tutorialPage.width = _game.width;
+    tutorialPage.height = _game.height;
     
     aboutPage = new MyButton(_game,0, 0, 
            _resourceManager.getBitmapData("about"),
@@ -27,28 +45,43 @@ class Title extends Sprite implements Animatable{
           hideAbout);
     aboutPage.alpha = 0;
     aboutPage.hide();
+    aboutPage.width = _game.width;
+    aboutPage.height = _game.height;
     
-    playButton = new MyButton(_game,_game.width/2, _game.height/2 - 150, 
-        _resourceManager.getBitmapData("playButton"),
-       _resourceManager.getBitmapData("playButton"),
+    BitmapData playButtonBitmap = _resourceManager.getBitmapData("playButton");
+    
+    playButton = new MyButton(_game,_game.width/2 - playButtonBitmap.width/2, _game.height/2 + 250, 
+        playButtonBitmap,
+        playButtonBitmap,
        _resourceManager.getBitmapData("playButtonPressed"),
-       _game._nextSeason);
+       showTutorial);
     
-    aboutButton = new MyButton(_game, _game.width/2, _game.height/2 + 150, 
-    _resourceManager.getBitmapData("aboutButton"),
-    _resourceManager.getBitmapData("aboutButton"),
+    BitmapData aboutButtonBitmap =  _resourceManager.getBitmapData("aboutButton");
+    aboutButton = new MyButton(_game, _game.width/2 - aboutButtonBitmap.width/2, _game.height/2 + 500, 
+        aboutButtonBitmap,
+        aboutButtonBitmap,
     _resourceManager.getBitmapData("aboutButtonPressed"),
        showAbout);
 
+    ui_playButtonSound = _resourceManager.getSound("ui_playButton");
+    ui_aboutButtonOpenSound = _resourceManager.getSound("ui_aboutButtonOpen");
+    ui_aboutButtonCloseSound = _resourceManager.getSound("ui_aboutButtonClose");
+    
     
     addChild(titleBackground);
     addChild(playButton);
     addChild(aboutButton);
     addChild(aboutPage);
+    addChild(tutorialPage);
 //    _game.tlayer.touchables.add(this);
 
     
     //this.alpha = 0;
+  }
+  
+  void playButtonPressed(){
+    ui_playButtonSound.play();
+    _game._nextSeason();
   }
   
   bool advanceTime(num time){
@@ -58,6 +91,7 @@ class Title extends Sprite implements Animatable{
   void hide(){
     playButton.hide();
     aboutButton.hide();
+    tutorialPage.hide();
     
     Tween t1 = new Tween(titleBackground, .5, TransitionFunction.linear);
      t1.animate.alpha.to(0);
@@ -78,6 +112,7 @@ class Title extends Sprite implements Animatable{
     playButton.hide();
     aboutButton.hide();
     aboutPage.show();
+    ui_aboutButtonOpenSound.play();
     print("Width:" + _game.width.toString());
     print("height:" + _game.height.toString());
     
@@ -99,6 +134,7 @@ class Title extends Sprite implements Animatable{
     playButton.show();
     aboutButton.show();
     aboutPage.hide();
+    ui_aboutButtonCloseSound.play();
     
     Tween t1 = new Tween(aboutPage, .5, TransitionFunction.linear);
      t1.animate.alpha.to(0);
@@ -111,6 +147,42 @@ class Title extends Sprite implements Animatable{
      Tween t3 = new Tween(aboutButton, .5, TransitionFunction.linear);
       t3.animate.alpha.to(1);
       _juggler.add(t3);
+  
+  
+  }
+
+  void showTutorial(){
+    tutorialOpen = true;
+    playButton.hide();
+    aboutButton.hide();
+    tutorialPage.show();
+    ui_aboutButtonOpenSound.play();
+//    print("Width:" + _game.width.toString());
+//    print("height:" + _game.height.toString());
+    
+    Tween t1 = new Tween(tutorialPage, .5, TransitionFunction.linear);
+     t1.animate.alpha.to(1);
+     _juggler.add(t1);
+    
+    Tween t2 = new Tween(playButton, .5, TransitionFunction.linear);
+     t2.animate.alpha.to(0);
+     _juggler.add(t2);
+     
+     Tween t3 = new Tween(aboutButton, .5, TransitionFunction.linear);
+      t3.animate.alpha.to(0);
+      _juggler.add(t3);
+ }
+  
+  void hideTutorial(){
+    tutorialOpen = false;
+    ui_aboutButtonCloseSound.play();
+    _game._nextSeason();
+    
+    Tween t1 = new Tween(tutorialPage, .5, TransitionFunction.linear);
+     t1.animate.alpha.to(0);
+     _juggler.add(t1);
+     
+     
   
   
   }

@@ -9,7 +9,7 @@ class Ecosystem extends Sprite {
   static const STARVATION = 5;
   static const CAUGHT = 6;
   static const MAX_SHARK = 13;
-  static const MAX_TUNA = 50;
+  static const MAX_TUNA = 40;
   static const MAX_SARDINE = 175;
   
   ResourceManager _resourceManager;
@@ -27,11 +27,11 @@ class Ecosystem extends Sprite {
   
   BitmapData _tunaBloodData, _sardineBloodData;
   
-  int tunaBirthTimerMax = 13;
+  int tunaBirthTimerMax = 6;
   int tunaBirthTimer = 0;
-  int sardineBirthTimerMax = 15;
-  int sardineBirthTimer = 15;
-  int sharkBirthTimerMax = 45;
+  int sardineBirthTimerMax = 8;
+  int sardineBirthTimer = 8;
+  int sharkBirthTimerMax = 23;
   int sharkBirthTimer = 0;
 
   int planktonCount;
@@ -86,7 +86,7 @@ class Ecosystem extends Sprite {
     
     addFish(4, SHARK, true);
 //    addFish(0, SHARK, true);
-    addFish(22, TUNA, true);
+    addFish(18, TUNA, true);
     addFish(150, SARDINE, true);
     
     new Timer.periodic(const Duration(milliseconds : 1000), (timer) => _timerTick());
@@ -269,9 +269,9 @@ class Ecosystem extends Sprite {
     _respawnFishes();
     _birthFish();
     
-    planktonCount += 300;
-    tunaFoodCount += 60;
-    sharkFoodCount += 10;
+    planktonCount += 300/3;
+    tunaFoodCount += 60/2;
+    sharkFoodCount += 10/2;
     
     if (game.gameStarted==true) {
       sardineGraph.add(_fishCount[SARDINE]);    
@@ -285,8 +285,8 @@ class Ecosystem extends Sprite {
 
       
     if(_fishCount[SHARK] > 0) addFish(1, SHARK, true);
-    if(_fishCount[TUNA] > 0) addFish(10, TUNA, true);
-    if(_fishCount[SARDINE] > 0) addFish(30, SARDINE, true);
+    if(_fishCount[TUNA] > 0) addFish(5, TUNA, true);
+    if(_fishCount[SARDINE] > 0) addFish(15, SARDINE, true);
 
   }
 }

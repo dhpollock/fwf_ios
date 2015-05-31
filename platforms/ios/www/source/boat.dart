@@ -88,6 +88,8 @@ class Boat extends Sprite implements Touchable, Animatable {
   int mapIndex = null;
   
   int netSize;
+  
+  Sound boatFullSound;
  
   Boat(ResourceManager resourceManager, Juggler juggler, int type, Game game, Fleet f, this.netSize) {
     _resourceManager = resourceManager;
@@ -158,7 +160,7 @@ class Boat extends Sprite implements Touchable, Animatable {
     
     speedLevel = 0;
     capacityLevel = 0;
-    speed = BASE_SPEED;
+    speed = BASE_SPEED * html.window.devicePixelRatio;
     rotSpeed = BASE_ROT_SPEED;
     netCapacityMax = BASE_NET_CAPACITY;
     
@@ -214,6 +216,8 @@ class Boat extends Sprite implements Touchable, Animatable {
     _newX = x;
     _newY = y;
     particleEmitter.setEmitterLocation(x+boat.width/2, y+boat.height/2);
+    
+    boatFullSound = _resourceManager.getSound("boatFull");
   }
   
   void setX(num newX) {
@@ -233,6 +237,8 @@ class Boat extends Sprite implements Touchable, Animatable {
      _net = new Bitmap(_nets.getBitmapData(_netNames[0]));
      _net.addEventListener(Event.ADDED, _netLoaded);
      
+     _net.scaleX = html.window.devicePixelRatio;
+     _net.scaleY = html.window.devicePixelRatio;
      addChildAt(_net, 0);
    }
    
@@ -287,9 +293,46 @@ class Boat extends Sprite implements Touchable, Animatable {
     if (n==Ecosystem.SHARK) worth = 100;
     _netMoney = _netMoney + worth;
     
-    if (n==Ecosystem.SARDINE) _netCapacity = _netCapacity + 1;
-    if (n==Ecosystem.TUNA) _netCapacity = _netCapacity + 1;
-    if (n==Ecosystem.SHARK) _netCapacity = _netCapacity + 1;
+    if (n==Ecosystem.SARDINE){
+      _netCapacity = _netCapacity + 1;
+      if(netSize == SMALLNET){
+        if(_netCapacity > SMALL_NET_SARDINE_CAPACITY){
+          _promptBoatFull();
+        }
+      }
+      else{
+        if(_netCapacity > LARGE_NET_SARDINE_CAPACITY){
+          _promptBoatFull();
+        }
+      }
+    }
+    if (n==Ecosystem.TUNA){
+      _netCapacity = _netCapacity + 1;
+      if(netSize == SMALLNET){
+        if(_netCapacity > SMALL_NET_TUNA_CAPACITY){
+          _promptBoatFull();
+        }
+      }
+      else{
+        if(_netCapacity > LARGE_NET_TUNA_CAPACITY){
+          _promptBoatFull();
+        }
+      }
+    }
+    if (n==Ecosystem.SHARK) {
+      _netCapacity = _netCapacity + 1;
+      if(netSize == SMALLNET){
+        if(_netCapacity > SMALL_NET_SHARK_CAPACITY){
+          _promptBoatFull();
+        }
+      }
+      else{
+        if(_netCapacity > LARGE_NET_SHARK_CAPACITY){
+          _promptBoatFull();
+        }
+      }
+    }
+    
     _changeNetGraphic();
   }
 
@@ -303,6 +346,8 @@ class Boat extends Sprite implements Touchable, Animatable {
       
       _net = new Bitmap(_nets.getBitmapData(_netNames[i]));
       _net.addEventListener(Event.ADDED, _netLoaded);
+      _net.scaleX = html.window.devicePixelRatio;
+      _net.scaleY = html.window.devicePixelRatio;
       addChildAt(_net, 0);
       
       if(_turnMode == LEFT){
@@ -316,6 +361,7 @@ class Boat extends Sprite implements Touchable, Animatable {
       }
       
     }
+
   }
   
   void _unloadNet() {
@@ -424,6 +470,8 @@ class Boat extends Sprite implements Touchable, Animatable {
     if (_type==Fleet.TEAMBTUNA) _boatImage = new Bitmap(_resourceManager.getBitmapData("BoatBTunaUp"));
     if (_type==Fleet.TEAMASHARK) _boatImage = new Bitmap(_resourceManager.getBitmapData("BoatASharkUp"));
     if (_type==Fleet.TEAMBSHARK) _boatImage = new Bitmap(_resourceManager.getBitmapData("BoatBSharkUp"));
+    _boatImage.scaleX = html.window.devicePixelRatio;
+    _boatImage.scaleY = html.window.devicePixelRatio;
   }
   
   void _setBoatDown() {
@@ -433,6 +481,8 @@ class Boat extends Sprite implements Touchable, Animatable {
     if (_type==Fleet.TEAMBTUNA) _boatImage = new Bitmap(_resourceManager.getBitmapData("BoatBTunaDown"));
     if (_type==Fleet.TEAMASHARK) _boatImage = new Bitmap(_resourceManager.getBitmapData("BoatASharkDown"));
     if (_type==Fleet.TEAMBSHARK) _boatImage = new Bitmap(_resourceManager.getBitmapData("BoatBSharkDown"));
+    _boatImage.scaleX = html.window.devicePixelRatio;
+    _boatImage.scaleY = html.window.devicePixelRatio;
   }
   
   bool _setNewLocation() {
@@ -542,20 +592,29 @@ class Boat extends Sprite implements Touchable, Animatable {
       _fleet.touchReminders--;
       _showingPrompt = true;
       
-      _arrow = new Bitmap(_resourceManager.getBitmapData("Arrow"));
-      _arrow.alpha = .6;
-      _arrow.pivotX = _arrow.width/2;
-      _arrow.pivotY = _arrow.height/2;
+
 
       
       if (_teamA==true) {
-        _arrow.y = this.y + this.y/3;//100*math.sin(math.atan2(this.y, this.x));
-        _arrow.x = this.x + this.x/3;//100*math.cos(math.atan2(this.y, this.x));
+        _arrow = new Bitmap(_resourceManager.getBitmapData("arrowGreen"));
+        _arrow.scaleX = html.window.devicePixelRatio/2;
+        _arrow.scaleY = html.window.devicePixelRatio/2;
+        _arrow.alpha = .6;
+        _arrow.pivotX = _arrow.width/2;
+        _arrow.pivotY = _arrow.height/2;
+        _arrow.y = this.y + 120;//100*math.sin(math.atan2(this.y, this.x));
+        _arrow.x = this.x + 120;//100*math.cos(math.atan2(this.y, this.x));
         _arrow.rotation = -math.PI/2 + this.rotation + math.PI;
 
       } else {
-        _arrow.y =  this.y - this.y/12;
-        _arrow.x =  this.x - this.x/10+20;
+        _arrow = new Bitmap(_resourceManager.getBitmapData("arrowRed"));
+        _arrow.alpha = .6;
+        _arrow.scaleX = html.window.devicePixelRatio/2;
+        _arrow.scaleY = html.window.devicePixelRatio/2;
+        _arrow.pivotX = _arrow.width/2;
+        _arrow.pivotY = _arrow.height/2;
+        _arrow.y =  this.y - 120;
+        _arrow.x =  this.x - 120;
         _arrow.rotation = math.PI/2+ this.rotation;
 
       }
@@ -577,6 +636,7 @@ class Boat extends Sprite implements Touchable, Animatable {
   }
   
   void _promptBoatFull() {
+    boatFullSound.play();
     if (_showingFullPrompt==false) {
       _showingFullPrompt = true;
       print("trying to be full");
@@ -649,6 +709,10 @@ class Boat extends Sprite implements Touchable, Animatable {
   
    
   bool containsTouch(Contact e) {
+    
+    if(_game.phase == Game.TITLE_PHASE){
+      return false;
+    }
     if (nothing==false && !offseasonBoat) {
       if (_inProximity(e.touchX, e.touchY, PROXIMITY)) {
         return true;
