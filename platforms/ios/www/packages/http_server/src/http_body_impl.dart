@@ -2,22 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library http_server.http_body_impl;
+part of http_server;
 
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:mime/mime.dart';
-
-import 'http_body.dart';
-import 'http_multipart_form_data.dart';
-
-class HttpBodyHandlerTransformer
+class _HttpBodyHandlerTransformer
     implements StreamTransformer<HttpRequest, HttpRequestBody> {
   final Encoding _defaultEncoding;
 
-  const HttpBodyHandlerTransformer(this._defaultEncoding);
+  const _HttpBodyHandlerTransformer(this._defaultEncoding);
 
   Stream<HttpRequestBody> bind(Stream<HttpRequest> stream) {
     return new Stream<HttpRequestBody>.eventTransformed(
@@ -37,7 +28,7 @@ class _HttpBodyHandlerTransformerSink implements EventSink<HttpRequest> {
 
   void add(HttpRequest request) {
     _pending++;
-    HttpBodyHandlerImpl.processRequest(request, _defaultEncoding)
+    _HttpBodyHandler.processRequest(request, _defaultEncoding)
         .then(_outSink.add, onError: _outSink.addError)
         .whenComplete(() {
           _pending--;
@@ -53,7 +44,7 @@ class _HttpBodyHandlerTransformerSink implements EventSink<HttpRequest> {
   }
 }
 
-class HttpBodyHandlerImpl {
+class _HttpBodyHandler {
   static Future<HttpRequestBody> processRequest(
       HttpRequest request,
       Encoding defaultEncoding) {

@@ -411,11 +411,10 @@ class Circle extends Sprite implements Touchable {
                                        new Bitmap(_resourceManager.getBitmapData("CircleButtonDownB")), 
                                        new Bitmap(_resourceManager.getBitmapData("CircleButtonDownB")));
       
-      BitmapData.load('images/circleUIButtonB.png').then((bitmapData) {
-        _circleButton.pivotX = bitmapData.width/2;
-        _circleButton.pivotY = bitmapData.height/2;
-        _circleButton.rotation = -math.PI/4;
-      });
+      Bitmap temp = new Bitmap(_resourceManager.getBitmapData("CircleButtonUpB"));
+        _circleButton.pivotX = temp.width/2;
+        _circleButton.pivotY = temp.height/2;
+        _circleButton.rotation = math.PI/4;
     
     }
 

@@ -28,9 +28,13 @@ abstract class TypeInformation {
   /// Initially empty.
   TypeMask type = const TypeMask.nonNullEmpty();
 
-  /// We give up on inferencing for special elements, as well as for
-  /// complicated cyclic dependencies.
+  /// We abandon inference in certain cases (complex cyclic flow, native
+  /// behaviours, etc.). In some case, we might resume inference in the
+  /// closure tracer, which is handled by checking whether [assignments] has
+  /// been set to [STOP_TRACKING_ASSIGNMENTS_MARKER].
   bool abandonInferencing = false;
+  bool get mightResume =>
+      !identical(assignments, STOP_TRACKING_ASSIGNMENTS_MARKER);
 
   /// Number of times this [TypeInformation] has changed type.
   int refineCount = 0;
@@ -55,18 +59,18 @@ abstract class TypeInformation {
 
 
   void addUser(TypeInformation user) {
-    if (isStable) return;
     assert(!user.isConcrete);
     users.add(user);
   }
 
   void removeUser(TypeInformation user) {
-    if (isStable) return;
     assert(!user.isConcrete);
     users.remove(user);
   }
 
-  static final STOP_TRACKING_ASSIGNMENTS_MARKER =  const <TypeInformation>[];
+  // The below is not a compile time constant to make it differentiable
+  // from other empty lists of [TypeInformation].
+  static final STOP_TRACKING_ASSIGNMENTS_MARKER = new List<TypeInformation>(0);
 
   bool areAssignmentsTracked() {
     return assignments != STOP_TRACKING_ASSIGNMENTS_MARKER;
@@ -85,7 +89,7 @@ abstract class TypeInformation {
   }
 
   void removeAssignment(TypeInformation assignment) {
-    if (!abandonInferencing) {
+    if (!abandonInferencing || mightResume) {
       assignments.remove(assignment);
     }
     // We can have multiple assignments of the same [TypeInformation].
@@ -104,7 +108,7 @@ abstract class TypeInformation {
     // Do not remove [this] as a user of nodes in [assignments],
     // because our tracing analysis could be interested in tracing
     // this node.
-    if (clearAssignments) assignments = const <TypeInformation>[];
+    if (clearAssignments) assignments = STOP_TRACKING_ASSIGNMENTS_MARKER;
     // Do not remove users because our tracing analysis could be
     // interested in tracing the users of this node.
   }
@@ -131,7 +135,7 @@ abstract class TypeInformation {
   /// Returns whether the type cannot change after it has been
   /// inferred.
   bool hasStableType(TypeGraphInferrerEngine inferrer) {
-    return !abandonInferencing && assignments.every((e) => e.isStable);
+    return !mightResume && assignments.every((e) => e.isStable);
   }
 
   void removeAndClearReferences(TypeGraphInferrerEngine inferrer) {
@@ -140,11 +144,18 @@ abstract class TypeInformation {
 
   void stabilize(TypeGraphInferrerEngine inferrer) {
     removeAndClearReferences(inferrer);
-    users = const <TypeInformation>[];
+    // Do not remove users because the tracing analysis could be interested
+    // in tracing the users of this node.
     assignments = STOP_TRACKING_ASSIGNMENTS_MARKER;
     abandonInferencing = true;
     isStable = true;
   }
+}
+
+abstract class ApplyableTypeInformation extends TypeInformation {
+  bool mightBePassedToFunctionApply = false;
+
+  ApplyableTypeInformation([users, assignments]) : super(users, assignments);
 }
 
 /**
@@ -212,7 +223,7 @@ class ParameterAssignments extends IterableBase<TypeInformation> {
  *   trust their type annotation.
  *
  */
-class ElementTypeInformation extends TypeInformation {
+class ElementTypeInformation extends ApplyableTypeInformation  {
   final Element element;
 
   // Marker to disable [handleSpecialCases]. For example, parameters
@@ -272,7 +283,13 @@ class ElementTypeInformation extends TypeInformation {
     return count == 1;
   }
 
-  bool isClosurized() => closurizedCount > 0;
+  bool get isClosurized => closurizedCount > 0;
+
+  // Closurized methods never become stable to ensure that the information in
+  // [users] is accurate. The inference stops tracking users for stable types.
+  // Note that we only override the getter, the setter will still modify the
+  // state of the [isStable] field inhertied from [TypeInformation].
+  bool get isStable => super.isStable && !isClosurized;
 
   TypeMask handleSpecialCases(TypeGraphInferrerEngine inferrer) {
     if (abandonInferencing) return type;
@@ -389,15 +406,15 @@ class ElementTypeInformation extends TypeInformation {
     if (element.isParameter() && element.enclosingElement.isInstanceMember()) {
       return false;
     }
+
     // The number of assignments of non-final fields is
     // not stable. Therefore such a field cannot be stable.
     if (element.isField() &&
         !(element.modifiers.isConst() || element.modifiers.isFinal())) {
       return false;
     }
-    // If the method is closurized, the closure tracing phase will go
-    // through the users.
-    if (closurizedCount != 0) return false;
+
+    if (element.isFunction()) return false;
 
     return super.hasStableType(inferrer);
   }
@@ -413,7 +430,7 @@ class ElementTypeInformation extends TypeInformation {
  * any assignment. They rely on the [caller] field for static calls,
  * and [selector] and [receiver] fields for dynamic calls.
  */
-abstract class CallSiteTypeInformation extends TypeInformation {
+abstract class CallSiteTypeInformation extends ApplyableTypeInformation {
   final Spannable call;
   final Element caller;
   final Selector selector;
@@ -1042,7 +1059,9 @@ class MapTypeInformation extends TypeInformation {
   bool analyzed = false;
 
   // Set to false if a statically unknown key flows into this map.
-  bool isDictionary = true;
+  bool _allKeysAreStrings = true;
+
+  bool get inDictionaryMode => !bailedOut && _allKeysAreStrings;
 
   MapTypeInformation(this.initialType, this.keyType, this.valueType) {
     keyType.addUser(this);
@@ -1054,13 +1073,13 @@ class MapTypeInformation extends TypeInformation {
                                      TypeInformation value,
                                      [bool nonNull = false]) {
     TypeInformation newInfo = null;
-    if (isDictionary && key is StringLiteralTypeInformation) {
+    if (_allKeysAreStrings && key is StringLiteralTypeInformation) {
       String keyString = key.asString();
       typeInfoMap.putIfAbsent(keyString,
           () => newInfo = new ValueInMapTypeInformation(null, nonNull));
       typeInfoMap[keyString].addAssignment(value);
     } else {
-      isDictionary = false;
+      _allKeysAreStrings = false;
       typeInfoMap.clear();
     }
     keyType.addAssignment(key);
@@ -1070,10 +1089,10 @@ class MapTypeInformation extends TypeInformation {
     return newInfo;
   }
 
-  List<TypeInformation> addMapAssignment(MapTypeInformation map) {
+  List<TypeInformation> addMapAssignment(MapTypeInformation other) {
     List<TypeInformation> newInfos = <TypeInformation>[];
-    if (map.isDictionary) {
-      map.typeInfoMap.forEach((keyString, value) {
+    if (_allKeysAreStrings && other.inDictionaryMode) {
+      other.typeInfoMap.forEach((keyString, value) {
         typeInfoMap.putIfAbsent(keyString, () {
           TypeInformation newInfo = new ValueInMapTypeInformation(null, false);
           newInfos.add(newInfo);
@@ -1081,9 +1100,12 @@ class MapTypeInformation extends TypeInformation {
         });
         typeInfoMap[keyString].addAssignment(value);
       });
+    } else {
+      _allKeysAreStrings = false;
+      typeInfoMap.clear();
     }
-    keyType.addAssignment(map.keyType);
-    valueType.addAssignment(map.valueType);
+    keyType.addAssignment(other.keyType);
+    valueType.addAssignment(other.valueType);
 
     return newInfos;
   }
@@ -1102,18 +1124,11 @@ class MapTypeInformation extends TypeInformation {
   }
 
   TypeMask toTypeMask(TypeGraphInferrerEngine inferrer) {
-    Map<String, TypeMask> mappings;
-    if (isDictionary) {
-      mappings = new Map<String, TypeMask>();
+    if (inDictionaryMode) {
+      Map<String, TypeMask> mappings = new Map<String, TypeMask>();
       for (var key in typeInfoMap.keys) {
-        // We strip out entries that contain no information
-        if (!typeInfoMap[key].type.containsAll(inferrer.compiler) ||
-            !typeInfoMap[key].type.isNullable) {
-          mappings[key] = typeInfoMap[key].type;
-        }
+        mappings[key] = typeInfoMap[key].type;
       }
-    }
-    if (mappings != null && !mappings.isEmpty) {
       return new DictionaryTypeMask(initialType.forwardTo,
                                     initialType.allocationNode,
                                     initialType.allocationElement,
@@ -1130,9 +1145,10 @@ class MapTypeInformation extends TypeInformation {
   }
 
   TypeMask refine(TypeGraphInferrerEngine inferrer) {
-    if (type.isDictionary != isDictionary) {
+    if (type.isDictionary != inDictionaryMode) {
       return toTypeMask(inferrer);
     } else if (type.isDictionary) {
+      assert(inDictionaryMode);
       DictionaryTypeMask mask = type;
       for (var key in typeInfoMap.keys) {
         TypeInformation value = typeInfoMap[key];
@@ -1233,7 +1249,7 @@ class PhiElementTypeInformation extends TypeInformation {
   }
 }
 
-class ClosureTypeInformation extends TypeInformation {
+class ClosureTypeInformation extends ApplyableTypeInformation {
   final ast.Node node;
   final Element element;
 

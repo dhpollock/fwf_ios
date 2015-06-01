@@ -2,13 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library http_server.http_body;
+part of http_server;
 
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
-import 'http_body_impl.dart';
 
 /**
  * [HttpBodyHandler] is a helper class for processing and collecting
@@ -109,7 +104,7 @@ class HttpBodyHandler
    * for more information on `multipart/form-data`.
    */
   HttpBodyHandler({Encoding defaultEncoding: UTF8})
-      : _transformer = new HttpBodyHandlerTransformer(defaultEncoding);
+      : _transformer = new _HttpBodyHandlerTransformer(defaultEncoding);
 
   /**
    * Process and parse an incoming [HttpRequest]. The returned [HttpRequestBody]
@@ -120,7 +115,7 @@ class HttpBodyHandler
   static Future<HttpRequestBody> processRequest(
       HttpRequest request,
       {Encoding defaultEncoding: UTF8}) {
-    return HttpBodyHandlerImpl.processRequest(request, defaultEncoding);
+    return _HttpBodyHandler.processRequest(request, defaultEncoding);
   }
 
   /**
@@ -131,7 +126,7 @@ class HttpBodyHandler
   static Future<HttpClientResponseBody> processResponse(
       HttpClientResponse response,
       {Encoding defaultEncoding: UTF8}) {
-    return HttpBodyHandlerImpl.processResponse(response, defaultEncoding);
+    return _HttpBodyHandler.processResponse(response, defaultEncoding);
   }
 
   Stream<HttpRequestBody> bind(Stream<HttpRequest> stream) {

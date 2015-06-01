@@ -54,6 +54,8 @@ class _MimeMultipart extends MimeMultipart {
 
 class BoundMultipartStream {
    static const int _START = 0;
+   static const int _FIRST_BOUNDARY_ENDING = 111;
+   static const int _FIRST_BOUNDARY_END = 112;
    static const int _BOUNDARY_ENDING = 1;
    static const int _BOUNDARY_END = 2;
    static const int _HEADER_START = 3;
@@ -73,16 +75,6 @@ class BoundMultipartStream {
    final List<int> _boundary;
    final List<int> _headerField = [];
    final List<int> _headerValue = [];
-
-   // The following states belong to `_controller`, state changes will not be
-   // immediately acted upon but rather only after the current
-   // `_multipartController` is done.
-   static const int _CONTROLLER_STATE_IDLE = 0;
-   static const int _CONTROLLER_STATE_ACTIVE = 1;
-   static const int _CONTROLLER_STATE_PAUSED = 2;
-   static const int _CONTROLLER_STATE_CANCELED = 3;
-
-   int _controllerState = _CONTROLLER_STATE_IDLE;
 
    StreamController _controller;
 
@@ -105,17 +97,15 @@ class BoundMultipartStream {
      _controller = new StreamController(
          sync: true,
          onPause: _pauseStream,
-         onResume: _resumeStream,
+         onResume:_resumeStream,
          onCancel: () {
-           _controllerState = _CONTROLLER_STATE_CANCELED;
-           _tryPropagateControllerState();
+           _subscription.cancel();
          },
          onListen: () {
-           _controllerState = _CONTROLLER_STATE_ACTIVE;
            _subscription = stream.listen(
                (data) {
                  assert(_buffer == null);
-                 _subscription.pause();
+                 _pauseStream();
                  _buffer = data;
                  _index = 0;
                  _parse();
@@ -132,33 +122,13 @@ class BoundMultipartStream {
    }
 
    void _resumeStream() {
-     assert (_controllerState == _CONTROLLER_STATE_PAUSED);
-     _controllerState = _CONTROLLER_STATE_ACTIVE;
-     _tryPropagateControllerState();
+     _subscription.resume();
    }
 
    void _pauseStream() {
-     _controllerState = _CONTROLLER_STATE_PAUSED;
-     _tryPropagateControllerState();
+     _subscription.pause();
    }
 
-   void _tryPropagateControllerState() {
-     if (_multipartController == null) {
-       switch (_controllerState) {
-         case _CONTROLLER_STATE_ACTIVE:
-           if (_subscription.isPaused) _subscription.resume();
-           break;
-         case _CONTROLLER_STATE_PAUSED:
-           if (!_subscription.isPaused) _subscription.pause();
-           break;
-         case _CONTROLLER_STATE_CANCELED:
-           _subscription.cancel();
-            break;
-         default:
-           throw new StateError("This code should never be reached.");
-       }
-     }
-   }
 
    void _parse() {
      // Number of boundary bytes to artificially place before the supplied data.
@@ -203,6 +173,9 @@ class BoundMultipartStream {
      boundaryPrefix = _boundaryIndex;
 
      while ((_index < _buffer.length) && _state != _FAIL && _state != _DONE) {
+       if (_multipartController != null && _multipartController.isPaused) {
+         return;
+       }
        int byte;
        if (_index < 0) {
          byte = _boundary[boundaryPrefix + _index];
@@ -214,7 +187,7 @@ class BoundMultipartStream {
            if (byte == _boundary[_boundaryIndex]) {
              _boundaryIndex++;
              if (_boundaryIndex == _boundary.length) {
-               _state = _BOUNDARY_ENDING;
+               _state = _FIRST_BOUNDARY_ENDING;
                _boundaryIndex = 0;
              }
            } else {
@@ -222,6 +195,19 @@ class BoundMultipartStream {
              _index = _index - _boundaryIndex;
              _boundaryIndex = 0;
            }
+           break;
+
+         case _FIRST_BOUNDARY_ENDING:
+           if (byte == CharCode.CR) {
+             _state = _FIRST_BOUNDARY_END;
+           } else {
+             _expectWhitespace(byte);
+           }
+           break;
+
+         case _FIRST_BOUNDARY_END:
+           _expectByteValue(byte, CharCode.LF);
+           _state = _HEADER_START;
            break;
 
          case _BOUNDARY_ENDING:
@@ -236,11 +222,8 @@ class BoundMultipartStream {
 
          case _BOUNDARY_END:
            _expectByteValue(byte, CharCode.LF);
-           if (_multipartController != null) {
-             _multipartController.close();
-             _multipartController = null;
-             _tryPropagateControllerState();
-           }
+           _multipartController.close();
+           _multipartController = null;
            _state = _HEADER_START;
            break;
 
@@ -312,11 +295,13 @@ class BoundMultipartStream {
            _expectByteValue(byte, CharCode.LF);
            _multipartController = new StreamController(
                sync: true,
-               onListen: () {
-                 if (_subscription.isPaused) _subscription.resume();
+               onPause: () {
+                 _pauseStream();
                },
-               onPause: _subscription.pause,
-               onResume: _subscription.resume);
+               onResume: () {
+                 _resumeStream();
+                 _parse();
+               });
            _controller.add(
                new _MimeMultipart(_headers, _multipartController.stream));
            _headers = null;
@@ -334,8 +319,6 @@ class BoundMultipartStream {
                  _index--;
                }
                _multipartController.close();
-               _multipartController = null;
-               _tryPropagateControllerState();
                _boundaryIndex = 0;
                _state = _BOUNDARY_ENDING;
              }
@@ -362,11 +345,8 @@ class BoundMultipartStream {
 
          case _LAST_BOUNDARY_END:
            _expectByteValue(byte, CharCode.LF);
-           if (_multipartController != null) {
-             _multipartController.close();
-             _multipartController = null;
-             _tryPropagateControllerState();
-           }
+           _multipartController.close();
+           _multipartController = null;
            _state = _DONE;
            break;
 
@@ -389,7 +369,7 @@ class BoundMultipartStream {
      if (_index == _buffer.length) {
        _buffer = null;
        _index = null;
-       _subscription.resume();
+       _resumeStream();
      }
    }
 }

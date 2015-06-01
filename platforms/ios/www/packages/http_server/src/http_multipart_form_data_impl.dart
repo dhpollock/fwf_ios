@@ -2,18 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library http_server.http_multipart_form_data_impl;
+part of http_server;
 
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
 
-import 'package:mime/mime.dart';
-
-import 'http_multipart_form_data.dart';
-
-class HttpMultipartFormDataImpl extends Stream
-    implements HttpMultipartFormData {
+class _HttpMultipartFormData extends Stream implements HttpMultipartFormData {
   final ContentType contentType;
   final HeaderValue contentDisposition;
   final HeaderValue contentTransferEncoding;
@@ -24,7 +16,7 @@ class HttpMultipartFormDataImpl extends Stream
 
   Stream _stream;
 
-  HttpMultipartFormDataImpl(ContentType this.contentType,
+  _HttpMultipartFormData(ContentType this.contentType,
                          HeaderValue this.contentDisposition,
                          HeaderValue this.contentTransferEncoding,
                          MimeMultipart this._mimeMultipart,
@@ -40,12 +32,23 @@ class HttpMultipartFormDataImpl extends Stream
         contentType.primaryType == 'text' ||
         contentType.mimeType == 'application/json') {
       _isText = true;
+      StringBuffer buffer = new StringBuffer();
       Encoding encoding;
-      if (contentType != null && contentType.charset != null) {
+      if (contentType != null) {
         encoding = Encoding.getByName(contentType.charset);
       }
       if (encoding == null) encoding = defaultEncoding;
-      _stream = _stream.transform(encoding.decoder);
+      _stream = _stream
+          .transform(encoding.decoder)
+          .expand((data) {
+            buffer.write(data);
+            var out = _decodeHttpEntityString(buffer.toString());
+            if (out != null) {
+              buffer.clear();
+              return [out];
+            }
+            return const [];
+          });
     }
   }
 
@@ -82,7 +85,7 @@ class HttpMultipartFormDataImpl extends Stream
       throw new HttpException(
           "Mime Multipart doesn't contain a Content-Disposition header value");
     }
-    return new HttpMultipartFormDataImpl(
+    return new _HttpMultipartFormData(
         type, disposition, encoding, multipart, defaultEncoding);
   }
 
@@ -98,5 +101,42 @@ class HttpMultipartFormDataImpl extends Stream
 
   String value(String name) {
     return _mimeMultipart.headers[name];
+  }
+
+  // Decode a string with HTTP entities. Returns null if the string ends in the
+  // middle of a http entity.
+  static String _decodeHttpEntityString(String input) {
+    int amp = input.lastIndexOf('&');
+    if (amp < 0) return input;
+    int end = input.lastIndexOf(';');
+    if (end < amp) return null;
+
+    var buffer = new StringBuffer();
+    int offset = 0;
+
+    parse(amp, end) {
+      switch (input[amp + 1]) {
+        case '#':
+          if (input[amp + 2] == 'x') {
+            buffer.writeCharCode(
+                int.parse(input.substring(amp + 3, end), radix: 16));
+          } else {
+            buffer.writeCharCode(int.parse(input.substring(amp + 2, end)));
+          }
+          break;
+
+        default:
+          throw new HttpException('Unhandled HTTP entity token');
+      }
+    }
+
+    while ((amp = input.indexOf('&', offset)) >= 0) {
+      buffer.write(input.substring(offset, amp));
+      int end = input.indexOf(';', amp);
+      parse(amp, end);
+      offset = end + 1;
+    }
+    buffer.write(input.substring(offset));
+    return buffer.toString();
   }
 }

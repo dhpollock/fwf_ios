@@ -43,7 +43,7 @@ class ContainerBuilder extends CodeEmitterHelper {
       // directly.
       return;
     }
-    ConstantHandler handler = compiler.constantHandler;
+    JavaScriptConstantCompiler handler = backend.constants;
     List<String> names = selector.getOrderedNamedArguments();
 
     String invocationName = namer.invocationName(selector);
@@ -71,7 +71,7 @@ class ContainerBuilder extends CodeEmitterHelper {
     if (isInterceptedMethod) {
       count++;
       parametersBuffer[0] = new jsAst.Parameter(receiverArgumentName);
-      argumentsBuffer[0] = js(receiverArgumentName);
+      argumentsBuffer[0] = js('#', receiverArgumentName);
       task.interceptorEmitter.interceptorInvocationNames.add(invocationName);
     }
 
@@ -88,18 +88,18 @@ class ContainerBuilder extends CodeEmitterHelper {
       assert(jsName != receiverArgumentName);
       if (count < optionalParameterStart) {
         parametersBuffer[count] = new jsAst.Parameter(jsName);
-        argumentsBuffer[count] = js(jsName);
+        argumentsBuffer[count] = js('#', jsName);
       } else {
         int index = names.indexOf(element.name);
         if (index != -1) {
           indexOfLastOptionalArgumentInParameters = count;
           // The order of the named arguments is not the same as the
           // one in the real method (which is in Dart source order).
-          argumentsBuffer[count] = js(jsName);
+          argumentsBuffer[count] = js('#', jsName);
           parametersBuffer[optionalParameterStart + index] =
               new jsAst.Parameter(jsName);
         } else {
-          Constant value = handler.initialVariableValues[element];
+          Constant value = handler.getConstantForVariable(element);
           if (value == null) {
             argumentsBuffer[count] = task.constantReference(new NullConstant());
           } else {
@@ -115,7 +115,7 @@ class ContainerBuilder extends CodeEmitterHelper {
       count++;
     });
 
-    List body;
+    var body;  // List or jsAst.Statement.
     if (member.hasFixedBackendName()) {
       body = task.nativeEmitter.generateParameterStubStatements(
           member, isInterceptedMethod, invocationName,
@@ -129,19 +129,21 @@ class ContainerBuilder extends CodeEmitterHelper {
         // We thus can't just invoke `this.foo$1.call(filledInArguments)`.
         // Instead we need to call the statically resolved target.
         //   `<class>.prototype.bar$1.call(this, argument0, ...)`.
-        body = [js.return_(
-            backend.namer.elementAccess(superClass)['prototype'][methodName]
-            ["call"](["this"]..addAll(argumentsBuffer)))];
+        body = js.statement(
+            'return #.prototype.#.call(this, #);',
+            [backend.namer.elementAccess(superClass), methodName,
+             argumentsBuffer]);
       } else {
-        body = [js.return_(
-            js('this')
-            [namer.getNameOfInstanceMember(member)](argumentsBuffer))];
+        body = js.statement(
+            'return this.#(#);',
+            [namer.getNameOfInstanceMember(member), argumentsBuffer]);
       }
     } else {
-      body = [js.return_(namer.elementAccess(member)(argumentsBuffer))];
+      body = js.statement('return #(#)',
+          [namer.elementAccess(member), argumentsBuffer]);
     }
 
-    jsAst.Fun function = js.fun(parametersBuffer, body);
+    jsAst.Fun function = js('function(#) { #; }', [parametersBuffer, body]);
 
     addStub(selector, function);
   }
@@ -267,12 +269,12 @@ class ContainerBuilder extends CodeEmitterHelper {
       if (member.isGetter()) {
         String getterName = namer.getterName(member);
         if (isInterceptedMethod) {
-          return js('this')[getterName](<jsAst.Expression>[receiver]);
+          return js('this.#(#)', [getterName, receiver]);
         }
-        return receiver[getterName](<jsAst.Expression>[]);
+        return js('#.#()', [receiver, getterName]);
       } else {
         String fieldName = namer.instanceFieldPropertyName(member);
-        return receiver[fieldName];
+        return js('#.#', [receiver, fieldName]);
       }
     }
 
@@ -299,12 +301,12 @@ class ContainerBuilder extends CodeEmitterHelper {
         for (int i = 0; i < selector.argumentCount; i++) {
           String name = 'arg$i';
           parameters.add(new jsAst.Parameter(name));
-          arguments.add(js(name));
+          arguments.add(js('#', name));
         }
 
-        jsAst.Fun function = js.fun(
-            parameters,
-            js.return_(buildGetter()[closureCallName](arguments)));
+        jsAst.Fun function = js(
+            'function(#) { return #.#(#); }',
+            [ parameters, buildGetter(), closureCallName, arguments]);
 
         addProperty(invocationName, function);
       }
@@ -343,6 +345,12 @@ class ContainerBuilder extends CodeEmitterHelper {
     if (member.isInstanceMember()) emitExtraAccessors(member, builder);
   }
 
+  bool _isOperator(FunctionElement member) {
+    // TODO(18740): there must be a better way to know if an element is an
+    // operator.
+    return Elements.operatorNameToIdentifier(member.name) != member.name;
+  }
+
   void addMemberMethod(FunctionElement member, ClassBuilder builder) {
     if (member.isAbstract) return;
     jsAst.Expression code = backend.generatedCode[member];
@@ -353,9 +361,13 @@ class ContainerBuilder extends CodeEmitterHelper {
     bool needsStubs = !parameters.optionalParameters.isEmpty;
     bool canTearOff = false;
     bool isClosure = false;
-    bool isNotApplyTarget =
-        !member.isFunction() || member.isConstructor() || member.isAccessor();
+    bool isNotApplyTarget = !member.isFunction() ||
+                            member.isConstructor() ||
+                            member.isAccessor();
     String tearOffName;
+
+    final bool canBeReflected = backend.isAccessibleByReflection(member);
+
     if (isNotApplyTarget) {
       canTearOff = false;
     } else if (member.isInstanceMember()) {
@@ -364,19 +376,21 @@ class ContainerBuilder extends CodeEmitterHelper {
         isClosure = true;
       } else {
         // Careful with operators.
-        canTearOff = compiler.codegenWorld.hasInvokedGetter(member, compiler);
+        canTearOff =
+            compiler.codegenWorld.hasInvokedGetter(member, compiler) ||
+            (canBeReflected && !_isOperator(member));
         assert(!needsSuperGetter(member) || canTearOff);
         tearOffName = namer.getterName(member);
       }
     } else {
       canTearOff =
-          compiler.codegenWorld.staticFunctionsNeedingGetter.contains(member);
+          compiler.codegenWorld.staticFunctionsNeedingGetter.contains(member) ||
+          canBeReflected;
       tearOffName = namer.getStaticClosureName(member);
     }
-    final bool canBeApplied = !isNotApplyTarget &&
-        compiler.enabledFunctionApply &&
-        (canTearOff || member.name == 'call' || !member.isInstanceMember());
-    final bool canBeReflected = backend.isAccessibleByReflection(member);
+    final bool canBeApplied = compiler.enabledFunctionApply &&
+                              compiler.world.getMightBePassedToApply(member);
+
     final bool needStructuredInfo =
         canTearOff || canBeReflected || canBeApplied;
     if (!needStructuredInfo) {
@@ -424,7 +438,7 @@ class ContainerBuilder extends CodeEmitterHelper {
     // TODO(ahe): Consider one of the parameter counts can be replaced by the
     // length property of the JavaScript function object.
 
-    List expressions = [];
+    List<jsAst.Expression> expressions = <jsAst.Expression>[];
 
     String callSelectorString = 'null';
     if (member.isFunction()) {
@@ -443,6 +457,7 @@ class ContainerBuilder extends CodeEmitterHelper {
 
     expressions.add(code);
 
+    // TODO(sra): Don't use LiteralString for non-strings.
     List tearOffInfo = [new jsAst.LiteralString(callSelectorString)];
 
     if (needsStubs || canTearOff) {
@@ -453,7 +468,7 @@ class ContainerBuilder extends CodeEmitterHelper {
               compiler.codegenWorld.invokedNames[member.name];
             expressions.add(js.string(namer.invocationName(selector)));
         } else {
-          expressions.add("null");
+          expressions.add(js('null'));
           // TOOD(ahe): Since we know when reading static data versus instance
           // data, we can eliminate this element.
         }
@@ -484,7 +499,7 @@ class ContainerBuilder extends CodeEmitterHelper {
             backend.rti.getSignatureEncoding(memberType, thisAccess);
       } else {
         memberTypeExpression =
-            js.toExpression(task.metadataEmitter.reifyType(memberType));
+            js.number(task.metadataEmitter.reifyType(memberType));
       }
     } else {
       memberTypeExpression = js('null');
@@ -494,23 +509,27 @@ class ContainerBuilder extends CodeEmitterHelper {
         ..addAll(tearOffInfo)
         ..add((tearOffName == null || member.isAccessor())
               ? js("null") : js.string(tearOffName))
-        ..add(requiredParameterCount)
-        ..add(optionalParameterCount)
+        ..add(js.number(requiredParameterCount))
+        ..add(js.number(optionalParameterCount))
         ..add(memberTypeExpression)
-        ..addAll(task.metadataEmitter.reifyDefaultArguments(member));
+        ..addAll(
+            task.metadataEmitter.reifyDefaultArguments(member).map(js.number));
 
     if (canBeReflected || canBeApplied) {
       parameters.forEachParameter((Element parameter) {
-        expressions.add(task.metadataEmitter.reifyName(parameter.name));
+        expressions.add(
+            js.number(task.metadataEmitter.reifyName(parameter.name)));
         if (backend.mustRetainMetadata) {
           List<MetadataAnnotation> annotations = parameter.metadata.toList();
           Iterable<int> metadataIndices =
-              annotations.map((MetadataAnnotation a) {
-            compiler.constantHandler.addCompileTimeConstantForEmission(a.value);
-            return task.metadataEmitter.reifyMetadata(a);
+              annotations.map((MetadataAnnotation annotation) {
+            Constant constant =
+                backend.constants.getConstantForMetadata(annotation);
+            backend.constants.addCompileTimeConstantForEmission(constant);
+            return task.metadataEmitter.reifyMetadata(annotation);
           });
-          expressions.add(metadataIndices.isNotEmpty ? metadataIndices.toList()
-                                                     : js('[]'));
+          expressions.add(
+              new jsAst.ArrayInitializer.from(metadataIndices.map(js.number)));
         }
       });
     }
@@ -526,12 +545,11 @@ class ContainerBuilder extends CodeEmitterHelper {
       }
       expressions
           ..add(reflectionName)
-          ..addAll(task.metadataEmitter.computeMetadata(member));
+          ..addAll(task.metadataEmitter.computeMetadata(member).map(js.number));
     } else if (isClosure && canBeApplied) {
       expressions.add(js.string(member.name));
     }
-
-    builder.addProperty(name, js.toExpression(expressions));
+    builder.addProperty(name, new jsAst.ArrayInitializer.from(expressions));
   }
 
   void addMemberField(VariableElement member, ClassBuilder builder) {

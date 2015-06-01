@@ -30,12 +30,10 @@ class PosixStyle extends InternalStyle {
   bool needsSeparator(String path) =>
       path.isNotEmpty && !isSeparator(path.codeUnitAt(path.length - 1));
 
-  int rootLength(String path) {
-    if (path.isNotEmpty && isSeparator(path.codeUnitAt(0))) return 1;
-    return 0;
+  String getRoot(String path) {
+    if (path.isNotEmpty && isSeparator(path.codeUnitAt(0))) return '/';
+    return null;
   }
-
-  bool isRootRelative(String path) => false;
 
   String getRelativeRoot(String path) => null;
 

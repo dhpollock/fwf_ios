@@ -2,14 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library http_server.virtual_directory;
+part of http_server;
 
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:mime/mime.dart';
-import 'package:path/path.dart';
 
 // Used for signal a directory redirecting, where a tailing slash is missing.
 class _DirectoryRedirect {
@@ -215,73 +209,54 @@ class VirtualDirectory {
       response.headers.set(HttpHeaders.LAST_MODIFIED, lastModified);
       response.headers.set(HttpHeaders.ACCEPT_RANGES, "bytes");
 
+      if (request.method == 'HEAD') {
+        response.close();
+        return null;
+      }
+
       return file.length().then((length) {
-        String range = request.headers.value(HttpHeaders.RANGE);
+        String range = request.headers.value("range");
         if (range != null) {
           // We only support one range, where the standard support several.
           Match matches = new RegExp(r"^bytes=(\d*)\-(\d*)$").firstMatch(range);
           // If the range header have the right format, handle it.
-          if (matches != null &&
-              (matches[1].isNotEmpty || matches[2].isNotEmpty)) {
+          if (matches != null) {
             // Serve sub-range.
-            int start;  // First byte position - inclusive.
-            int end;  // Last byte position - inclusive.
+            int start;
+            int end;
             if (matches[1].isEmpty) {
-              start = length - int.parse(matches[2]);
-              if (start < 0) start = 0;
-              end = length - 1;
+              start = matches[2].isEmpty ?
+                  length :
+                  length - int.parse(matches[2]);
+              end = length;
             } else {
               start = int.parse(matches[1]);
-              end = matches[2].isEmpty ? length - 1: int.parse(matches[2]);
+              end = matches[2].isEmpty ? length : int.parse(matches[2]) + 1;
             }
-            // If the range is syntactically invalid the Range header
-            // MUST be ignored (RFC 2616 section 14.35.1).
-            if (start <= end) {
-              if (end >= length) {
-                end = length - 1;
-              }
 
-              if (start >= length) {
-                response
-                    ..statusCode = HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE
-                    ..close();
-                return;
-              }
+            // Override Content-Length with the actual bytes sent.
+            response.headers.set(HttpHeaders.CONTENT_LENGTH, end - start);
 
-              // Override Content-Length with the actual bytes sent.
-              response.headers.set(HttpHeaders.CONTENT_LENGTH, end - start + 1);
+            // Set 'Partial Content' status code.
+            response.statusCode = HttpStatus.PARTIAL_CONTENT;
+            response.headers.set(HttpHeaders.CONTENT_RANGE,
+                                 "bytes $start-${end - 1}/$length");
 
-              // Set 'Partial Content' status code.
-              response
-                  ..statusCode = HttpStatus.PARTIAL_CONTENT
-                  ..headers.set(HttpHeaders.CONTENT_RANGE,
-                                'bytes $start-$end/$length');
-
-              // Pipe the 'range' of the file.
-              if (request.method == 'HEAD') {
-                response.close();
-              } else {
-                file.openRead(start, end + 1)
-                    .pipe(new _VirtualDirectoryFileStream(response, file.path))
-                    .catchError((_) {
-                      // TODO(kevmoo): log errors
-                    });
-              }
-              return;
-            }
+            // Pipe the 'range' of the file.
+            file.openRead(start, end)
+                .pipe(new _VirtualDirectoryFileStream(response, file.path))
+                .catchError((_) {
+                  // TODO(kevmoo): log errors
+                });
+            return;
           }
         }
 
-        response.headers.set(HttpHeaders.CONTENT_LENGTH, length);
-        if (request.method == 'HEAD') {
-          response.close();
-        } else {
-          file.openRead()
-              .pipe(new _VirtualDirectoryFileStream(response, file.path))
-              .catchError((_) {
-                // TODO(kevmoo): log errors
-              });
-        }
+        file.openRead()
+            .pipe(new _VirtualDirectoryFileStream(response, file.path))
+            .catchError((_) {
+              // TODO(kevmoo): log errors
+            });
       });
     }).catchError((_) {
       response.statusCode = HttpStatus.NOT_FOUND;
