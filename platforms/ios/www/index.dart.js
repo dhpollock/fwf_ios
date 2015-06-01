@@ -5161,16 +5161,16 @@ var $$ = {};
         temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
         t14 = this.get$_tunaPressed();
         temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-        t1 = Math.cos(0.7853981633974483);
+        t1 = Math.cos(1.0353981633974483);
         t2 = this.wShip;
         if (typeof t2 !== "number")
-          return H.iae(t2);
-        temp.set$x(0, t1 * t2 - 50);
-        t1 = Math.sin(0.7853981633974483);
+          return t2.$sub();
+        temp.set$x(0, t1 * (t2 - 50));
+        t1 = Math.sin(1.0353981633974483);
         t2 = this.wShip;
         if (typeof t2 !== "number")
-          return H.iae(t2);
-        temp.set$y(0, t1 * t2 - 50);
+          return t2.$sub();
+        temp.set$y(0, t1 * (t2 - 50));
         this.addChildAt$2(temp, this._children.length);
         this._tunaButton = temp;
         this._sharkButton = this._returnSharkButton$0();
@@ -5219,16 +5219,16 @@ var $$ = {};
         temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
         t14 = this.get$_sardinePressed();
         temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-        t1 = Math.cos(-0.5890486225480862);
+        t1 = Math.cos(-0.4390486225480862);
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return t2.$add();
-        temp.set$x(0, t1 * (t2 + 30));
-        t1 = Math.sin(-0.5890486225480862);
+        temp.set$x(0, t1 * (t2 + 35));
+        t1 = Math.sin(-0.4390486225480862);
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return t2.$add();
-        temp.set$y(0, t1 * (t2 + 30));
+        temp.set$y(0, t1 * (t2 + 35));
         this.addChildAt$2(temp, this._children.length);
         this._sardineButton = temp;
         this._tunaButton = this._returnTunaButton$0();
@@ -5284,12 +5284,12 @@ var $$ = {};
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return H.iae(t2);
-        temp.set$x(0, t1 * t2);
+        temp.set$x(0, t1 * (50 + t2));
         t1 = Math.sin(2.0682151636132806);
         t2 = this.wShip;
         if (typeof t2 !== "number")
           return H.iae(t2);
-        temp.set$y(0, t1 * t2);
+        temp.set$y(0, t1 * (50 + t2));
         this.addChildAt$2(temp, this._children.length);
         this._sharkButton = temp;
         this.ui_selectSharkBoatSound.play$0(0);
@@ -5438,16 +5438,16 @@ var $$ = {};
       temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
       t14 = this.get$_tunaPressed();
       temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-      t1 = Math.cos(0.7853981633974483);
+      t1 = Math.cos(1.0353981633974483);
       t2 = this.wShip;
       if (typeof t2 !== "number")
-        return H.iae(t2);
-      temp.set$x(0, t1 * t2 - 50);
-      t1 = Math.sin(0.7853981633974483);
+        return t2.$sub();
+      temp.set$x(0, t1 * (t2 - 50));
+      t1 = Math.sin(1.0353981633974483);
       t2 = this.wShip;
       if (typeof t2 !== "number")
-        return H.iae(t2);
-      temp.set$y(0, t1 * t2 - 50);
+        return t2.$sub();
+      temp.set$y(0, t1 * (t2 - 50));
       this.addChildAt$2(temp, this._children.length);
       return temp;
     },
@@ -5490,16 +5490,16 @@ var $$ = {};
       temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
       t14 = this.get$_sharkPressed();
       temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-      t1 = Math.cos(2.0682151636132806);
+      t1 = Math.cos(2.018215163613281);
+      t2 = this.wShip;
+      if (typeof t2 !== "number")
+        return t2.$add();
+      temp.set$x(0, t1 * (t2 + 35));
+      t1 = Math.sin(2.018215163613281);
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return H.iae(t2);
-      temp.set$x(0, t1 * t2);
-      t1 = Math.sin(2.0682151636132806);
-      t2 = this.wShip;
-      if (typeof t2 !== "number")
-        return H.iae(t2);
-      temp.set$y(0, t1 * t2);
+      temp.set$y(0, t1 * (35 + t2));
       this.addChildAt$2(temp, this._children.length);
       return temp;
     },
@@ -5542,12 +5542,12 @@ var $$ = {};
       temp.on$1(0, "touchTap")._subscribe$3(t14, false, 0);
       t14 = this.get$_sardinePressed();
       temp.on$1(0, "touchBegin")._subscribe$3(t14, false, 0);
-      t1 = Math.cos(-0.5890486225480862);
+      t1 = Math.cos(-0.4390486225480862);
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return t2.$add();
       temp.set$x(0, t1 * (t2 + 30));
-      t1 = Math.sin(-0.5890486225480862);
+      t1 = Math.sin(-0.4390486225480862);
       t2 = this.wShip;
       if (typeof t2 !== "number")
         return t2.$add();
